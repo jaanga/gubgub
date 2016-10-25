@@ -5,18 +5,18 @@ value='You are now in a GitHub Pages view. Click here to view README file in Git
 
 [Jaanga]( https://jaanga.github.io ) &raquo;
 
-[GubGub Read Me]( https://jaanga.github.io/gubbug/index.html#readme.md )
+[GubGub Read Me]( https://jaanga.github.io/gubgub/index.html#README.md )
 ===
 
 _Explore and monitor the many GitHub projects using the GitHub API and client-side cookbook JavaScript_
 
 
-## full screen [GitHub API User Explorer2]( https://jaanga.github.io/gubbug/ )
+## full screen [GitHub API User Explorer2]( https://jaanga.github.io/gubgub/ )
 
 
 <img src="" style=display:none; width=800 >
 
-<iframe src=https://jaanga.github.io/gubbugindex.html width=100% height=600px ></iframe>
+<iframe src=https://jaanga.github.io/gubgub-r1.html width=100% height=600px ></iframe>
 
 _Jaanga GubGub R1_
 
