@@ -1,5 +1,5 @@
 <span style=display:none; >[You are now in GitHub source code view. Click here to view README file in GitHub Pages view]
-( https://jaanga.github.io/gubgub/#readme.md "View file as a web page." ) </span>
+( https://jaanga.github.io/gubgub/#README.md "View file as a web page." ) </span>
 <input type=button onclick=window.location.href='https://github.com/jaanga/gubgub/';
 value='You are now in a GitHub Pages view. Click here to view README file in GitHub source code view.' >
 
