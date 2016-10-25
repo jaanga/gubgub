@@ -11,7 +11,7 @@ value='You are now in a GitHub Pages view. Click here to view README file in Git
 _Explore and monitor the many GitHub projects using the GitHub API and client-side cookbook JavaScript_
 
 
-## full screen [GitHub API User Explorer2]( https://jaanga.github.io/gubgub/ )
+## full screen [Jaanga GubGub]( https://jaanga.github.io/gubgub/ )
 
 
 <img src="" style=display:none; width=800 >
@@ -22,16 +22,15 @@ _Jaanga GubGub R1_
 
 ***
 
-[Usage](#Usage)
-
-
 ## Concept
 
-GitHub has [millions of project]( https://github.com/about ). With so many projects, finding projects that interest you is not easy.
+GitHub has [millions of projects]( https://github.com/about ). With so many projects, finding projects that interest you is not easy.
 
 Finding projects with code you can use is also not easy.
 
 And then, when you are notified about a GitHub user of interest, it's not that easy to explore the user's work.
+
+And when you find somebody you like, it's not easy to monitor what they have done recently.
 
 There may be many repositories. There may be a lot of material that looks interesting but has not been updated in years.
 
