@@ -16,7 +16,7 @@ _Explore and monitor the many GitHub projects using the GitHub API and client-si
 
 <img src="" style=display:none; width=800 >
 
-<iframe src=https://jaanga.github.io/gubgub-r1.html width=100% height=600px ></iframe>
+<iframe src=https://jaanga.github.io/gubgub/gubgub-r1.html width=100% height=600px ></iframe>
 
 _Jaanga GubGub R1_
 
