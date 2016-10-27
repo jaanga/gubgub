@@ -69,8 +69,7 @@
 	};
 
 
-// command from HTML file
-
+// called by HTML file
 
 	SEL.setUserDetails = function() {
 
@@ -177,16 +176,16 @@ console.log( 'user', user );
 					DAT.getGists ( user )
 					break;
 				case 'orgs':
-					DAT.getOrgs( user ) 
+					DAT.getOrgs( user )
 					break;
 				case 'repos':
-					DAT.getRepos( user ) 
+					DAT.getRepos( user )
 					break;
 				case 'stats':
 //					EUS.buildStatsReport( user )
 					break;
 				default:
-					DAT.getRepos( user ) 
+					DAT.getRepos( user )
 
 			}
 
@@ -195,7 +194,7 @@ console.log( 'user', user );
 		}
 
 // updates contents and right side
- 
+
 		if ( EUS.requestGitHubAPIUserEvents ) {
 
 			EUS.target = updates;

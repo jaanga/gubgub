@@ -1,83 +1,83 @@
 
-	var USR = {};
+	var USR = USR || {};
 
-	USR.peepsTheo = 
+	USR.peepsTheo =
 
-	'<optgroup label="Theo" >' +
-		'<option selected >Theo-Armour</option>' +
-		'<option>jaanga</option>' +
-	'</optgroup>' +
+		'<optgroup label="Theo" >' +
+			'<option selected >Theo-Armour</option>' +
+			'<option>jaanga</option>' +
+		'</optgroup>' +
 
-	'<optgroup label="Three.js/WedGL" >' +
-		'<option>Mr.doob</option>' +
-		'<option>bhouston</option>' +
-		'<option>gero3</option>' +
-		'<option>Saqoosha</option>' +
-		'<option>WestLangley</option>' + 
-		'<option>zz85</option>' +
-		'<option>koblin</option>' +
-		'<option>alteredq</option>' +
-		'<option>kig</option>' +
-		'<option>spite</option>' +
-		'<option>greggman</option>' +
-		'<option>philigb</option>' +
-		'<option>toji</option>' +
-		'<option>tparisi</option>' +
-		'<option>aroduc</option>' +
-		'<option>lo-th</option>' +
-		'<option>callumprentice</option>' +
-	'</optgroup>' +
+		'<optgroup label="Three.js/WedGL" >' +
+			'<option>Mr.doob</option>' +
+			'<option>bhouston</option>' +
+			'<option>gero3</option>' +
+			'<option>Saqoosha</option>' +
+			'<option>WestLangley</option>' +
+			'<option>zz85</option>' +
+			'<option>koblin</option>' +
+			'<option>alteredq</option>' +
+			'<option>kig</option>' +
+			'<option>spite</option>' +
+			'<option>greggman</option>' +
+			'<option>philigb</option>' +
+			'<option>toji</option>' +
+			'<option>tparisi</option>' +
+			'<option>aroduc</option>' +
+			'<option>lo-th</option>' +
+			'<option>callumprentice</option>' +
+		'</optgroup>' +
 
-	'<optgroup label="FGx">' +
-		'<option>GeoffMcl</option>' + 
-		'<option>pedromorgan</option>' +
-	'</optgroup>' +
+		'<optgroup label="FGx">' +
+			'<option>GeoffMcl</option>' +
+			'<option>pedromorgan</option>' +
+		'</optgroup>' +
 
-	'<optgroup label="Google" >' +
-		'<option>kenrussell</option>' +
-		'<option>toji</option>' +
-	'</optgroup>' +
+		'<optgroup label="Google" >' +
+			'<option>kenrussell</option>' +
+			'<option>toji</option>' +
+		'</optgroup>' +
 
-	'<optgroup label="Ladybug" >' +
-		'<option>MostaphaRoudsari</option>' + 
-		'<option>chriswmackey</option>' +
-		'<option>ayezioro</option>' +
-	'</optgroup>' +
+		'<optgroup label="Ladybug" >' +
+			'<option>MostaphaRoudsari</option>' +
+			'<option>chriswmackey</option>' +
+			'<option>ayezioro</option>' +
+		'</optgroup>' +
 
-	'<optgroup label="Sage Math" >' +
-		'<option>PaulMasson</option>' +
-		'<option>WilliamStein</option>' +
-		'<option>HaraldSchilly</option>' +
-		'<option>DanDrake</option>' +
-	'</optgroup>' +
+		'<optgroup label="Sage Math" >' +
+			'<option>PaulMasson</option>' +
+			'<option>WilliamStein</option>' +
+			'<option>HaraldSchilly</option>' +
+			'<option>DanDrake</option>' +
+		'</optgroup>' +
 
-	'<optgroup label="???" >' +
-		'<option>3Dmashup</option>' +
-		'<option>art</option>' +
-		'<option>alavit-d</option>' +
-		'<option>mourner</option>' +
-		'<option>mbostock</option>' +
-	'</optgroup>' +
+		'<optgroup label="???" >' +
+			'<option>3Dmashup</option>' +
+			'<option>art</option>' +
+			'<option>alavit-d</option>' +
+			'<option>mourner</option>' +
+			'<option>mbostock</option>' +
+		'</optgroup>' +
 
-	'<optgroup label="OpenDesk" >' +
-		'<option>harrykeen18</option>' +
-	'</optgroup>' +
+		'<optgroup label="OpenDesk" >' +
+			'<option>harrykeen18</option>' +
+		'</optgroup>' +
 
-	'<optgroup label="Abantech" >' +
-		'<option>GMelencio</option>' +
-		'<option>jamesAbantech</option>' +
-	'</optgroup>' +
+		'<optgroup label="Abantech" >' +
+			'<option>GMelencio</option>' +
+			'<option>jamesAbantech</option>' +
+		'</optgroup>' +
 
-	'<optgroup label="Wiredcraft" >' +
-		'<option>hunvreus</option>' +
-		'<option>quentinberder</option>' +
-	'</optgroup>' +
+		'<optgroup label="Wiredcraft" >' +
+			'<option>hunvreus</option>' +
+			'<option>quentinberder</option>' +
+		'</optgroup>' +
 
-	'<optgroup label="Autodesk" >' +
-		'<option>jeremytammik</option>' +
-		'<option>KeanW</option>' +
-		'<option>Autodesk</option>' +
-	'</optgroup>' +
+		'<optgroup label="Autodesk" >' +
+			'<option>jeremytammik</option>' +
+			'<option>KeanW</option>' +
+			'<option>Autodesk</option>' +
+		'</optgroup>' +
 
 	'';
 
