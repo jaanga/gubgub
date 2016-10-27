@@ -16,22 +16,28 @@
 <script src=../eus-events-user/eus-events-user-r1.js ></script>
 <script>
 
-	var user = 'jaanga';
+
+
+	DAT.currentTopic = 'stats';
+	DAT.userData = {};
+	DAT.userData.type = 'Organization';
+
+//	var user = 'jaanga';
 //	var user = 'sagemath';
 //	var user = 'mrdoob';
 //	var user = 'ladybug-analysis-tools';
 //	var user = 'torvalds';
 //	var user = 'paulmasson';
-	var user = 'theo-armour';
-//	var user = 'jquery';
+//	var user = 'theo-armour';
 
-	DAT.currentTopic = 'stats';
+	DAT.userData.login = 'mrdoob';
+//	DAT.userData.login = 'jquery';
 
 	init();
 
 	function init() {
 
-		COR.taglineHeader = 'A eventful howdy!' + b;
+		COR.taglineHeader.innerHTML += 'A eventful howdy!' + b;
 
 		COR.initThreeColumns();
 
@@ -43,10 +49,6 @@
 
 			EUS.getMenuDetailsUserEvents() +
 
-//			COR.getMenuDetailsTemplate() +
-
-//			COR.getMenuDetailsObjectProperties( EUS ) +
-
 			COR.getMenuDetailsAbout() +
 
 			COR.getMenuFooter() +
@@ -55,9 +57,7 @@
 
 //		detailsTemplate.setAttribute('open', 'open');
 
-//		EUS.target = EUSrepositoryEvents;
-
-		EUS.requestGitHubAPIUserEvents( user );
+		EUS.requestGitHubAPIUserEvents( DAT.userData.login );	
 
 	}
 </script>

@@ -2,17 +2,21 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>Core R1</title>
+<title>GubGub Core R1</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='
+<meta name=description content='Core stylesheet, menu content and utilities
 ' >
-<meta name=keywords content='Jaanga,GitHub API,CSS,HTML,JavaScript,GitHub,FOSS' >
-<meta name=date content='2016-10-23' >
+<meta name=keywords content='GubGub,Jaanga,GitHub API,CSS,HTML,JavaScript,GitHub,FOSS' >
+<meta name=date content='2016-10-26' >
 </head>
 <body>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.3/showdown.min.js ></script>
 <script src=../0-cor-core/core-r1.js ></script>
 <script>
+
+	COR.defaultFile = 'core-r1.html';
+
+	location.hash = 'readme.md';
 
 	init();
 
@@ -36,12 +40,11 @@
 
 		CORdetailsTemplate.setAttribute( 'open', 'open' );
 
-		COR.contents = CORcontents;
+		window.addEventListener( 'hashchange', COR.onHashChange, false );
 
-		if ( window.self !== window.top ) { hamburger.style.left = '0px'; }
+		if ( location.hash.match( '.md' ) ) { COR.onHashChange(); }
 
 	}
-
 
 </script>
 </body>

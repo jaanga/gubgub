@@ -3,6 +3,7 @@
 <input type=button onclick=window.location.href='https://github.com/jaanga/gubgub/';
 value='You are now in a GitHub Pages view. Click here to view README file in GitHub source code view.' >
 
+
 [Jaanga]( https://jaanga.github.io ) &raquo;
 
 [GubGub Read Me]( https://jaanga.github.io/gubgub/index.html#README.md )
@@ -16,12 +17,13 @@ _Explore and monitor the many GitHub projects using the GitHub API and client-si
 
 <img src="" style=display:none; width=800 >
 
-<iframe src=https://jaanga.github.io/gubgub/gubgub-r1.html width=100% height=600px ></iframe>
+<!--
+<iframe id=ifr src=https://jaanga.github.io/gubgub/gubgub-r1.html width=100% height=600px ></iframe>
 
 _Jaanga GubGub R1_
 
 ***
-
+-->
 ## Concept
 
 GitHub has [millions of projects]( https://github.com/about ). With so many projects, finding projects that interest you is not easy.
@@ -349,6 +351,12 @@ Web sites that help you explore GitHub
 
 ## Change Log
 
+### 2016-10-25 ~ GubGub R1
+
+* New Jaanga repo
+
+
+
 ### 2016-10-23
 
 * Much cleaning up all over the place
@@ -382,7 +390,7 @@ Web sites that help you explore GitHub
 * Major update
 
 
-###
+### 2016-09-??
 
 * First commit
 * Add Read Me

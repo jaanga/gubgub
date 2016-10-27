@@ -31,9 +31,9 @@
 
 					'<div id=APIlimits ></div>' + b +
 
-				'</details>' + 
+				'</details>' +
 
-			'</details>' + 
+			'</details>' +
 
 		'';
 
@@ -56,7 +56,7 @@ http://www.businessinsider.com/amazon-unusual-process-to-decide-on-new-products-
 
 				'<p id=APIlimits ></p>' +
 
-			'</details>' + 
+			'</details>' +
 
 		'';
 
@@ -65,18 +65,21 @@ http://www.businessinsider.com/amazon-unusual-process-to-decide-on-new-products-
 	}
 
 
-// see also C:\Users\Theo\Dropbox\Public\git-repos\jaanga.github.io\terrain3\google-maps-api3\b-clk-click\click-r1.js
+// see also https://jaanga.github.io/terrain3/google-maps-api3/b-clk-click\click-r1.js
 
 	API.onEventAPIKeyUpdate = function() {
 
 		if ( location.hash.includes( 'token=' ) ) {
 
-			APIinpAccessToken.value = location.hash.slice( location.hash.indexOf( 'token=' ) + 6 )
+			APIinpAccessToken.value = location.hash.slice( location.hash.indexOf( 'token=' ) + 6 );
+
+			history.replaceState( '', document.title, window.location.pathname );
 
 		}
 
 		API.token = 'access_token=' + APIinpAccessToken.value;
 
+console.log( 'API.token', ( API.token || 'not provided' ) );
 
 	};
 
@@ -97,10 +100,9 @@ http://www.businessinsider.com/amazon-unusual-process-to-decide-on-new-products-
 		APIlimits.innerHTML =
 
 			'Limit: ' + response.resources.core.limit + b +
-			'Remaining: ' + response.resources.core.remaining + b + 
+			'Remaining: ' + response.resources.core.remaining + b +
 			'Reset: ' + reset +
 
 		b;
 
 	};
-

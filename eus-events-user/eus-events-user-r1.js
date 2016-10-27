@@ -17,11 +17,11 @@
 	EUS.readmeTypes = [ 'README.md', 'readme.md', 'README.markdown', 'README.rst', 'README' ];
 	EUS.css = '<style>body { font: 10pt monospace; }</style>\n';
 
-// may not be in use
+// used by eus-events-user-r1.html
 
-	EUS.xxxgetMenuDetailsUserEvents = function() {
+	EUS.getMenuDetailsUserEvents = function() {
 
-		EUS.target = updates;
+		EUS.target = COR.updates;
 
 		var menuDetailsUserEvents =
 
@@ -61,7 +61,7 @@
 
 			if ( EUS.events.message ) { // there's been an error...
 
-				COR.contents.innerHTML = 
+				COR.contents.innerHTML =
 
 					'<h1>' + EUS.events.message + '</h1>' +
 					'<p>See: </p>' +
@@ -73,13 +73,20 @@
 
 			}
 
-			txt = '<h2 style=margin-botom:0; >' + user + '</h2>' +
+
+// move to own function
+
+			txt =
+
+				'<h2 style=margin-botom:0; >' + user + '</h2>' +
+
 				'<h3 style=margin-bottom:0; >' + EUS.events.length + ' recent user events by date</h3>' +
 
-//				'<button onclick=DAT.currentTopic="stats";window.location.reload(); >show activity statistics</button>' + b;
-				'<button onclick=DAT.currentTopic="stats";EUS.requestGitHubAPIUserEvents("' + user + '"); >show events by repository and type</button>' + b +
-				'<button onclick=DAT.currentTopic="events";DAT.getEvents("' + DAT.userData.login + '",0); >show events in detail</button>' + b;
+				'<button onclick=DAT.currentTopic="stats";EUS.requestGitHubAPIUserEvents("' + EUS.user + '"); >show events by repository and type</button>' + b +
 
+				'<button onclick=DAT.currentTopic="events";DAT.getEvents("' + DAT.userData.login + '",0); >show events by date in detail</button>' + b;
+
+			'';
 
 			for ( var i = 0; i < EUS.events.length; i++ ) {
 
@@ -130,11 +137,9 @@
 
 			COR.updates.innerHTML = txt;
 
-			if ( DAT.currentTopic === 'stats' ) {
+// end move
 
-				EUS.buildStatsReport( user );
-
-			}
+			EUS.buildEventsReportByRepo( user );
 
 //console.log( 'repos', EUS.repos );
 
@@ -148,7 +153,7 @@
 // events-user-r1.html
 // github-api-user-explorer2-r1.html
 
-	EUS.buildStatsReport = function( user ) {
+	EUS.buildEventsReportByRepo = function( user ) {
 
 		var txt, repoKeys, repo;
 
@@ -159,11 +164,11 @@ console.clear();
 			'<h1>' + DAT.userData.type + ': ' +
 				user.link( DAT.userData.html_url ) +
 			'</h1>' +
-			'<h2>' + 
+			'<h2>' +
 				EUS.events.length + ' recent ' + DAT.userData.type + ' events by repository and type' +
 			'</h2>' +
 			'<div>'+
-				'Time period covers ' + EUS.dates.slice( -1 )  + ' to ' + EUS.dates[ 0 ] + ' with ' + EUS.dates.length + ' day(s) of activity' + 
+				'Time period covers ' + EUS.dates.slice( -1 )  + ' to ' + EUS.dates[ 0 ] + ' with ' + EUS.dates.length + ' day(s) of activity' +
 			'</div>' +
 
 		b;
@@ -285,92 +290,6 @@ console.clear();
 	};
 
 
-
-
-
-	EUS.ccccgetIndexHTML = function( repo ) {
-
-		user = repo.split( '/' ).shift();
-
-		folder = repo.split( '/' ).pop();
-
-		folder = repo.includes( '.github.io' ) ? folder : user + '.github.io/' + folder;
-
-		item = document.getElementById( repo );
-
-// console.log( 'index mmmmmmmmmmmm repo', folder );
-
-		item.src = '//' + folder;
-
-	};
-
-
-
-
-// may not be in use
-
-	EUS.xxxrequestGitHubAPIUserEventsStatusUpdate = function( user ) {
-
-		var xhr;
-		var events, event, txt, dates, body;
-
-		var urlEvents = 'https://api.github.com/users/' + user + '/events?per_page=100' + ( API.token || '' );
-
-console.log( 'requestGitHubAPIUserEventsStatusUpdate', user );
-
-		xhr = new XMLHttpRequest();
-		xhr.open( 'get', urlEvents, true );
-		xhr.onload = callback;
-		xhr.send( null );
-
-		function callback() {
-
-			events = JSON.parse( xhr.responseText );
-
-			txt = '<h2>' + user + b +'status updates</h2>';
-
-			dates = [];
-
-			for ( var i = 0; i < events.length; i++ ) {
-
-				event = events[ i ];
-
-				if ( event.type !== 'IssuesEvent' ) { continue; }
-
-				if ( dates.indexOf( event.created_at.slice( 0, 10 ) ) === -1 ) {
-
-					dates.push( event.created_at.slice( 0, 10 ) );
-
-					txt += '<h4 style=margin-bottom:0; >' + event.created_at.slice( 0, 10 ) + '</h4>';
-
-				}
-
-				body =  event.payload.issue.body;
-
-				if ( body.length > 800 ) {
-
-					body = body.slice( 0, 800 ) + '</div>more...';
-
-				}
-
-				txt += ( i + 1 ) + ' ' + event.created_at.slice( 11, -4 ) + ' ' + event.repo.name.link( 'https://github.com/' + event.repo.name ) + b +
-
-					'<small>' + event.payload.issue.title.link( event.payload.issue.html_url ) + '</small>' + b +
-
-					'<div class=issue  s>' + COR.converter.makeHtml( body ) + '</div>' +
-
-				'';
-
-			}
-
-			EUS.target.innerHTML = txt;
-
-		}
-
-	};
-
-
-
 //
 
 	EUS.type.onCommitCommentEvent = function( event ) { return 'commit comment ' + event.payload.comment.body.slice( 0, 100 ).link( event.payload.comment.html_url ) + '...'; };
@@ -397,8 +316,11 @@ console.log( 'requestGitHubAPIUserEventsStatusUpdate', user );
 
 	EUS.type.onIssuesEvent = function( event ) {
 
-		EUS.type.issuesEvents = !EUS.type.issuesEvents ? 1 : EUS.type.issuesEvents + 1;
-		body =  event.payload.issue.body;
+//		EUS.type.issuesEvents = !EUS.type.issuesEvents ? 1 : EUS.type.issuesEvents + 1;
+
+//		EUS.type.issuesEvents = ( EUS.type.issuesEvents + 1 ) || 1;
+
+		var body = event.payload.issue.body;
 
 		if ( body.length > 500 ) {
 
@@ -408,11 +330,9 @@ console.log( 'requestGitHubAPIUserEventsStatusUpdate', user );
 
 		return '<small>issue ' + event.payload.issue.title.link( event.payload.issue.html_url ) + '</small>' + b +
 
-					'<div class=issue >' + COR.converter.makeHtml( body ) + '</div>' +
+			'<div class=issue >' + COR.converter.makeHtml( body ) + '</div>' +
 
 		'';
-
-//		return 'issue ' + event.payload.issue.title.link( event.payload.issue.html_url );
 
 	};
 
@@ -429,8 +349,11 @@ console.log( 'requestGitHubAPIUserEventsStatusUpdate', user );
 
 	EUS.type.onPushEvent = function( event ) {
 
-		EUS.type.pushEvents = !EUS.type.pushEvents ? 1 : EUS.type.pushEvents + 1;
-		commit = event.payload.commits[ 0 ] ;
+//		EUS.type.pushEvents = !EUS.type.pushEvents ? 1 : EUS.type.pushEvents + 1;
+
+//		EUS.type.pushEvents = ( EUS.type.pushEvents + 1 ) || 1;
+
+		var commit = event.payload.commits[ 0 ] ;
 
 		if ( commit ) {
 
@@ -451,8 +374,6 @@ console.log( 'requestGitHubAPIUserEventsStatusUpdate', user );
 
 	EUS.type.onPullRequestReviewCommentEvent = function( event ) {
 
-//		return 'pull comment ' + event.payload.comment.body.slice( 0, 100 );
-
 		return 'pull request ' + event.payload.action + ' ' + event.payload.pull_request.title.link( event.payload.pull_request.html_url );
 
 //			event.payload.pull_request.body.slice( 0, 100 ) + '<br>more...' ;
@@ -468,4 +389,3 @@ console.log( 'requestGitHubAPIUserEventsStatusUpdate', user );
 	EUS.type.onTeamAddEvent = function( event ) { return 'TeamAddEvent ' + event.payload ; };
 
 	EUS.type.onWatchEvent = function( event ) { return 'watch ' + event.payload.action + ' by ' + event.actor.display_login.link( 'https://github.com/' + event.actor.display_login ); };
-

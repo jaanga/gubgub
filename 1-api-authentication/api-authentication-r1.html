@@ -51,7 +51,21 @@
 
 		CORdetailsTemplate.setAttribute( 'open', 'open' );
 
+		window.addEventListener( 'hashchange', COR.onHashChange, false );
+
+		if ( location.hash.match( '.md' ) ) { COR.onHashChange(); }
+
+		if ( location.hash.match( 'token=' ) ) { API.onEventAPIKeyUpdate(); }
+
+
+
+
+
 		API.getRateLimits();
+
+		CORdivContents.innerHTML = 'API token: ' + ( API.token || 'not provided' );
+
+console.log( 'API.token', ( API.token || 'not provided' ) );
 
 	}
 
