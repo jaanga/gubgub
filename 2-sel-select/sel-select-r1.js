@@ -16,7 +16,7 @@
 
 				'<summary><h3>Select types of GitHub users</h3></summary>' +
 
-					'<select id=SELselGroup onchange=SEL.setUserDetails(this); title="Select the group of users" size=15 >' +
+					'<select id=SELselGroup onchange=COR.setNullHash();SEL.setUserDetails(); title="Select the group of users" size=15 >' +
 
 						USR.groupOptions +
 

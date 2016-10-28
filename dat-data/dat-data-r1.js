@@ -2,11 +2,14 @@
 
 // Documentation: https://developer.github.com/v3/
 
+// Updates left column only
+// 
+
 	var DAT = {};
 
 	DAT.get = {};
 
-	DAT.userData = undefined; //will hold all the data for current user 
+	DAT.userData = undefined; //will hold all the data for current user
 
 	DAT.currentTopic = 'repos';
 
@@ -22,7 +25,7 @@
 				'<div id=DATdivUserData ></div>' + b +
 
 				'<small>' +
-					'Item order as sent by GitHub.' + b + 
+					'Item order as sent by GitHub.' + b +
 					'Display of content is a WIP.' + b +
 				'</small>' + b +
 
@@ -36,7 +39,7 @@
 
 
 
-// Called from the HTML file 
+// Called from the HTML file
 
 	DAT.getUserData = function( user ) {
 
@@ -442,7 +445,7 @@
 	}
 
 
-// 
+//
 
 	DAT.fetchEventsDrawTable = function( url, index ) {
 
@@ -458,10 +461,10 @@
 
 			keys = Object.keys( obj );
 
-			txt = 
+			txt =
 
-				'<h1>' + 
-					DAT.userData.type + ': ' + DAT.userData.login.link( DAT.userData.html_url ) + ' ' + ( DAT.keys[ index ] || '' ) + 
+				'<h1>' +
+					DAT.userData.type + ': ' + DAT.userData.login.link( DAT.userData.html_url ) + ' ' + ( DAT.keys[ index ] || '' ) +
 				'</h1>' +
 
 				'raw url: <a href=' + url + ' target="_blank" >' + url + '</a>' + b +
@@ -531,7 +534,7 @@
 
 //console.log( 'follower', follower );
 
-				txt += 
+				txt +=
 
 					'<h3>' +
 
@@ -541,9 +544,9 @@
 
 					'</h3>' +
 
-					'<div>' + 
-						'following'.link( follower.html_url + '?tab=following' ) + 
-						' followers'.link( follower.html_url + '?tab=followers' ) + 
+					'<div>' +
+						'following'.link( follower.html_url + '?tab=following' ) +
+						' followers'.link( follower.html_url + '?tab=followers' ) +
 					'</div>';
 
 			}
@@ -553,7 +556,7 @@
 				var url1 = 'https://github.com/orgs/' + DAT.userData.login + '/people';
 				var url2 = 'https://api.github.com/orgs/' + DAT.userData.login + '/public_members';
 
-				txt += '<p>Organizations usually have no followers unless they were converted over from a user repository.</p>' + 
+				txt += '<p>Organizations usually have no followers unless they were converted over from a user repository.</p>' +
 
 					'<p>See people: ' + url1.link( url1 ) + '</p>' +
 					'<p>See API public_members: ' + url2.link( url2 ) + '</p>' +
@@ -607,7 +610,7 @@
 
 //console.log( 'following', following );
 
-				txt += 
+				txt +=
 
 					'<h3>' +
 
@@ -617,9 +620,9 @@
 
 					'</h3>' +
 
-					'<div>' + 
-						'following'.link( following.html_url + '?tab=following' ) + 
-						' followings'.link( following.html_url + '?tab=following' ) + 
+					'<div>' +
+						'following'.link( following.html_url + '?tab=following' ) +
+						' followings'.link( following.html_url + '?tab=following' ) +
 					'</div>';
 
 			}
@@ -629,7 +632,7 @@
 //				url1 = 'https://github.com/orgs/' + DAT.userData.login + '/people';
 //				url2 = 'https://api.github.com/orgs/' + DAT.userData.login + '/public_members';
 
-				txt += '<p>Organizations usually do not follow others unless they were converted over from a user repository.</p>' + 
+				txt += '<p>Organizations usually do not follow others unless they were converted over from a user repository.</p>' +
 
 //					'<p>See people: ' + url1.link( url1 ) + '</p>' +
 //					'<p>See API public_members: ' + url2.link( url2 ) + '</p>' +
@@ -673,11 +676,11 @@
 			for ( var i = 0; i < gists.length; i++ ) {
 
 				gist = gists[ i ];
-				txt += '<h3>' + 
-							( gist.updated_at.slice( 0, 10 ) + ' ~ ' + gist.description ).link( gist.html_url ) + 
+				txt += '<h3>' +
+							( gist.updated_at.slice( 0, 10 ) + ' ~ ' + gist.description ).link( gist.html_url ) +
 				'</h3>' +
 
-				'<div id=gist' + i + ' style=max-height:300px;overflow:auto; >' + 
+				'<div id=gist' + i + ' style=max-height:300px;overflow:auto; >' +
 				'</div>';
 
 				DAT.getGist( gist.id, i )
@@ -753,11 +756,11 @@
 
 //console.log( 'org', org );
 
-				txt += 
+				txt +=
 
 					'<h3>' +
 
-						( i + 1 ) + ' ' + ( org.login + b + '<img src=' + org.avatar_url + ' width=180 >' ).link( 'https://github.com/' + org.login ) + 
+						( i + 1 ) + ' ' + ( org.login + b + '<img src=' + org.avatar_url + ' width=180 >' ).link( 'https://github.com/' + org.login ) +
 
 						b +
 
@@ -811,7 +814,7 @@
 
 //console.log( 'receivedEvent', receivedEvent );
 
-				txt += 
+				txt +=
 
 					'<h3>' +
 
@@ -871,7 +874,7 @@
 				repo = repos[ i ];
 
 /*
-				txt += 
+				txt +=
 
 					'<h3>' +
 
@@ -928,7 +931,7 @@
 
 					'<h3>' +
 
-						( i + 1 ) + ' ' + star.name.link( star.html_url ) + 
+						( i + 1 ) + ' ' + star.name.link( star.html_url ) +
 						' stars ' + star.watchers.toLocaleString().link( star.html_url + '/stargazers' ) +
 						' forks ' + star.forks.toLocaleString().link( star.html_url + '/network/members' ) +
 						' update ' + star.updated_at.slice( 0, 10 ).link( star.html_url + '/pulse' ) +
@@ -1003,7 +1006,7 @@
 
 		return '<h3 style=margin-bottom:0; >' +
 
-			( index + 1 ) + ' ' + repo.name.link( repo.html_url ) + 
+			( index + 1 ) + ' ' + repo.name.link( repo.html_url ) +
 			' stars ' + repo.watchers.toLocaleString().link( repo.html_url + '/stargazers' ) +
 			' forks ' + repo.forks.toLocaleString().link( repo.html_url + '/network/members' ) +
 			' update ' + repo.updated_at.slice( 0, 10 ).link( repo.html_url + '/pulse' ) +

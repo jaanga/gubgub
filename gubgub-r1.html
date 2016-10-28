@@ -76,11 +76,13 @@
 
 	SEL.getUserDetails = function( user ) {
 
+console.clear();
+
 		location.hash = user;
 
-		DAT.getUserData( user );
+		DAT.getUserData( user ); // left column update
 
-		EUS.requestGitHubAPIUserEvents( user );
+		EUS.requestGitHubAPIUserEvents( user ); // middle and right columns update
 
 		window.scrollTo( 0, 0 );
 		COR.updates.scrollTop = 0;

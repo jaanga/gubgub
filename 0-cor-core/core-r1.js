@@ -256,3 +256,10 @@
 		COR.requestFile( url, callback );
 
 	};
+
+
+	COR.setNullHash = function() {
+
+		history.replaceState( '', document.title, window.location.pathname );
+
+	}

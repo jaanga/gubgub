@@ -157,8 +157,8 @@
 
 		var txt, repoKeys, repo;
 
-console.clear();
 
+// console.clear();
 		txt =
 
 			'<h1>' + DAT.userData.type + ': ' +

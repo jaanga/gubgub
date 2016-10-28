@@ -6,10 +6,10 @@
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
 <meta name=description content='Select or enter a query for the GitHub User API.
 Select a user from the list of results or enter a user name.
-Preview many aspects of their GitHub corpus. Monitor recent activity 
+Preview many aspects of their GitHub corpus. Monitor recent activity
 ' >
 <meta name=keywords content='Jaanga,Theo Armour,GitHub API,CSS,HTML,JavaScript,GitHub,FOSS' >
-<meta name=date content='2016-10-19' >
+<meta name=date content='2016-10-28' >
 </head>
 <body>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.3/showdown.min.js ></script>
@@ -49,8 +49,23 @@ Preview many aspects of their GitHub corpus. Monitor recent activity
 
 	}
 
+	// gets called by SEL.setUserDetails...
+
+		SEL.getUserDetails = function( user ) {
+
+			location.hash = user;
+
+			DAT.getUserData( user );
+
+			EUS.requestGitHubAPIUserEvents( user );
+
+			window.scrollTo( 0, 0 );
+			COR.updates.scrollTop = 0;
+
+		}
 
 
+/*
 	SEL.getUserDetails = function( user ) {
 
 		location.hash = user;
@@ -68,16 +83,16 @@ Preview many aspects of their GitHub corpus. Monitor recent activity
 					DAT.getGists ( user )
 					break;
 				case 'orgs':
-					DAT.getOrgs( user ) 
+					DAT.getOrgs( user )
 					break;
 				case 'repos':
-					DAT.getRepos( user ) 
+					DAT.getRepos( user )
 					break;
 				case 'stats':
 //					EUS.buildStatsReport( user )
 					break;
 				default:
-					DAT.getRepos( user ) 
+					DAT.getRepos( user )
 
 			}
 
@@ -86,7 +101,7 @@ Preview many aspects of their GitHub corpus. Monitor recent activity
 		}
 
 // updates contents and right side
- 
+
 		if ( EUS.requestGitHubAPIUserEvents ) { // for testing
 
 			EUS.target = updates;
@@ -95,6 +110,7 @@ Preview many aspects of their GitHub corpus. Monitor recent activity
 		}
 
 	}
+*/
 
 </script>
 </body>

@@ -36,7 +36,7 @@ And then, when you are notified about a GitHub user of interest, it's not that e
 
 And when you find somebody you like, it's not easy to monitor what they have done recently.
 
-There may be many repositories. There may be a lot of material that looks interesting but has not been updated in years.
+There may be many repositories. There may be a lot of material that looks interesting - but has not been updated in years.
 
 Then there's the other side of the coin:
 
@@ -127,7 +127,8 @@ The script creates and updates three columns of data/content
 * Direct link to this read me file
 * Click on title to reload
 
-## Coding style
+Coding style
+--------------------------------------------------------------------------------
 
 We live in a world where the full-stack developer reigns supreme
 We champion DevOps as if good DevOps is the primary goal
@@ -269,7 +270,10 @@ API Calls:
 
 ### [EUS]( https://github.com/jaanga/gubgub/tree/gh-pages/eus-events-user )
 
-
+* Three ways of viewing user/organization events
+    * As a tight vertical list ~ see right column: COR.updates
+    * By repository and type ~ See COR.center ~ default when you load a new user
+    * By date with details ~ see COR.center ~ click 'events' button in left menu or 'show events by date in detail' button in right menu
 
 ### [USR]( https://github.com/jaanga/gubgub/tree/gh-pages/usr-users )
 
@@ -282,7 +286,8 @@ API Calls:
 
 
 
-## Things you can do by editing the code
+Things you can do by editing the code
+--------------------------------------------------------------------------------
 
 <iframe src='https://jaanga.github.io/cookbook-html/examples/libraries/ace-editor/ace-view-r1.html#
 	https://jaanga.github.io/cookbook-html/templates/github-api-user-explorer2/github-api-user-explorer2-r1.html' width=100% height=600 ></iframe>
@@ -296,7 +301,9 @@ value='Source code listing' >
 * Once you've downloaded the file, you can click it to run it.
 * Open the file with a text editor
 
-## Naming
+
+Naming
+--------------------------------------------------------------------------------
 
 New name: GubGub
 
@@ -325,15 +332,19 @@ See
 
 ## Issues
 
+* 2016-10-26 ~ Type not updating with change in selection
 * 2016-10-20 ~ Contents readme iframes not working in MS Edge browser
 
 
 ##  To Do List / Goals
 
+* 2016-10-26 ~ Allow for translation
+
+* 2016-10-26 ~ Display current user in document.title
+* 2016-10-26 ~ Contents and Updates titles uppercase
+* 2016-10-26 ~ Add links to stats on events by repository and type
+* 2016-10-26 ~ Events by repo: Display if a repo is owned by a user or an org
 * 2016-10-20 ~ Add ability to display readme files in full
-* Leaving and coming back returns to same user / better location.hash management
-* Add GitHub no connection note
-* Add API key entry
 * Add number of stars to each repo < would add to rate limit
 * Add iframes to orgs
 * Add iframes to gists
@@ -341,7 +352,7 @@ See
 
 ## Links of Interest / Background Context
 
-Web sites that help you explore GitHub
+### Web sites that help you explore GitHub
 
 * https://resume.github.io/ ~ added 2016-10-19
 * https://github.com/trending
@@ -358,7 +369,7 @@ Web sites that help you explore GitHub
 
 
 
-## Credits
+### Credits
 
 * GitHub Developer API
 * Showdown
@@ -394,7 +405,10 @@ Copyright © 2016 Jaanga authors. [MIT License]( #License.md )
 
 ### 2016-10-26
 
-( Many additions to README)
+* Leaving and coming back returns to same user / better location.hash management
+* Add GitHub no connection note
+* Add API key entry
+* Many additions to README
 * More code clean-up
 * Access token seems to ne working
 * Ditto location hash
