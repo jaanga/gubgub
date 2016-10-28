@@ -5,14 +5,13 @@
 
 	var SEL = SEL || {};
 
-
 // init menus
 
 	SEL.getMenuDetailsSelectGroup = function() {
 
 		var menuDetailsSelectGroup =
 
-			'<details id=SELdetailsSelectGroup open title="code here: sel-select.js" >' +
+			'<details id=SELdetailsSelectGroup open title="See \'SEL\' namespace and \'sel-select.js\'" >' +
 
 				'<summary><h3>Select types of GitHub users</h3></summary>' +
 
@@ -42,7 +41,7 @@
 
 		menuDetailsSelectUser =
 
-			'<details id=SELdetailsSelectPopular open >' +
+			'<details id=SELdetailsSelectPopular open title="See \'SEL\' namespace and \'sel-select.js\'" >' +
 
 				'<summary><h3>Select GitHub user and repo</h3></summary>' +
 

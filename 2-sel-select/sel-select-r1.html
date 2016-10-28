@@ -43,26 +43,32 @@ Preview many aspects of their GitHub corpus. Monitor recent activity
 
 		b;
 
-//		selGroup.value = 'listTheo';
+		SELselGroup.value = 'listTheo';
 
 		SEL.setUserDetails();
 
 	}
 
-	// gets called by SEL.setUserDetails...
+// gets called by SEL.setUserDetails...
 
-		SEL.getUserDetails = function( user ) {
+	SEL.getUserDetails = function( user ) {
 
-			location.hash = user;
+//		location.hash = user;
 
-			DAT.getUserData( user );
+//		DAT.getUserData( user );
 
-			EUS.requestGitHubAPIUserEvents( user );
+//		EUS.requestGitHubAPIUserEvents( user );
 
-			window.scrollTo( 0, 0 );
-			COR.updates.scrollTop = 0;
+		window.scrollTo( 0, 0 );
+		COR.updates.scrollTop = 0;
 
-		}
+console.log( 'user', user );
+
+		CORdivUpdates.innerHTML = 'User: ' + user + ' events will appear here';
+		CORdivContents.innerHTML = 'User: ' + user + ' data will appear here';
+
+	}
+
 
 
 /*

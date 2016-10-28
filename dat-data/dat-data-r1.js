@@ -3,7 +3,7 @@
 // Documentation: https://developer.github.com/v3/
 
 // Updates left column only
-// 
+//
 
 	var DAT = {};
 
@@ -18,7 +18,7 @@
 
 		var menuDetailsUserData =
 
-			'<details id=DATdetailsTemplate open >' +
+			'<details id=DATdetailsTemplate open title="See \'DAT\' namespace and \'dat-data.js\'" >' +
 
 				'<summary><h3>GitHub User Data</h3></summary>' +
 

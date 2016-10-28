@@ -78,7 +78,7 @@
 
 			txt =
 
-				'<h2 style=margin-botom:0; >' + user + '</h2>' +
+				'<h2 style=margin-botom:0; title="See \'EUS\' namespace and \'eus-events-user-r1.js\'" >' + user + '</h2>' +
 
 				'<h3 style=margin-bottom:0; >' + EUS.events.length + ' recent user events by date</h3>' +
 
@@ -161,7 +161,7 @@
 // console.clear();
 		txt =
 
-			'<h1>' + DAT.userData.type + ': ' +
+			'<h1 title="See \'EUS\' namespace and \'eus-events-user-r1.js\'" >' + DAT.userData.type + ': ' +
 				user.link( DAT.userData.html_url ) +
 			'</h1>' +
 			'<h2>' +

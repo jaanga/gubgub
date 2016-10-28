@@ -7,42 +7,46 @@ value='You are now in a GitHub Pages view. Click here to view README file in Git
 [Jaanga]( https://jaanga.github.io ) &raquo;
 
 [GubGub Read Me]( https://jaanga.github.io/gubgub/index.html#README.md )
-===
+================================================================================
 
-_Explore and monitor the many GitHub projects using the GitHub API and client-side cookbook JavaScript_
+_<small>
+    Explore and monitor the <a href="https://github.com/about" target="_blank" >many GitHub projects</a>
+    helped by the <a href="https://developer.github.com/v3/" target="_blank" >GitHub API</a> and client-side cookbook JavaScript.
+</small>_
+
+<img src="gubgub-r1.jpg" style=display:none; width=800 >
 
 <!--
 ## full screen [Jaanga GubGub]( https://jaanga.github.io/gubgub/ )
--->
 
-<img src="" style=display:none; width=800 >
-
-<!--
 <iframe id=ifr src=https://jaanga.github.io/gubgub/gubgub-r1.html width=100% height=600px ></iframe>
 
 _Jaanga GubGub R1_
 
 ***
 -->
-## Concept
+
+Concept
+--------------------------------------------------------------------------------
 
 GitHub has [millions of projects]( https://github.com/about ).
 
-With so many projects, finding projects that interest you is not easy.
+With so many projects, finding GitHub projects that may be of interest to you is not easy.
 
 Finding projects with code you might actually want to fork use is even less easy.
 
-And then, when you are notified about a GitHub user of interest, it's not that easy to explore the user's work.
+And then, when you identify a GitHub user of interest, it's not that easy to explore the user's work.
 
-And when you find somebody you like, it's not easy to monitor what they have done recently.
+When you find somebody you like, it's not easy to:
 
-There may be many repositories. There may be a lot of material that looks interesting - but has not been updated in years.
+* Monitor what they have done recently
+* Search the many repositories
+* Discard material that looks interesting - but has not been updated in years
 
 Then there's the other side of the coin:
 
-How can you make your own work more visible to the world?
-
-How can visitors to your GitHub projects become informed in a speedy, fun manner about all the things you are doing.
+* How can you make your own work more visible to the world?
+* How can visitors to your GitHub projects become informed in a speedy, fun manner about all the things you are doing.
 
 Certainly the [Explore GitHub]( https://github.com/explore ) page is a good place to start.
 
@@ -54,22 +58,26 @@ And, guess what, GitHub supplies a quite amazing tool for finding stuff on GitHu
 
 The [GitHub Developer API]( https://developer.github.com/ ) provides fast, free and easy access to millions of GitHub projects.
 
-So, if you are looking to build tools to help you snoop around GitHub, find the things that are of particular interest to you and monitor their progress
- then you have come to a good place...
+So, if you are looking to build tools to:
 
+* help you snoop around GitHub
+* find the things that are of particular interest to you
+* and monitor their progress
 
+then you have come to a good place...
 
 
 ### Mission
 
 * Help you build tools that make the GitHub web pages and the data come to you
 	* Reduce that endless click to go there and click to come back, click go there and click come back - repeated endlessly
-    * 'You don't have to go there. It comes to you.' - Henrik Benetsen
+    * 'You don't have to go there. It comes to you.' - Henrik Bennetsen
 * Provide you with as many ways as possible for viewing content and statistics - really quickly and easily readable
 * Display ways of getting to content such as the README files and gists wherever possible
 	* Show what is being created in a timely fashion
 * Create a variety of versions - from very simple to totally custom-tailored for a particular user
 * Replicate in various languages and dialects
+
 
 ### Vision
 
@@ -78,32 +86,53 @@ So, if you are looking to build tools to help you snoop around GitHub, find the 
 * Transfer all of this into your own set of tools
 
 
-## Usage
+Usage / Features
+--------------------------------------------------------------------------------
 
-The script creates and updates three columns of data/content
+The client-side JavaScript script creates and updates three columns of data/content
+
 
 ### Left Column / Menu / Buttons and Links
 
-* Menus use the HTML 5 `<details>` tag
-* Each menu header has its own script and its own namespace
-* Example: the Select menu has `SEL` as a namespace and `sel-select-r1.js` as a file
+#### Things you can do as a user
 
-#### Things you can do
+* Click on title to reload
+* Direct link to this read me file
+* Select or enter your own search query
+* Select or enter a GitHub user name < try your name ;-)
+* Note the updates to the User Data section
+* Click every button in GitHub User Data
+* Buttons are in three columns
+    * Left column buttons: cause unformatted search results to display in center columns
+    * Middle column button: cause search results to display in a table
+    * Right column links: open new tab to related GitHub web page or Google search results
+* Note the many different ways of exploring the same search results
 
-* Click every button
-* Enter your own search query
-* Enter you user name
+#### Things you can do as a coder
+
+* Note usage of new HTML 5 `<details>` tag in the menus
+* Edit 'usr-users.js' and add your user name and search queries that interest you
+* Consider other ways of displaying the data returned by the GitHub Developer API
+* Consider ways of improving the UI
+* Simplify the menu so it just handles your particular needs
+
 
 ### Center Column / Contents / Tabular Data / Reports
 
-* Displays scrolling list of search results
-* Displays README - and any file in Markdown format
-* Adds iframe view of README files for repositories
+* Displays scrolling list of the various search results
+    * Initiated by button-clicks in the left column
+* Displays README file - and any file in Markdown format
+* Adds iframe views of README files for repositories
 
-#### Things you can do
+#### Things you can do as a user
 
 * Click the numerous links throughout
+* Consider ways in which the user experience could be improved
 
+#### Things you can do as a coder
+
+* Consider adding more links to the search statistics report under each iframe
+* Consider adding iframes to view data other than the repos
 
 
 ### Right Column / Updates / Activity
@@ -112,47 +141,45 @@ The script creates and updates three columns of data/content
 * Loads and display users 100 most recent events sorted by date
 * Most aspects of each event are links to most appropriate GitHub page
 
+#### Things you can do as a user
+
+* Scroll up and down. Click on items of interest
+* Identify and report incorrect or better URLs for each type of event
+
+#### Things you can do as a coder
+
+* Consider ways of displaying other types of search results or data in this column
 
 
 
-
-
-
-## Features
-
-* No servers needed. All action generated client-side
-* Entry-level, pure JavaScript.
-	* Single dependency on the ShowDown Markdown interpreter
-* Click three bars( 'hamburger' ) icon to slide menu in or out
-* Direct link to this read me file
-* Click on title to reload
-
-Coding style
+Coding Style
 --------------------------------------------------------------------------------
 
-We live in a world where the full-stack developer reigns supreme
-We champion DevOps as if good DevOps is the primary goal
+### Mission
 
-But
+* We live in a world where the full-stack developer reigns supreme
+* We champion DevOps as if good DevOps is the primary goal
 
-What if you are an entry-level coder?
-What if you are interested in STEM topics than Devops?
+But:
+
+* What if you are an entry-level coder?
+* What if you are interested in STEM topics than Devops?
 
 Then you have come to the right place.
 
 
-### Written for GitHub users and coders
+### Written for GitHub Users and Coders
 
-You are here to explore code
+You are here to explore code, therefore:
 
 * Font is default monotype font - fixed character spacing
 * UI is minimal
 	* Offers many - too many? - options
 * Uses most up-to-date JavaScript features
-* Display the identical data using varying methods
+* Displays the identical data using varying methods
 
 
-But some idiosyncrasies
+But some idiosyncrasies:
 
 * Follows [Mr.doob coding style]( https://github.com/mrdoob/three.js/wiki/Mr.doob's-Code-Style%E2%84%A2 )
 	* Open airy, almost a poetic style of displaying code
@@ -165,16 +192,18 @@ But some idiosyncrasies
 	* Uses JavaScript to do this mash-up
     * It's <s>[turtles](https://en.wikipedia.org/wiki/Turtles_all_the_way_down )</s> JavaScript all the way down
 
-There are hundreds of computer programming languages. And so, there can be many styles of coding in each language. And each can have its own beauty.
+There are hundreds of computer programming languages.
+And so, there can be many styles of coding in each language. And each can have its own beauty.
 
-### Entry Level Code
+
+### Entry Level Code / cookbook Style
 
 * Code is almost all entry level JavaScript
 * Download and run
 * JavaScript is used for everything including
 	* Adding HTML
 	* Applying CSS
-* The dependencies are
+* The dependencies are:
 	* ShowDown Markdown interpreter
 	* GitHub API
 
@@ -193,6 +222,7 @@ There are hundreds of computer programming languages. And so, there can be many 
 	* Looks to the future not the past
 	* Simple features in the pipeline are built on the lessons learned from the complextiies of the past  
 
+
 ### No server Needed
 
 * 100% client side
@@ -201,8 +231,15 @@ There are hundreds of computer programming languages. And so, there can be many 
 * Accesses GitHub Developer API via [RESTful]( https://en.wikipedia.org/wiki/Representational_state_transfer ) URL calls
 	* No terminal window/ [curl]( https://curl.haxx.se/ ) needed here
 
+### Namespace, Variable Names and File Namespace
 
-### Scripts
+    * Menu and column headers have tooltips that indicate namespace and script name.
+    * Example: the Select menu has `SEL` as a namespace and `sel-select-r1.js` as a file
+    * Every script is in its own folder with its own HTML testing file
+
+
+Scripts
+-------------------------------------------------------------------------------
 
 * The app is built using a number of script files
 * Each item on the menu has its own script file
@@ -213,11 +250,9 @@ There are hundreds of computer programming languages. And so, there can be many 
 * The namespace title relates to the title of the menu
 * The three letter namespace is part of the script folder and file title
 
+_The following describes the usage of each script_
 
-
-_The following describes the usage of each menu heading._
-
-#### [COR]( https://github.com/jaanga/gubgub/tree/gh-pages/0-cor-core )
+### [COR]( https://github.com/jaanga/gubgub/tree/gh-pages/0-cor-core )
 
 COR.converter = new showdown.Converter( { strikethrough: true, literalMidWordUnderscores: true, simplifiedAutoLink: true, tables: true });
 
@@ -226,7 +261,7 @@ COR.converter = new showdown.Converter( { strikethrough: true, literalMidWordUnd
 * Adds style sheet data
 * Include AJAX and location.hash onchange event handling utilities used by the other scripts
 
-#### [API]( https://github.com/jaanga/gubgub/tree/gh-pages/1-api-authentication )
+### [API]( https://github.com/jaanga/gubgub/tree/gh-pages/1-api-authentication )
 
 API Call: [https://api.github.com/rate_limit]( https://api.github.com/rate_limit )
 
@@ -245,7 +280,7 @@ API calls:
 * [https://api.github.com/search/repositories?q=stars:>60000]( https://api.github.com/search/repositories?q=stars:>60000 )
 * See [GitHub Developer API Search]( https://developer.github.com/v3/search/ )
 
-### Select Type of GitHub User
+#### Select Type of GitHub User
 * Select a pre-written search query
 * Edit or enter your own query
 
@@ -268,7 +303,7 @@ API Calls:
 	* Links to appropriate GitHub page for the data
 
 
-### [EUS]( https://github.com/jaanga/gubgub/tree/gh-pages/eus-events-user )
+#### [EUS]( https://github.com/jaanga/gubgub/tree/gh-pages/eus-events-user )
 
 * Three ways of viewing user/organization events
     * As a tight vertical list ~ see right column: COR.updates
@@ -286,7 +321,7 @@ API Calls:
 
 
 
-Things you can do by editing the code
+Editing the Code
 --------------------------------------------------------------------------------
 
 <iframe src='https://jaanga.github.io/cookbook-html/examples/libraries/ace-editor/ace-view-r1.html#
@@ -302,7 +337,7 @@ value='Source code listing' >
 * Open the file with a text editor
 
 
-Naming
+Naming this app
 --------------------------------------------------------------------------------
 
 New name: GubGub
@@ -330,16 +365,22 @@ See
 * https://en.wikipedia.org/wiki/Gub_Gub%27s_Book
 
 
-## Issues
 
-* 2016-10-26 ~ Type not updating with change in selection
+
+Issues
+--------------------------------------------------------------------------------
+
+* 2016-10-28 ~ Reports error when cannot open README ~ probably unfixable
 * 2016-10-20 ~ Contents readme iframes not working in MS Edge browser
 
 
-##  To Do List / Goals
 
+
+To Do List / Goals
+--------------------------------------------------------------------------------
+
+* 2016-10-28 ~ Decide if better to open links in same tab or new tab
 * 2016-10-26 ~ Allow for translation
-
 * 2016-10-26 ~ Display current user in document.title
 * 2016-10-26 ~ Contents and Updates titles uppercase
 * 2016-10-26 ~ Add links to stats on events by repository and type
@@ -350,7 +391,8 @@ See
 * Add iframes to gists
 
 
-## Links of Interest / Background Context
+Links of Interest / Background Context
+--------------------------------------------------------------------------------
 
 ### Web sites that help you explore GitHub
 
@@ -368,16 +410,17 @@ See
 * http://githut.info/
 
 
-
 ### Credits
 
 * GitHub Developer API
 * Showdown
 
+
 ### README Considerations
 
 * http://tom.preston-werner.com/2010/08/23/readme-driven-development.html
 * https://github.com/noffle/art-of-readme
+
 
 ### Coding
 
@@ -386,22 +429,34 @@ See
 	* Much maligned by full-stack developers,
 	* but it the first thing that show up on Google
 
+
 ### Coding Style
 
 * Mr.doob coding style
+
 
 ### Users
 
 * [theo-armour.github.io](  https://theo-armour.github.io )
 
 
-## Copyright and License
-
-Copyright © 2016 Jaanga authors. [MIT License]( #License.md )
 
 
+Copyright and License
+--------------------------------------------------------------------------------
+Copyright © 2016 Jaanga authors. [MIT License]( #LICENSE.md )
 
-## Change Log
+
+
+
+Change Log
+--------------------------------------------------------------------------------
+
+### 2016-10-28
+
+* Add to README
+* Code clean-up
+* 2016-10-26 ~ Type not updating with change in selection < fixes
 
 ### 2016-10-26
 

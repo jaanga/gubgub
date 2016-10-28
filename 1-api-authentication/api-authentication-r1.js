@@ -16,7 +16,7 @@
 
 		var menuDetailsAPIAccessToken =
 
-			'<details id=APIapiAcessToken >' +
+			'<details id=APIapiAcessToken title="See \'API\' namespace" >' +
 
 				'<summary><h3>Set API Access Token</h3></summary>' +
 
@@ -73,7 +73,7 @@ http://www.businessinsider.com/amazon-unusual-process-to-decide-on-new-products-
 
 			APIinpAccessToken.value = location.hash.slice( location.hash.indexOf( 'token=' ) + 6 );
 
-			history.replaceState( '', document.title, window.location.pathname );
+			COR.setNullHash();
 
 		}
 

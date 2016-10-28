@@ -17,7 +17,8 @@
 	COR.taglineHeader =
 
 		'<small>' +
-			'Explore and monitor the many GitHub projects helped by the GitHub API and client-side cookbook JavaScript.' + b +
+			'Explore and monitor the <a href="https://github.com/about" target="_blank">many GitHub projects</a> ' +
+			'helped by the <a href=" https://developer.github.com/v3/" target="_blank">GitHub API</a> and client-side cookbook JavaScript.' + b +
 		'</small>';
 
 //	COR.txt = '<p>lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?</p>';
@@ -58,7 +59,7 @@
 
 		COR.updates = document.body.appendChild( document.createElement( 'div' ) );
 		COR.updates.id = 'CORupdates';
-		COR.updates.innerHTML = '<h1>updates</h1><div id=divUpdates >' + COR.txt + '</div>';
+		COR.updates.innerHTML = '<h1>updates</h1><div id=CORdivUpdates >' + COR.txt + '</div>';
 
 //		detailsTemplate.setAttribute('open', 'open');
 
@@ -90,8 +91,8 @@
 			'summary { outline: none; }' +
 
 			'.issue { background-color: #fff; border: 1px solid; }' +
-			'.butt2 { width: 108px; }' +
-			'.popUp { background-color: white; left: 150px; border: 1px solid red; opacity: 1.0; padding: 5px; position: absolute; width: 120px; z-index: 10; }' +
+//			'.butt2 { width: 108px; }' +
+			'.popUp { background-color: white; left: 140px; border: 1px solid red; opacity: 1.0; padding: 5px; position: absolute; width: 140px; z-index: 10; }' +
 
 			'#CORcontents { border: 0px red solid; left: 24%; position: absolute; top: 0; width: 50%; }' +
 
@@ -127,7 +128,7 @@
 
 			COR.taglineHeader +
 
-			'<div class=popUp id=CORpopHelp style=display:none; ><p>Hi there!</p>Click the i-in-circle, info icon for latest updates.</div>' +
+			'<div class=popUp id=CORpopHelp style=display:none; ><p>Hi there!</p>Click the i-in-circle info icon for README & latest updates.</div>' +
 
 		b;
 
@@ -140,7 +141,7 @@
 
 		var menuDetailsAbout =
 
-			'<details id=detailsAbout >' +
+			'<details id=detailsAbout title="See \'COR\' namespace and \'cor-core-r1.js\'" >' +
 
 				'<summary><h3>About</h3></summary>' +
 
