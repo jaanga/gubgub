@@ -16,9 +16,9 @@ _<small>
 
 <img src="gubgub-r1.jpg" style=display:none; width=800 >
 
+<span style=display:none; >Full screen: [Jaanga GubGub]( https://jaanga.github.io/gubgub/ )</span>
+--------------------------------------------------------------------------------
 <!--
-## full screen [Jaanga GubGub]( https://jaanga.github.io/gubgub/ )
-
 <iframe id=ifr src=https://jaanga.github.io/gubgub/gubgub-r1.html width=100% height=600px ></iframe>
 
 _Jaanga GubGub R1_
