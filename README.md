@@ -3,7 +3,6 @@
 <input type=button onclick=window.location.href='https://github.com/jaanga/gubgub/';
 value='You are now in a GitHub Pages view. Click here to view README file in GitHub source code view.' >
 
-
 [Jaanga]( https://jaanga.github.io ) &raquo;
 
 [GubGub Read Me]( https://jaanga.github.io/gubgub/index.html#README.md )
@@ -14,7 +13,7 @@ _<small>
     helped by the <a href="https://developer.github.com/v3/" target="_blank" >GitHub API</a> and client-side cookbook JavaScript.
 </small>_
 
-<img src="gubgub-r1.jpg" style=display:none; width=800 >
+<img src="https://jaanga.github.io/gubgub/gubgub-r1.jpg" style=display:none; width=800 >
 
 <span style=display:none; >Full screen: [Jaanga GubGub]( https://jaanga.github.io/gubgub/ )</span>
 --------------------------------------------------------------------------------
@@ -26,7 +25,7 @@ _Jaanga GubGub R1_
 ***
 -->
 
-<div id=READMEbespokeText >xxx</div>
+<div id=READMEbespokeText ></div>
 
 Concept
 --------------------------------------------------------------------------------
