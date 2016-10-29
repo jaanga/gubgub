@@ -9,7 +9,7 @@
 		'</optgroup>' +
 
 		'<optgroup label="Three.js/WedGL" >' +
-			'<option>Mrboob</option>' +
+			'<option>Mrdoob</option>' +
 			'<option>bhouston</option>' +
 			'<option>gero3</option>' +
 			'<option>Saqoosha</option>' +

@@ -338,7 +338,7 @@ value='Source code listing' >
 * Open the file with a text editor
 
 
-Naming this app
+Naming this App
 --------------------------------------------------------------------------------
 
 New name: GubGub
@@ -381,6 +381,10 @@ Issues
 To Do List / Goals
 --------------------------------------------------------------------------------
 
+* 2016-10-29 ~ Split into multiple versions
+    * Phone versions
+    * Monitoring favorites version
+    * GitHub explorer version
 * 2016-10-28 ~ Decide if better to open links in same tab or new tab
 * 2016-10-26 ~ Allow for translation
 * 2016-10-26 ~ Display current user in document.title
@@ -453,6 +457,16 @@ Copyright © 2016 Jaanga authors. [MIT License]( #LICENSE.md )
 
 Change Log
 --------------------------------------------------------------------------------
+
+### 2016-10-29
+
+* Tested on briefly MacOS Sierra with Safari 10, FF49 and Chrome 54. All seem file
+* Tested on El Capitan with Safari 9.1. Fail.
+* Tested on iPad Pro with iOS 10. All seems fine.
+* Tested on iPad Pro with iOS 9.3. Fail.
+* Tested on Windows 10 with Microsoft Edge 14. Fail.
+* Tested om Windows 10 with latest FF and Chrome. Seem fine.
+
 
 ### 2016-10-28
 
