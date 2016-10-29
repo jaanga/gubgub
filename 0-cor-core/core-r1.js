@@ -262,7 +262,7 @@
 
 			COR.setNullHash();
 
-			bespokeReadMeText.innerHTML = COR.readmeText;
+			READMEbespokeText.innerHTML = COR.readMeText;
 
 		};
 

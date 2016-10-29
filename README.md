@@ -26,7 +26,7 @@ _Jaanga GubGub R1_
 ***
 -->
 
-<div id=COR.readMe >xxx</div>
+<div id=READMEbespokeText >xxx</div>
 
 Concept
 --------------------------------------------------------------------------------

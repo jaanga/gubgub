@@ -28,7 +28,7 @@
 -->
 <script>
 
-	COR.readMeText = 'kkkkkkk'
+	COR.readMeText = 'This is the default version of GubGub/';
 
 	init();
 
@@ -57,14 +57,13 @@
 		b;
 
 
-
 		window.addEventListener( 'hashchange', COR.onHashChange, false );
 
 		if ( location.hash.match( '.md' ) ) { COR.onHashChange(); }
 
 		if ( location.hash.match( 'token=' ) ) { API.onEventAPIKeyUpdate(); }
 
-		SELselGroup.value = 'listFavorites';
+//		SELselGroup.value = 'listFavorites'; // uncomment to have selected user aooear as default
 
 		SEL.setUserDetails();
 
@@ -86,8 +85,6 @@
 
 		window.scrollTo( 0, 0 );
 		COR.updates.scrollTop = 0;
-
-		bespokeText.innerHTML = 'howdy!';
 
 	};
 
