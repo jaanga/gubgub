@@ -109,6 +109,23 @@
 
 			response = JSON.parse( xhr.target.responseText );
 
+			if ( response.message ) { // there's been an error... // Add this to COR
+
+console.log( 'response', response);
+
+				COR.contents.innerHTML =
+
+
+					'<h1>' + response.message + '</h1>' +
+					'<p>See: </p>' +
+					'<p>' + ("https://github.com/settings/tokens").link( "https://github.com/settings/tokens" ) + '</p>' +
+					'<p>' + ('https://developer.github.com/v3/auth/#basic-authentication').link( 'https://github.com/settings/tokens' ) + '</p>' +
+				'';
+
+				return;
+
+			}
+
 			SELstats.innerHTML = 'Github users found with ' + SELinpQuery.value + ' : ' + response.total_count.toLocaleString();
 
 			SELselUser.innerHTML = '';

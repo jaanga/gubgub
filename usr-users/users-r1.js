@@ -82,6 +82,7 @@
 	'';
 
 
+// at least one item must be selected
 
 	USR.groupOptions =
 
