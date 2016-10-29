@@ -9,7 +9,7 @@
 
 	DAT.get = {};
 
-	DAT.userData = undefined; //will hold all the data for current user
+	DAT.userData = undefined; // will hold all the data for current user
 
 	DAT.currentTopic = 'repos';
 
@@ -165,8 +165,8 @@
 
 	DAT.get.events_url = function( item, index ) {
 
-		return '<button onclick=DAT.getRawData("https://api.github.com/users/' + DAT.userData.login + '/events"); > raw </button> ' +
-			'<button  class=butt2 onclick=DAT.getEvents("' + DAT.userData.login + '",0); > events </button> ' +
+		return '<button class=DATbuttonLeft onclick=DAT.getRawData("https://api.github.com/users/' + DAT.userData.login + '/events"); > raw </button> ' +
+			'<button  class=DATbuttonMiddle onclick=DAT.getEvents("' + DAT.userData.login + '",0); > events </button> ' +
 			'<a href=https://github.com/' + DAT.userData.login + '?tab=activity target=_blank >activity</a>';
 
 	};
@@ -174,8 +174,8 @@
 
 	DAT.get.followers = function( item, index ) {
 
-		return '<button onclick=DAT.getRawData("' + DAT.userData.followers_url + '"); > raw </button> ' +
-			'<button  class=butt2 onclick=DAT.getFollowers("' + DAT.userData.login + '",' + index + '); > followers </button> ' +
+		return '<button class=DATbuttonLeft onclick=DAT.getRawData("' + DAT.userData.followers_url + '"); > raw </button> ' +
+			'<button  class=DATbuttonMiddle onclick=DAT.getFollowers("' + DAT.userData.login + '",' + index + '); > followers </button> ' +
 			'<a href=https://github.com/' + DAT.userData.login + '/followers target=_blank >' + item + ' followers </a>';
 
 	};
@@ -191,8 +191,8 @@
 
 	DAT.get.following = function( item ) {
 
-		return '<button onclick=DAT.getRawData("https://api.github.com/users/' + DAT.userData.login + '/following"); > raw </button> ' +
-			'<button  class=butt2 onclick=DAT.getFollowing("' + DAT.userData.login + '"); > following </button> ' +
+		return '<button class=DATbuttonLeft onclick=DAT.getRawData("https://api.github.com/users/' + DAT.userData.login + '/following"); > raw </button> ' +
+			'<button  class=DATbuttonMiddle onclick=DAT.getFollowing("' + DAT.userData.login + '"); > following </button> ' +
 			'<a href=https://github.com/' + DAT.userData.login + '/following target=_blank >' + item + ' following</a>';
 
 	};
@@ -242,8 +242,8 @@
 
 	DAT.get.id = function( item, index ) {
 
-		return '<button onclick=DAT.getRawData("https://api.github.com/user/' + item + '");  title="unformatted API data results straight from GitHub" > raw </button> ' +
-			'<button class=butt2 onclick=DAT.fetchEventsDrawTable("https://api.github.com/user/' + item + '",' + index + '); title="GitHub API data prettified" > id </button> ' +
+		return '<button class=DATbuttonLeft onclick=DAT.getRawData("https://api.github.com/user/' + item + '");  title="unformatted API data results straight from GitHub" > raw </button> ' +
+			'<button class=DATbuttonMiddle onclick=DAT.fetchEventsDrawTable("https://api.github.com/user/' + item + '",' + index + '); title="GitHub API data prettified" > id </button> ' +
 			'<a href=https://api.github.com/user/' + item + ' target=_blank >' + item.toLocaleString() + '</a>' +
 
 		'';
@@ -264,8 +264,8 @@
 
 	DAT.get.login = function( item, index ) {
 
-		return '<button onclick=DAT.getRawData("https://api.github.com/users/' + item + '"); title="unformatted API data results straight from GitHub" > raw </button> ' +
-			'<button class=butt2 onclick=DAT.fetchEventsDrawTable("https://api.github.com/users/' + item + '",' + index + '); title="GitHub API data prettified" > login </button> ' +
+		return '<button class=DATbuttonLeft onclick=DAT.getRawData("https://api.github.com/users/' + item + '"); title="unformatted API data results straight from GitHub" > raw </button> ' +
+			'<button class=DATbuttonMiddle onclick=DAT.fetchEventsDrawTable("https://api.github.com/users/' + item + '",' + index + '); title="GitHub API data prettified" > login </button> ' +
 			'<a href=' + DAT.userData.html_url + ' title="Link to the data as rendered by GitHub" target=_blank >' + item + '</a>';
 
 	};
@@ -288,9 +288,9 @@
 
 		if ( DAT.userData.type === "Organization" ) { return; }
 
-		return '<button onclick=DAT.getRawData("https://api.github.com/users/' + DAT.userData.login + '/orgs"); > raw </button> ' +
+		return '<button class=DATbuttonLeft onclick=DAT.getRawData("https://api.github.com/users/' + DAT.userData.login + '/orgs"); > raw </button> ' +
 
-			'<button  class=butt2 onclick=DAT.getOrgs("' + DAT.userData.login + '"); > organizations </button> ' +
+			'<button  class=DATbuttonMiddle onclick=DAT.getOrgs("' + DAT.userData.login + '"); > organizations </button> ' +
 
 			'<a href=https://github.com/' + DAT.userData.login + '?tab=organizations target=_blank> orgs </a>';
 
@@ -330,8 +330,8 @@
 
 	DAT.get.public_gists = function( item, index ) {
 
-		return '<button onclick=DAT.getRawData("https://api.github.com/users/' + DAT.userData.login + '/gists"); > raw </button> ' +
-			'<button  class=butt2 onclick=DAT.getGists("' + DAT.userData.login + '"); > gists </button> ' +
+		return '<button class=DATbuttonLeft onclick=DAT.getRawData("https://api.github.com/users/' + DAT.userData.login + '/gists"); > raw </button> ' +
+			'<button  class=DATbuttonMiddle onclick=DAT.getGists("' + DAT.userData.login + '"); > gists </button> ' +
 			'<a href=https://gist.github.com/' + DAT.userData.login + ' target=_blank >' + item + ' gists </a>';
 
 	};
@@ -339,8 +339,8 @@
 
 	DAT.get.repos_url = function( item, index ) {
 
-		return '<button onclick=DAT.getRawData("https://api.github.com/users/' + DAT.userData.login + '/repos"); > raw </button> ' +
-			'<button  class=butt2 onclick=DAT.getRepos("' + DAT.userData.login + '"); > repos </button> ' +
+		return '<button class=DATbuttonLeft onclick=DAT.getRawData("https://api.github.com/users/' + DAT.userData.login + '/repos"); > raw </button> ' +
+			'<button  class=DATbuttonMiddle onclick=DAT.getRepos("' + DAT.userData.login + '"); > repos </button> ' +
 			'<a href=https://github.com/' + DAT.userData.login + '?tab=repositories target=_blank >' + DAT.userData.public_repos + ' repos</a>';
 
 	};
@@ -348,8 +348,8 @@
 
 	DAT.get.received_events_url = function( item, index ) {
 
-		return '<button onclick=DAT.getRawData("' + DAT.userData.received_events_url + '"); > raw </button> ' +
-			'<button  class=butt2 onclick=DAT.getReceivedEvents("' + DAT.userData.login + '"); > received events </button> ';
+		return '<button class=DATbuttonLeft onclick=DAT.getRawData("' + DAT.userData.received_events_url + '"); > raw </button> ' +
+			'<button  class=DATbuttonMiddle onclick=DAT.getReceivedEvents("' + DAT.userData.login + '"); > received events </button> ';
 //			'<button onclick=DAT.fetchEventsDrawTable("' + DAT.userData.received_events_url + '"); target=_blank > received events </button> ';
 //		return 'Received Events: <a href=' + DAT.userData.received_events_url + ' >received events</a>';
 
@@ -358,9 +358,9 @@
 
 	DAT.get.starred_url = function( item, index ) {
 
-		return '<button onclick=DAT.getRawData("https://api.github.com/users/' + DAT.userData.login + '/starred"); > raw </button> ' +
-//			'<button  class=butt2 onclick=DAT.fetchEventsDrawTable("https://api.github.com/users/' + DAT.userData.login + '/starred"); > starred </button> ' +
-			'<button  class=butt2 onclick=DAT.getStarred("' + DAT.userData.login + '",' + index + '); > starred </button> ' +
+		return '<button class=DATbuttonLeft onclick=DAT.getRawData("https://api.github.com/users/' + DAT.userData.login + '/starred"); > raw </button> ' +
+//			'<button  class=DATbuttonMiddle onclick=DAT.fetchEventsDrawTable("https://api.github.com/users/' + DAT.userData.login + '/starred"); > starred </button> ' +
+			'<button  class=DATbuttonMiddle onclick=DAT.getStarred("' + DAT.userData.login + '",' + index + '); > starred </button> ' +
 
 			'<a href=https://github.com/stars/' + DAT.userData.login + ' target=_blank >stars</a>';
 
@@ -369,9 +369,9 @@
 
 	DAT.get.subscriptions_url= function( item, index ) {
 
-		return '<button onclick=DAT.getRawData("https://api.github.com/users/' + DAT.userData.login + '/subscriptions"); > raw </button> ' +
-//			'<button  class=butt2 onclick=DAT.fetchEventsDrawTable("https://api.github.com/users/' + DAT.userData.login + '/starred"); > subscriptions </button> ' +
-			'<button  class=butt2 onclick=DAT.getSubscriptions("' + DAT.userData.login + '"); target=_blank > subscriptions </button> ' +
+		return '<button class=DATbuttonLeft onclick=DAT.getRawData("https://api.github.com/users/' + DAT.userData.login + '/subscriptions"); > raw </button> ' +
+//			'<button  class=DATbuttonMiddle onclick=DAT.fetchEventsDrawTable("https://api.github.com/users/' + DAT.userData.login + '/starred"); > subscriptions </button> ' +
+			'<button  class=DATbuttonMiddle onclick=DAT.getSubscriptions("' + DAT.userData.login + '"); target=_blank > subscriptions </button> ' +
 
 //			'<a href=https://github.com/stars/' + DAT.userData.login + ' >stars</a>';
 			'';

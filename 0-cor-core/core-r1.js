@@ -24,10 +24,11 @@
 //	COR.txt = '<p>lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?</p>';
 	COR.txt = '<p>GitHub API responses will appear here.</p>';
 
+	COR.readmeText = '';
+
 	COR.converter = new showdown.Converter( { strikethrough: true, literalMidWordUnderscores: true, simplifiedAutoLink: true, tables: true });
 
 	COR.objectName = 'COR';
-
 
 
 	COR.initThreeColumns = function() {
@@ -73,9 +74,8 @@
 
 	COR.getCSSThreeColomns = function() {
 
-		var css;
-		css = document.body.appendChild( document.createElement( 'style' ) );
-		css.innerHTML =
+		COR.css = document.body.appendChild( document.createElement( 'style' ) );
+		COR.css.innerHTML =
 
 			'body { font: 12pt monospace; margin: 0; }' +
 
@@ -90,9 +90,9 @@
 			'summary h2, summary h3, summary h4 { display: inline; }' +
 			'summary { outline: none; }' +
 
+			'.DATbuttonMiddle { width: 108px; }' +
 			'.issue { background-color: #fff; border: 1px solid; }' +
-//			'.butt2 { width: 108px; }' +
-			'.popUp { background-color: white; left: 140px; border: 1px solid red; opacity: 1.0; padding: 5px; position: absolute; width: 140px; z-index: 10; }' +
+			'.CORpopUP { background-color: white; left: 140px; border: 1px solid red; opacity: 1.0; padding: 5px; position: absolute; width: 140px; z-index: 10; }' +
 
 			'#CORcontents { border: 0px red solid; left: 24%; position: absolute; top: 0; width: 50%; }' +
 
@@ -122,13 +122,13 @@
 			'</h3>' +
 			'<h2>' +
 				'<a href="" title="Click here to refresh this page" >' + document.title + '</a> ~ ' +
-				'<a href=#README.md onmouseover=CORpopHelp.style.display=""; onmouseout=CORpopHelp.style.display="none"; > &#x24D8; </a>' +
+				'<a href=./index.html#../../../gubgub/README.md onmouseover=CORpopHelp.style.display=""; onmouseout=CORpopHelp.style.display="none"; > &#x24D8; </a>' +
 
 			'</h2>' +
 
 			COR.taglineHeader +
 
-			'<div class=popUp id=CORpopHelp style=display:none; ><p>Hi there!</p>Click the i-in-circle info icon for README & latest updates.</div>' +
+			'<div class=CORpopUP id=CORpopHelp style=display:none; ><p>Hi there!</p>Click the i-in-circle info icon for README & latest updates.</div>' +
 
 		b;
 
@@ -146,13 +146,15 @@
 				'<summary><h3>About</h3></summary>' +
 
 				'<p>' +
-					'Copyright &copy; 2016 <a href=https://github.com/orgs/jaanga/people target="_blank">Jaanga authors</a>.' + b +
+					'Copyright &copy; 2016 <a href=https://github.com/orgs/jaanga/people target="_blank">Jaanga authors</a>' + b +
 					'<jaanga.github.io/license.md >MIT license</a>' +
 				'</p>' +
 
-				'<p>Thank you <a href=https://developer.github.com/v3/ > GitHub API </a> ' +
+				'<p>Thank you <a href=https://developer.github.com/v3/ > GitHub API </a><p>' +
 
-				'<p>Click the \'i in a circle\' info icon for more <a href=index.html#README.md >help</a></p>' + b +
+				'<p>Click the \'i in a circle\' info icon for more <a href=index.html#README.md >help</a></p>' +
+
+				'<p>Kindly report any issues at <a href="https://github.com/jaanga/gubgub/issues" target="_blank">jaanga/gubgub/issues</a></p>' +
 
 			'</details>' +
 
@@ -174,7 +176,7 @@
 				'<a href=javascript:COR.menu.scrollTop=0; style=text-decoration:none; onmouseover=pop2.style.display=""; onmouseout=pop2.style.display="none"; ><h1> &#x2766 <h1></a>' +
 			'</center>' +
 
-			'<div class=popUp id=pop2 style=display:none;bottom:100px; >' +
+			'<div class=CORpopUP id=pop2 style=display:none;bottom:100px; >' +
 				'Jaanga - your 3D happy place.<br>Click here to return to the top of the page' + b +
 			'</div>' +
 
@@ -186,7 +188,7 @@
 
 	COR.getPageFooter = function() {
 
-		return '<hr>' + b +
+		return b + '<hr>' +
 		'<center><h1>' +
 			'<a href=javascript:window.scrollTo(0,0); style=text-decoration:none; > &#x2766; </a>' +
 		'</h1></center>';
@@ -236,6 +238,14 @@
 
 	}
 
+
+	COR.setNullHash = function() {
+
+		history.replaceState( '', document.title, window.location.pathname );
+
+	}
+
+
 	COR.onHashChange = function() {
 
 		var url, callback, xhr;
@@ -250,17 +260,12 @@
 
 			document.title = url.split( '/' ).pop() + ' ~ ' + document.title;
 
-			history.replaceState( '', document.title, window.location.pathname );
+			COR.setNullHash();
+
+			bespokeReadMeText.innerHTML = COR.readmeText;
 
 		};
 
 		COR.requestFile( url, callback );
 
 	};
-
-
-	COR.setNullHash = function() {
-
-		history.replaceState( '', document.title, window.location.pathname );
-
-	}

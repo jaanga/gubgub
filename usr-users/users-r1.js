@@ -1,7 +1,7 @@
 
 	var USR = USR || {};
 
-	USR.peepsTheo =
+	USR.peepsFavorites =
 
 		'<optgroup label="Theo" >' +
 			'<option selected >Theo-Armour</option>' +
@@ -9,7 +9,7 @@
 		'</optgroup>' +
 
 		'<optgroup label="Three.js/WedGL" >' +
-			'<option>Mr.doob</option>' +
+			'<option>Mrboob</option>' +
 			'<option>bhouston</option>' +
 			'<option>gero3</option>' +
 			'<option>Saqoosha</option>' +
@@ -85,7 +85,7 @@
 
 	USR.groupOptions =
 
-		'<option value="listTheo" >Theo\'s list of favs</option>' +
+		'<option value="listFavorites" >Theo\'s list of favs</option>' +
 
 		'<optgroup label="Popular" >' +
 			'<option selected value="stars:>20000" >Users with repos & stars > 20,000</option>' +

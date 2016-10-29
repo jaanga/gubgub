@@ -72,9 +72,9 @@
 
 	SEL.setUserDetails = function() {
 
-		if ( SELselGroup.value === 'listTheo' ) {
+		if ( SELselGroup.value === 'listFavorites' ) {
 
-			SELselUser.innerHTML = USR.peepsTheo;
+			SELselUser.innerHTML = USR.peepsFavorites;
 
 			SEL.getUserDetails( SELselUser.value );
 
@@ -149,14 +149,28 @@
 
 	};
 
+
+
 	SEL.getUserDetails = function( user ) {
 
 console.log( 'user', user );
 
+		if ( SELselGroup.value === 'listFavorites' ) {
+
+			location.hash = user;
+
+			DAT.getUserData( user ); // left column update
+
+			EUS.requestGitHubAPIUserEvents( user ); // middle and right columns update
+
+
+		}
+
 	};
 
 
-/* see HTML
+
+/*
 
 	SEL.getUserDetails = function( user ) {
 
