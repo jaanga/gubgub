@@ -152,7 +152,7 @@
 
 				'<p>Thank you <a href=https://developer.github.com/v3/ > GitHub API </a> ' +
 
-				'<p>Click the \'i in a circle\' info icon for more <a href=index.html#readme.md >help</a></p>' + b +
+				'<p>Click the \'i in a circle\' info icon for more <a href=index.html#README.md >help</a></p>' + b +
 
 			'</details>' +
 

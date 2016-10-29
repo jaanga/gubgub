@@ -370,6 +370,7 @@ See
 Issues
 --------------------------------------------------------------------------------
 
+* 2016-10-28 ~ Decide whether or not all folder names have numbers 
 * 2016-10-28 ~ Reports error when cannot open README ~ probably unfixable
 * 2016-10-20 ~ Contents readme iframes not working in MS Edge browser
 
