@@ -24,7 +24,7 @@
 //	COR.txt = '<p>lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?</p>';
 	COR.txt = '<p>GitHub API responses will appear here.</p>';
 
-	COR.readmeText = '';
+	COR.readMeURL = 'index.html#README.md'
 
 	COR.converter = new showdown.Converter( { strikethrough: true, literalMidWordUnderscores: true, simplifiedAutoLink: true, tables: true });
 
@@ -122,7 +122,7 @@
 			'</h3>' +
 			'<h2>' +
 				'<a href="" title="Click here to refresh this page" >' + document.title + '</a> ~ ' +
-				'<a href=./index.html#../../../gubgub/README.md onmouseover=CORpopHelp.style.display=""; onmouseout=CORpopHelp.style.display="none"; > &#x24D8; </a>' +
+				'<a href=' + COR.readMeURL + ' onmouseover=CORpopHelp.style.display=""; onmouseout=CORpopHelp.style.display="none"; > &#x24D8; </a>' +
 
 			'</h2>' +
 
