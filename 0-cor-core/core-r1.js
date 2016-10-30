@@ -14,6 +14,15 @@
 
 // Add USR defaults to COR?
 
+	COR.converter = new showdown.Converter( { strikethrough: true, literalMidWordUnderscores: true, simplifiedAutoLink: true, tables: true });
+
+	COR.objectName = 'COR';
+
+//	COR.readMeURL = 'core-r1.html#../README.md'; // for testing
+	COR.readMeURL = 'index.html#README.md';
+
+	COR.readMeText = 'This is the default version of GubGub.';
+
 	COR.taglineHeader =
 
 		'<small>' +
@@ -24,12 +33,6 @@
 //	COR.txt = '<p>lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?</p>';
 	COR.txt = '<p>GitHub API responses will appear here.</p>';
 
-	COR.readMeURL = 'index.html#README.md'
-
-	COR.converter = new showdown.Converter( { strikethrough: true, literalMidWordUnderscores: true, simplifiedAutoLink: true, tables: true });
-
-	COR.objectName = 'COR';
-
 
 	COR.initThreeColumns = function() {
 
@@ -37,9 +40,9 @@
 
 		COR.menu = document.body.appendChild( document.createElement( 'div' ) );
 		COR.menu.id = 'CORmenu';
+/*
 
 // use something like this in your HTML file
-/*
 		COR.menu.innerHTML =
 
 			COR.getMenuDetailsHeader() +
@@ -56,7 +59,6 @@
 		COR.contents = document.body.appendChild( document.createElement( 'div' ) );
 		COR.contents.id = 'CORcontents';
 		COR.contents.innerHTML = '<h1>contents</h1><div id=CORdivContents >' + COR.txt + '</div>';
-
 
 		COR.updates = document.body.appendChild( document.createElement( 'div' ) );
 		COR.updates.id = 'CORupdates';
@@ -91,7 +93,7 @@
 			'summary { outline: none; }' +
 
 			'.DATbuttonMiddle { width: 108px; }' +
-			'.issue { background-color: #fff; border: 1px solid; }' +
+//			'.issue { background-color: #fff; border: 1px solid; }' +
 			'.CORpopUP { background-color: white; left: 140px; border: 1px solid red; opacity: 1.0; padding: 5px; position: absolute; width: 140px; z-index: 10; }' +
 
 			'#CORcontents { border: 0px red solid; left: 24%; position: absolute; top: 0; width: 50%; }' +
@@ -104,8 +106,8 @@
 
 // DAT?
 
-			'#repositoryEvents h4 { margin: 0; }' +
-			'#repositoryEvents { max-height: 200px; overflow-y: scroll; font-size: 9pt; }' +
+//			'#repositoryEvents h4 { margin: 0; }' +
+//			'#repositoryEvents { max-height: 200px; overflow-y: scroll; font-size: 9pt; }' +
 
 		'';
 
@@ -186,6 +188,7 @@
 
 	};
 
+
 	COR.getPageFooter = function() {
 
 		return b + '<hr>' +
@@ -256,13 +259,17 @@
 
 		callback = function( xhr ) {
 
+// add error message handler
+
 			COR.contents.innerHTML = COR.converter.makeHtml( xhr.target.responseText );
 
 			document.title = url.split( '/' ).pop() + ' ~ ' + document.title;
 
 			COR.setNullHash();
 
-			READMEbespokeText.innerHTML = COR.readMeText;
+//console.log( 'url', url, READMEbespokeText );
+
+			if ( url.match( 'README.md' ) ){ READMEbespokeText.innerHTML = COR.readMeText; }
 
 		};
 

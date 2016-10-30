@@ -8,9 +8,7 @@
 	var DAT = {};
 
 	DAT.get = {};
-
 	DAT.userData = undefined; // will hold all the data for current user
-
 	DAT.currentTopic = 'repos';
 
 
@@ -78,10 +76,9 @@
 
 
 
-// in alphabetical order
+// in alphabetical order ~ see DAT.userData
 // IIRC, there appears to be no published list of the following user fields.
-// And thus the following have been gathered by observation
-
+// And thus the following have been gathered by observation of DAT.userData for a number of users?
 
 	DAT.get.avatar_url = function( item, index ) {
 
@@ -176,7 +173,7 @@
 
 		return '<button class=DATbuttonLeft onclick=DAT.getRawData("' + DAT.userData.followers_url + '"); > raw </button> ' +
 			'<button  class=DATbuttonMiddle onclick=DAT.getFollowers("' + DAT.userData.login + '",' + index + '); > followers </button> ' +
-			'<a href=https://github.com/' + DAT.userData.login + '/followers target=_blank >' + item + ' followers </a>';
+			'<a href=https://github.com/' + DAT.userData.login + '/followers target=_blank >' + item.toLocaleString() + ' followers </a>';
 
 	};
 
@@ -193,7 +190,7 @@
 
 		return '<button class=DATbuttonLeft onclick=DAT.getRawData("https://api.github.com/users/' + DAT.userData.login + '/following"); > raw </button> ' +
 			'<button  class=DATbuttonMiddle onclick=DAT.getFollowing("' + DAT.userData.login + '"); > following </button> ' +
-			'<a href=https://github.com/' + DAT.userData.login + '/following target=_blank >' + item + ' following</a>';
+			'<a href=https://github.com/' + DAT.userData.login + '/following target=_blank >' + item.toLocaleString() + ' following</a>';
 
 	};
 
@@ -499,6 +496,8 @@
 	};
 
 
+// following all needs a good clean-up
+
 	DAT.getFollowers = function( user, index ) {
 
 		var url, urlToken, xhr, response, followers , txt;
@@ -525,8 +524,8 @@
 
 			}
 
-			txt = '<h1>' + DAT.userData.type + ': ' + user.link( DAT.userData.html_url ) + ' followers</h1>' +
-				'raw url:  ' + ( url ).link( url  );
+			txt = '<h1>' + DAT.userData.type + ': ' + user.link( DAT.userData.html_url ) + ': ' + DAT.userData.followers.toLocaleString() +
+				' followers </h1>' + 'raw url:  ' + ( url ).link( url );
 
 			for ( var i = 0; i < followers.length; i++ ) {
 
@@ -600,7 +599,8 @@
 
 			}
 
-			txt = '<h1>' + DAT.userData.type + ': ' + user.link( DAT.userData.html_url )  + ' following</h1>' +
+			txt = '<h1>' + DAT.userData.type + ': ' + user.link( DAT.userData.html_url )  + ': ' + DAT.userData.following.toLocaleString() +
+				' following</h1>' +
 				'raw url:  ' + ( url ).link( url );
 
 

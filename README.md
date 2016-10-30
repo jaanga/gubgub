@@ -17,6 +17,7 @@ _<small>
 
 <span style=display:none; >Full screen: [Jaanga GubGub]( https://jaanga.github.io/gubgub/ )</span>
 --------------------------------------------------------------------------------
+
 <!--
 <iframe id=ifr src=https://jaanga.github.io/gubgub/gubgub-r1.html width=100% height=600px ></iframe>
 
@@ -158,13 +159,13 @@ Coding Style
 
 ### Mission
 
-* We live in a world where the full-stack developer reigns supreme
-* We champion DevOps as if good DevOps is the primary goal
+* We live in a world where the [full-stack developer]( https://www.sitepoint.com/full-stack-developer/ ) reigns supreme
+* We champion [DevOps]( https://en.wikipedia.org/wiki/DevOps ) as if good DevOps is the primary goal
 
 But:
 
 * What if you are an entry-level coder?
-* What if you are interested in STEM topics than Devops?
+* What if you are interested in STEM topics than [DevO.ps]( http://devo.ps )?
 
 Then you have come to the right place.
 
@@ -178,7 +179,6 @@ You are here to explore code, therefore:
 	* Offers many - too many? - options
 * Uses most up-to-date JavaScript features
 * Displays the identical data using varying methods
-
 
 But some idiosyncrasies:
 
@@ -197,7 +197,7 @@ There are hundreds of computer programming languages.
 And so, there can be many styles of coding in each language. And each can have its own beauty.
 
 
-### Entry Level Code / cookbook Style
+### Entry Level Code / Cookbook Style
 
 * Code is almost all entry level JavaScript
 * Download and run
@@ -224,7 +224,7 @@ And so, there can be many styles of coding in each language. And each can have i
 	* Simple features in the pipeline are built on the lessons learned from the complextiies of the past  
 
 
-### No server Needed
+### No Server Needed
 
 * 100% client side
 * Loads scripts from GitHub pages or localhost
@@ -247,13 +247,13 @@ Scripts
 * Each script file has its own folder
 * Each script file has its own HTML file to help with testing and developing the script
 * Each script file has its own three letter namespace object
-	See [JavaScript Object Management]( https://developer.mozilla.org/en-US/Add-ons/Overlay_Extensions/XUL_School/JavaScript_Object_Management )
+	* See [JavaScript Object Management]( https://developer.mozilla.org/en-US/Add-ons/Overlay_Extensions/XUL_School/JavaScript_Object_Management )
 * The namespace title relates to the title of the menu
 * The three letter namespace is part of the script folder and file title
 
 _The following describes the usage of each script_
 
-### [COR]( https://github.com/jaanga/gubgub/tree/gh-pages/0-cor-core )
+### [COR / 0-cor-core-r1.js ]( https://github.com/jaanga/gubgub/tree/gh-pages/0-cor-core )
 
 COR.converter = new showdown.Converter( { strikethrough: true, literalMidWordUnderscores: true, simplifiedAutoLink: true, tables: true });
 
@@ -262,7 +262,7 @@ COR.converter = new showdown.Converter( { strikethrough: true, literalMidWordUnd
 * Adds style sheet data
 * Include AJAX and location.hash onchange event handling utilities used by the other scripts
 
-### [API]( https://github.com/jaanga/gubgub/tree/gh-pages/1-api-authentication )
+### [API / api-authentication-r1.js ]( https://github.com/jaanga/gubgub/tree/gh-pages/1-api-authentication )
 
 API Call: [https://api.github.com/rate_limit]( https://api.github.com/rate_limit )
 
@@ -275,7 +275,7 @@ API Call: [https://api.github.com/rate_limit]( https://api.github.com/rate_limit
     * Time when clock will return to zero
 
 
-### [SEL]( https://github.com/jaanga/gubgub/tree/gh-pages/2-sel-select )
+### [SEL / sel-select-r1.js ]( https://github.com/jaanga/gubgub/tree/gh-pages/2-sel-select )
 
 API calls:
 * [https://api.github.com/search/repositories?q=stars:>60000]( https://api.github.com/search/repositories?q=stars:>60000 )
@@ -293,7 +293,7 @@ Most of your interaction will occur here
 * Enter a user name of your choice
 
 
-### [DAT]( https://github.com/jaanga/gubgub/tree/gh-pages/dat-data )
+### [DAT/ dat-data-r1.js ]( https://github.com/jaanga/gubgub/tree/gh-pages/dat-data )
 
 API Calls:
 * [https://api.github.com/users/mrdoob]( https://api.github.com/users/mrdoob )
@@ -304,14 +304,14 @@ API Calls:
 	* Links to appropriate GitHub page for the data
 
 
-#### [EUS]( https://github.com/jaanga/gubgub/tree/gh-pages/eus-events-user )
+#### [EUS / eus-events-user-r1.js / user-events-big-r1.js ]( https://github.com/jaanga/gubgub/tree/gh-pages/eus-events-user )
 
 * Three ways of viewing user/organization events
     * As a tight vertical list ~ see right column: COR.updates
     * By repository and type ~ See COR.center ~ default when you load a new user
     * By date with details ~ see COR.center ~ click 'events' button in left menu or 'show events by date in detail' button in right menu
 
-### [USR]( https://github.com/jaanga/gubgub/tree/gh-pages/usr-users )
+### [USR/ users-r1.js ]( https://github.com/jaanga/gubgub/tree/gh-pages/usr-users )
 
 * Default data used by SEL
 * Items used to create options for SELselGroup
@@ -345,7 +345,7 @@ New name: GubGub
 
 The code or original name for this script was 'GitHub API User Explorer'.
 This title describes fairly clearly what the script's intention but does not comply with the [GitHub Logos and Usage]( https://github.com/logos ) guideline.
-Examples of app names that the GitHub organization accept are listed on the GitHub [Integrations[( https://github.com/integrations ) page.
+Examples of app names that the GitHub organization accept are listed on the GitHub [Integrations]( https://github.com/integrations ) page.
 The only of integrations with the word 'github' in the title are apps produced and distributed by GitHub themselves.
 
 So we needed a more acceptable name.
@@ -371,6 +371,7 @@ See
 Issues
 --------------------------------------------------------------------------------
 
+* 2016-10-29 ~ Why is there an error: 2-sel-select/sel-select-r1.html ?
 * 2016-10-28 ~ Decide whether or not all folder names have numbers
 * 2016-10-28 ~ Reports error when cannot open README ~ probably unfixable
 * 2016-10-20 ~ Microsoft Edge: Contents readme iframes not displaying data - probably issue with '/' in id
@@ -381,6 +382,8 @@ Issues
 To Do List / Goals
 --------------------------------------------------------------------------------
 
+* 2016-10-29 ~ Add meta descriptions to all HTML files
+* 2016-10-29 ~ Followers/Following: add ?sort=updated&order=desc&per_page=100'; - DAT all needs a good clean-up
 * 2016-10-29 ~ Split into multiple versions
     * Phone versions
     * Monitoring favorites version
@@ -418,19 +421,22 @@ Links of Interest / Background Context
 
 ### Credits
 
-* GitHub Developer API
-* Showdown
+* [GitHub Developer API]( https://developer.github.com/v3/ )
+* [Showdown]( https://github.com/showdownjs/showdown )
+    * Showdown is a JavaScript Markdown to HTML converter, based on the original works by John Gruber.
+    * Showdown can be used client side (in the browser) or server side (with NodeJs).
 
 
 ### README Considerations
 
 * http://tom.preston-werner.com/2010/08/23/readme-driven-development.html
 * https://github.com/noffle/art-of-readme
+    * This README is much influenced by noffle's README
 
 
 ### Coding
 
-* [Mozilla Developer Network (MDN) JavaScript]( https://developer.mozilla.org/en-US/docs/Web/JavaScript
+* [Mozilla Developer Network (MDN) JavaScript]( https://developer.mozilla.org/en-US/docs/Web/JavaScript )
 * [W3schools.com]( http://www.w3schools.com/js/ )
 	* Much maligned by full-stack developers,
 	* but it the first thing that show up on Google
@@ -438,7 +444,9 @@ Links of Interest / Background Context
 
 ### Coding Style
 
-* Mr.doob coding style
+* [Mr.doob coding style]( https://github.com/mrdoob/three.js/wiki/Mr.doob's-Code-Style%E2%84%A2 )
+* [Does Mr.doob approve your code style? ]( http://zz85.github.io/mrdoobapproves/ )
+    * [MrDoob Approves – A Javascript CodeStyle Editor+Validator+Formatter Project]( http://www.lab4games.net/zz85/blog/2015/01/25/mrdoob-approves-a-javascript-codestyle-editor-validator-formatter-project/ )
 
 
 ### Users
@@ -460,6 +468,7 @@ Change Log
 
 ### 2016-10-29
 
+* Code clean-up
 * Tested on briefly MacOS Sierra with Safari 10, FF49 and Chrome 54. All seem file
 * Tested on El Capitan with Safari 9.1. Fail.
 * Tested on iPad Pro with iOS 10. All seems fine.
@@ -488,7 +497,6 @@ Change Log
 ### 2016-10-25 ~ GubGub R1
 
 * New Jaanga repo
-
 
 
 ### 2016-10-23

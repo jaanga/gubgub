@@ -7,7 +7,7 @@
 <meta name=description content='GitHub API
 ' >
 <meta name=keywords content='Jaanga,GitHub API,CSS,HTML,JavaScript,GitHub,FOSS' >
-<meta name=date content='2016-09-16' >
+<meta name=date content='2016-10-29' >
 </head>
 <body>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.3/showdown.min.js ></script>
@@ -51,14 +51,11 @@
 
 		CORdetailsTemplate.setAttribute( 'open', 'open' );
 
-		window.addEventListener( 'hashchange', COR.onHashChange, false );
+//		window.addEventListener( 'hashchange', COR.onHashChange, false );
 
-		if ( location.hash.match( '.md' ) ) { COR.onHashChange(); }
+//		if ( location.hash.match( '.md' ) ) { COR.onHashChange(); }
 
 		if ( location.hash.match( 'token=' ) ) { API.onEventAPIKeyUpdate(); }
-
-
-
 
 
 		API.getRateLimits();
