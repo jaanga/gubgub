@@ -371,6 +371,7 @@ See
 Issues
 --------------------------------------------------------------------------------
 
+* 2016-10-30 ~ Open README with link: loads user and overwrites README
 * 2016-10-30 ~ USR: failing on reloads. Need to add valaes with actual login
 * 2016-10-29 ~ COR? Duplicates in title.document
 * 2016-10-29 ~ Double loads at times
