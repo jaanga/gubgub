@@ -304,7 +304,7 @@ API Calls:
 	* Links to appropriate GitHub page for the data
 
 
-#### [EUS / eus-events-user-r1.js / user-events-big-r1.js ]( https://github.com/jaanga/gubgub/tree/gh-pages/eus-events-user )
+### [EUS / eus-events-user-r1.js / user-events-big-r1.js ]( https://github.com/jaanga/gubgub/tree/gh-pages/eus-events-user )
 
 * Three ways of viewing user/organization events
     * As a tight vertical list ~ see right column: COR.updates
@@ -371,6 +371,8 @@ See
 Issues
 --------------------------------------------------------------------------------
 
+* 2016-10-29 ~ Duplicates in title.document
+* 2016-10-29 ~ Double loads at times
 * 2016-10-29 ~ Why is there an error: 2-sel-select/sel-select-r1.html ?
 * 2016-10-28 ~ Decide whether or not all folder names have numbers
 * 2016-10-28 ~ Reports error when cannot open README ~ probably unfixable
