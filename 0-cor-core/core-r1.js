@@ -93,7 +93,7 @@
 			'summary { outline: none; }' +
 
 			'.DATbuttonMiddle { width: 108px; }' +
-//			'.issue { background-color: #fff; border: 1px solid; }' +
+			'.issue { background-color: #fff; border: 1px solid; }' +
 			'.CORpopUP { background-color: white; left: 140px; border: 1px solid red; opacity: 1.0; padding: 5px; position: absolute; width: 140px; z-index: 10; }' +
 
 			'#CORcontents { border: 0px red solid; left: 24%; position: absolute; top: 0; width: 50%; }' +
