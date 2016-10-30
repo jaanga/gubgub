@@ -371,7 +371,8 @@ See
 Issues
 --------------------------------------------------------------------------------
 
-* 2016-10-29 ~ Duplicates in title.document
+* 2016-10-30 ~ USR: failing on reloads. Need to add valaes with actual login
+* 2016-10-29 ~ COR? Duplicates in title.document
 * 2016-10-29 ~ Double loads at times
 * 2016-10-29 ~ Why is there an error: 2-sel-select/sel-select-r1.html ?
 * 2016-10-28 ~ Decide whether or not all folder names have numbers
