@@ -407,6 +407,12 @@ To Do List / Goals
 Links of Interest / Background Context
 --------------------------------------------------------------------------------
 
+### Posts
+
+* https://github.com/jaanga/gubgub/issues/2
+* https://www.reddit.com/r/github/comments/5a8vzt/jaanga_gubgub_r1_explore_and_monitor_many_github/?ref=share&ref_source=link
+* https://twitter.com/ta/status/792871595001847808
+
 ### Web sites that help you explore GitHub
 
 * https://resume.github.io/ ~ added 2016-10-19

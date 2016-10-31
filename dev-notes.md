@@ -11,7 +11,12 @@ value='You are now in a GitHub Pages view. Click here to view README file in Git
 2016-10-30
 --------------------------------------------------------------------------
 
-Draft of status report on GitHub /  https://github.com/jaanga/gubgub/issues/2
+Draft of status report on GitHub
+
+* https://github.com/jaanga/gubgub/issues/2
+* https://www.reddit.com/r/github/comments/5a8vzt/jaanga_gubgub_r1_explore_and_monitor_many_github/?ref=share&ref_source=link
+* https://twitter.com/ta/status/792871595001847808
+
 
 2016-10-30 ~ Jaanga GubGub R1
 
