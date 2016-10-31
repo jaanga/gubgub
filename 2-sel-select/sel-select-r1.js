@@ -82,7 +82,7 @@
 
 			SEL.getSearchItems( SELselGroup.value );
 
-			SEL.getUserDetails( location.hash.slice( 1 ). );
+			SEL.getUserDetails( location.hash.slice( 1 ) );
 
 		} else {
 
