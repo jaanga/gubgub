@@ -8,8 +8,19 @@ value='You are now in a GitHub Pages view. Click here to view README file in Git
 [Dev Notes]( index.html#dev-notes.md )
 ===========================================================================
 
+
+2016-10-31
+--------------------------------------------------------------------------------
+Two Reddit up votes. 4 Twitter hearts. No replies from Paul or Geoff. Reply from Tania saying 'It's Greek to me.
+
+So what to do next?
+
+Moustapha and Lindsay Kaye?
+
+
+
 2016-10-30
---------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 Draft of status report on GitHub
 

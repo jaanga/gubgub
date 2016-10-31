@@ -16,6 +16,8 @@
 
 	COR.converter = new showdown.Converter( { strikethrough: true, literalMidWordUnderscores: true, simplifiedAutoLink: true, tables: true });
 
+	COR.documentTitle = document.title;
+
 	COR.objectName = 'COR';
 
 //	COR.readMeURL = 'core-r1.html#../README.md'; // for testing
@@ -69,6 +71,7 @@
 		window.addEventListener( 'hashchange', COR.onHashChange, false );
 
 		if ( location.hash.match( '.md' ) ) { COR.onHashChange(); }
+
 
 	};
 
@@ -263,13 +266,13 @@
 
 			COR.contents.innerHTML = COR.converter.makeHtml( xhr.target.responseText );
 
-			document.title = url.split( '/' ).pop() + ' ~ ' + document.title;
+			document.title = url.split( '/' ).pop() + ' ~ ' + COR.documentTitle;
 
 			COR.setNullHash();
 
 //console.log( 'url', url, READMEbespokeText );
 
-			if ( url.match( 'README.md' ) ){ READMEbespokeText.innerHTML = COR.readMeText; }
+			if ( url.match( 'README.md' ) ){ READMEbespokeText.innerHTML + COR.readMeText; }
 
 		};
 

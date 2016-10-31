@@ -88,7 +88,16 @@ then you have come to a good place...
 * Transfer all of this into your own set of tools
 
 
-Usage / Features
+### Features
+
+* Select or edit GitHub API search queries
+* Select results to view from list of users - or add your own user
+* Display and compare GitHub responses in many different ways
+* 100% client-side - host on GitHub Pages - no server needed
+* Coded throughout with entry-level JavaScript
+
+
+Usage
 --------------------------------------------------------------------------------
 
 The client-side JavaScript script creates and updates three columns of data/content
@@ -365,14 +374,16 @@ See
 * https://en.wikipedia.org/wiki/Doctor_Dolittle
 * https://en.wikipedia.org/wiki/Gub_Gub%27s_Book
 
+Other Dr Dolittle aniumal names that could be fun project names:
 
+ The animal team includes Polynesia (a parrot), Gub-Gub (a pig), Jip (a dog), Dab-Dab (a duck), Chee-Chee (a monkey), Too-Too (an owl), the Pushmi-pullyu, and a White Mouse later named simply "Whitey".
 
 
 Issues
 --------------------------------------------------------------------------------
 
 * 2016-10-30 ~ Open README with link: loads user and overwrites README
-* 2016-10-30 ~ USR: failing on reloads. Need to add valaes with actual login
+* 2016-10-30 ~ USR: failing on reloads. Need to add values with actual login
 * 2016-10-29 ~ COR? Duplicates in title.document
 * 2016-10-29 ~ Double loads at times
 * 2016-10-29 ~ Why is there an error: 2-sel-select/sel-select-r1.html ?
@@ -381,21 +392,21 @@ Issues
 * 2016-10-20 ~ Microsoft Edge: Contents readme iframes not displaying data - probably issue with '/' in id
 
 
-
-
 To Do List / Goals
 --------------------------------------------------------------------------------
 
-* 2016-10-29 ~ Add meta descriptions to all HTML files
-* 2016-10-29 ~ Followers/Following: add ?sort=updated&order=desc&per_page=100'; - DAT all needs a good clean-up
+* 2016-10-30 ~ SEL: add examples of various search parameters,
+* 2016-10-30 ~ EUS: combine two events files into one? Or build as two enetirel separated scripts
+* 2016-10-29 ~ HTML: Add meta descriptions to all HTML files
+* 2016-10-29 ~ DAT: Followers/Following: add ?sort=updated&order=desc&per_page=100'; - DAT all needs a good clean-up
 * 2016-10-29 ~ Split into multiple versions
     * Phone versions
     * Monitoring favorites version
     * GitHub explorer version
 * 2016-10-28 ~ Decide if better to open links in same tab or new tab
-* 2016-10-26 ~ Allow for translation
-* 2016-10-26 ~ Display current user in document.title
-* 2016-10-26 ~ Contents and Updates titles uppercase
+* 2016-10-26 ~ Allow for translation into many languages. text in JSON file?
+* 2016-10-26 ~ COR: Display current user in document.title
+* 2016-10-26 ~ EUS: Contents and Updates titles uppercase
 * 2016-10-26 ~ Add links to stats on events by repository and type
 * 2016-10-26 ~ Events by repo: Display if a repo is owned by a user or an org
 * 2016-10-20 ~ Add ability to display readme files in full

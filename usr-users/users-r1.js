@@ -4,7 +4,7 @@
 	USR.peepsFavorites =
 
 		'<optgroup label="Theo" >' +
-			'<option selected >theo-armour</option>' +
+			'<option selected >Theo-Armour</option>' +
 			'<option>jaanga</option>' +
 		'</optgroup>' +
 
@@ -13,9 +13,9 @@
 			'<option>bhouston</option>' +
 			'<option>gero3</option>' +
 			'<option>saqoosha</option>' +
-			'<option>westlangley</option>' +
+			'<option>WestLangley</option>' +
 			'<option>zz85</option>' +
-			'<option>koblin</option>' +
+			'<option>Koblin</option>' +
 			'<option>alteredq</option>' +
 			'<option>kig</option>' +
 			'<option>spite</option>' +
@@ -25,7 +25,7 @@
 			'<option>tparisi</option>' +
 			'<option>aroduc</option>' +
 			'<option>lo-th</option>' +
-			'<option>callumprentice</option>' +
+			'<option>CallumPrentice</option>' +
 		'</optgroup>' +
 
 		'<optgroup label="FGx">' +
