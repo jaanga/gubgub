@@ -176,9 +176,9 @@ console.log( 'user', user );
 
 			location.hash = user.toLowerCase();
 
-			DAT.getUserData( user ); // left column update
+			DAT.getUserData( user.toLowerCase() ); // left column update
 
-			EUS.requestGitHubAPIUserEvents( user ); // middle and right columns update
+			EUS.requestGitHubAPIUserEvents( user.toLowerCase() ); // middle and right columns update
 
 
 		}
