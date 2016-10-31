@@ -272,7 +272,7 @@
 
 //console.log( 'url', url, READMEbespokeText );
 
-			if ( url.match( 'README.md' ) ){ READMEbespokeText.innerHTML + COR.readMeText; }
+			if ( url.match( 'README.md' ) ){ READMEbespokeText.innerHTML = COR.readMeText; }
 
 		};
 

@@ -383,8 +383,6 @@ Issues
 --------------------------------------------------------------------------------
 
 * 2016-10-30 ~ Open README with link: loads user and overwrites README
-* 2016-10-30 ~ USR: failing on reloads. Need to add values with actual login
-* 2016-10-29 ~ COR? Duplicates in title.document
 * 2016-10-29 ~ Double loads at times
 * 2016-10-29 ~ Why is there an error: 2-sel-select/sel-select-r1.html ?
 * 2016-10-28 ~ Decide whether or not all folder names have numbers
@@ -486,6 +484,12 @@ Copyright © 2016 Jaanga authors. [MIT License]( #LICENSE.md )
 
 Change Log
 --------------------------------------------------------------------------------
+
+### 2016-10-31
+
+* Add COR.documentTitle + update title with user name pre-fixed
+    * 2016-10-29 ~ COR? Duplicates in title.document
+* 2016-10-30 ~ USR: failing on reloads. Need to add values with actual login < fixed - just change name to lower case
 
 ### 2016-10-29
 
