@@ -82,7 +82,7 @@
 
 			SEL.getSearchItems( SELselGroup.value );
 
-			SEL.getUserDetails( location.hash.slice( 1 ) );
+			SEL.getUserDetails( location.hash.slice( 1 ). );
 
 		} else {
 
@@ -174,7 +174,7 @@ console.log( 'user', user );
 
 		if ( SELselGroup.value === 'listFavorites' ) {
 
-			location.hash = user;
+			location.hash = user.toLowerCase();
 
 			DAT.getUserData( user ); // left column update
 
