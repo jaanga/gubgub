@@ -8,6 +8,12 @@ value='You are now in a GitHub Pages view. Click here to view README file in Git
 [Dev Notes]( index.html#dev-notes.md )
 ===========================================================================
 
+2016-11-01
+
+R2 Started. Nice message from Mostapha. Will build Ladybug version
+
+Cleaning up code on R2
+
 
 2016-10-31
 --------------------------------------------------------------------------------
@@ -15,7 +21,7 @@ Two Reddit up votes. 4 Twitter hearts. No replies from Paul or Geoff. Reply from
 
 So what to do next?
 
-Moustapha and Lindsay Kaye?
+Mostapha and Lindsay Kaye?
 
 
 

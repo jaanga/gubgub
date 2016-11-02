@@ -9,7 +9,7 @@
 
 	DAT.get = {};
 	DAT.userData = undefined; // will hold all the data for current user
-	DAT.currentTopic = 'repos';
+//	DAT.currentTopic = 'repos';
 
 
 	DAT.getMenuDetailsUserData = function() {
@@ -23,13 +23,15 @@
 				'<div id=DATdivUserData ></div>' + b +
 
 				'<small>' +
-					'Item order as sent by GitHub.' + b +
-					'Display of content is a WIP.' + b +
+					'Items are as sent and ordered by GitHub. ' +
+					'Display of this content is a WIP. Needs to be curated.' + b +
 				'</small>' + b +
 
 			'</details>' +
 
 		'';
+
+		MNU.css.innerHTML += '.DATbuttonMiddle { width: 108px; }';
 
 		return menuDetailsUserData;
 
@@ -82,7 +84,7 @@
 
 	DAT.get.avatar_url = function( item, index ) {
 
-		return '<a href=https://avatars.githubusercontent.com/u/' + DAT.userData.id + ' target=_blank ><img src=' + item + ' width=280; ><a>';
+		return '<a href=https://avatars.githubusercontent.com/u/' + DAT.userData.id + ' target=_blank ><img src=' + item + ' width=280; ></a>';
 
 	};
 
@@ -177,11 +179,12 @@
 
 	};
 
+
 	DAT.get.followers_url = function( item, index ) {
 
-// see DAT.get.followers
+// covered in DAT.get.followers
 
-//		return 'Followers: ' + item;
+//		return 'Followers URL: ' + item;
 
 	};
 
@@ -199,7 +202,7 @@
 
 // see DAT.get.following
 
-//		return 'Following: ' + item;
+//		return 'Following URL: ' + item;
 
 	};
 
@@ -228,7 +231,6 @@
 	};
 
 
-
 	DAT.get.html_url = function( item, index ) {
 
 //		return 'html url: ' + item;
@@ -236,13 +238,11 @@
 	};
 
 
-
 	DAT.get.id = function( item, index ) {
 
 		return '<button class=DATbuttonLeft onclick=DAT.getRawData("https://api.github.com/user/' + item + '");  title="unformatted API data results straight from GitHub" > raw </button> ' +
 			'<button class=DATbuttonMiddle onclick=DAT.fetchEventsDrawTable("https://api.github.com/user/' + item + '",' + index + '); title="GitHub API data prettified" > id </button> ' +
 			'<a href=https://api.github.com/user/' + item + ' target=_blank >' + item.toLocaleString() + '</a>' +
-
 		'';
 
 	};
@@ -262,8 +262,12 @@
 	DAT.get.login = function( item, index ) {
 
 		return '<button class=DATbuttonLeft onclick=DAT.getRawData("https://api.github.com/users/' + item + '"); title="unformatted API data results straight from GitHub" > raw </button> ' +
+
 			'<button class=DATbuttonMiddle onclick=DAT.fetchEventsDrawTable("https://api.github.com/users/' + item + '",' + index + '); title="GitHub API data prettified" > login </button> ' +
-			'<a href=' + DAT.userData.html_url + ' title="Link to the data as rendered by GitHub" target=_blank >' + item + '</a>';
+
+			'<a href=' + DAT.userData.html_url + ' title="Link to the data as rendered by GitHub" target=_blank >' + item + '</a>' +
+
+		'';
 
 	};
 
@@ -287,9 +291,11 @@
 
 		return '<button class=DATbuttonLeft onclick=DAT.getRawData("https://api.github.com/users/' + DAT.userData.login + '/orgs"); > raw </button> ' +
 
-			'<button  class=DATbuttonMiddle onclick=DAT.getOrgs("' + DAT.userData.login + '"); > organizations </button> ' +
+			'<button class=DATbuttonMiddle onclick=DAT.getOrgs("' + DAT.userData.login + '"); > organizations </button> ' +
 
-			'<a href=https://github.com/' + DAT.userData.login + '?tab=organizations target=_blank> orgs </a>';
+			'<a href=https://github.com/' + DAT.userData.login + '?tab=organizations target=_blank> orgs </a>' +
+
+		'';
 
 
 //		return 'Orgs: <a href=https://api.github.com/users/' + DAT.userData.login + '/orgs >orgs</a>';
@@ -299,26 +305,28 @@
 
 	DAT.get.owned_private_repos = function( item, index ) {
 
-//		return 'Owned_private_repos: <a href=' + DAT.userData.owned_private_repos + ' >' + item + '</a>';
+		return 'Owned_private_repos: <a href=' + DAT.userData.owned_private_repos + ' >' + item + '</a>';
 
 	};
 
 
 	DAT.get.plan = function( item, index ) {
 
-//		return 'plan: <a href=' + DAT.userData.plan + ' >' + item + '</a>';
+		return 'plan: <a href=' + DAT.userData.plan + ' >' + item + '</a>';
 
 	};
 
 
 	DAT.get.private_gists = function( item, index ) {
 
-//		return 'Private_gists: <a href=' + DAT.userData.private_gists + ' >' + item + '</a>';
+		return 'Private_gists: <a href=' + DAT.userData.private_gists + ' >' + item + '</a>';
 
 	};
 
 
 	DAT.get.public_repos = function( item, index ) {
+
+// see DAT.get.repos_url
 
 //		return 'Public repos: <a href=' + DAT.userData.repos_url + ' >' + item + '</a>';
 
@@ -328,8 +336,12 @@
 	DAT.get.public_gists = function( item, index ) {
 
 		return '<button class=DATbuttonLeft onclick=DAT.getRawData("https://api.github.com/users/' + DAT.userData.login + '/gists"); > raw </button> ' +
+
 			'<button  class=DATbuttonMiddle onclick=DAT.getGists("' + DAT.userData.login + '"); > gists </button> ' +
-			'<a href=https://gist.github.com/' + DAT.userData.login + ' target=_blank >' + item + ' gists </a>';
+
+			'<a href=https://gist.github.com/' + DAT.userData.login + ' target=_blank >' + item + ' gists </a>' +
+
+		'';
 
 	};
 
@@ -337,16 +349,21 @@
 	DAT.get.repos_url = function( item, index ) {
 
 		return '<button class=DATbuttonLeft onclick=DAT.getRawData("https://api.github.com/users/' + DAT.userData.login + '/repos"); > raw </button> ' +
-			'<button  class=DATbuttonMiddle onclick=DAT.getRepos("' + DAT.userData.login + '"); > repos </button> ' +
-			'<a href=https://github.com/' + DAT.userData.login + '?tab=repositories target=_blank >' + DAT.userData.public_repos + ' repos</a>';
 
+			'<button  class=DATbuttonMiddle onclick=DAT.getRepos("' + DAT.userData.login + '"); > repos </button> ' +
+
+			'<a href=https://github.com/' + DAT.userData.login + '?tab=repositories target=_blank >' + DAT.userData.public_repos + ' repos</a>' +
+
+		'';
 	};
 
 
 	DAT.get.received_events_url = function( item, index ) {
 
 		return '<button class=DATbuttonLeft onclick=DAT.getRawData("' + DAT.userData.received_events_url + '"); > raw </button> ' +
+
 			'<button  class=DATbuttonMiddle onclick=DAT.getReceivedEvents("' + DAT.userData.login + '"); > received events </button> ';
+
 //			'<button onclick=DAT.fetchEventsDrawTable("' + DAT.userData.received_events_url + '"); target=_blank > received events </button> ';
 //		return 'Received Events: <a href=' + DAT.userData.received_events_url + ' >received events</a>';
 
@@ -359,7 +376,9 @@
 //			'<button  class=DATbuttonMiddle onclick=DAT.fetchEventsDrawTable("https://api.github.com/users/' + DAT.userData.login + '/starred"); > starred </button> ' +
 			'<button  class=DATbuttonMiddle onclick=DAT.getStarred("' + DAT.userData.login + '",' + index + '); > starred </button> ' +
 
-			'<a href=https://github.com/stars/' + DAT.userData.login + ' target=_blank >stars</a>';
+			'<a href=https://github.com/stars/' + DAT.userData.login + ' target=_blank >stars</a>' +
+
+		'';
 
 	};
 
@@ -384,7 +403,7 @@
 
 	DAT.get.total_private_repos = function( item, index ) {
 
-//		return 'total_private_repos: <a href=' + DAT.userData.total_private_repos + ' >' + item + '</a>';
+		return 'total_private_repos: <a href=' + DAT.userData.total_private_repos + ' >' + item + '</a>';
 
 	};
 
@@ -408,17 +427,19 @@
 
 	DAT.get.url = function( item, index ) {
 
-//		return 'url: ' + item;
+//
+		return 'url: ' + item.link( item );
 
 	};
 
 
 	DAT.get.watchers = function( item, index ) {
 
-//		return 'url: ' + item;
+		return 'url: ' + item;
 
 	};
 
+//==============================================================================
 
 
 // for all the 'raw' buttons in the left column
@@ -433,7 +454,7 @@
 
 		function callback( xhr ) {
 
-			COR.contents.innerText = '\nURL sent: ' + url + '\n\nGitHub API Response:\n\n' + xhr.target.response;
+			MNU.contents.innerText = '\nURL sent: ' + url + '\n\nGitHub API Response:\n\n' + xhr.target.response;
 
 			window.scrollTo( 0, 0 );
 
@@ -474,7 +495,7 @@
 
 			}
 
-			COR.contents.innerHTML = '<table>' + txt + '</table>' + COR.getMenuFooter();
+			MNU.contents.innerHTML = '<table>' + txt + '</table>' + COR.getMenuFooter();
 
 			window.scrollTo( 0, 0 );
 
@@ -483,18 +504,22 @@
 	};
 
 
-	DAT.xxxsendMessage = function( message ) {
+/*
+	DAT.sendMessage = function( message ) {
 
 		var txt;
 
 		txt = message || '';
 
-		COR.contents.innerHTML = '<h2>' + txt + ' feature not yet implemented</h2>' ;
+		MNU.contents.innerHTML = '<h2>' + txt + ' feature not yet implemented</h2>' ;
 
 		window.scrollTo( 0, 0 );
 
 	};
+*/
 
+
+//==============================================================================
 
 // following all needs a good clean-up
 
@@ -518,7 +543,7 @@
 
 			if ( followers.message ) { // there's been an error...
 
-				COR.contents.innerHTML = followers.message;
+				MNU.contents.innerHTML = followers.message;
 
 				return;
 
@@ -564,7 +589,7 @@
 
 			}
 
-			COR.contents.innerHTML = txt + COR.getPageFooter();
+			MNU.contents.innerHTML = txt + COR.getPageFooter();
 
 			window.scrollTo( 0, 0 );
 
@@ -593,7 +618,7 @@
 
 			if ( followings.message ) { // there's been an error...
 
-				COR.contents.innerHTML = followings.message;
+				MNU.contents.innerHTML = followings.message;
 
 				return;
 
@@ -641,7 +666,7 @@
 
 			}
 
-			COR.contents.innerHTML = txt + COR.getPageFooter();
+			MNU.contents.innerHTML = txt + COR.getPageFooter();
 
 			window.scrollTo( 0, 0 );
 
@@ -654,7 +679,7 @@
 
 		var url, urlToken, gists, gist, txt;
 
-		url = 'https://api.github.com/users/' + user.link( DAT.userData.html_url ) + '/gists' + '?sort=updated&order=desc&per_page=100';
+		url = 'https://api.github.com/users/' + user + '/gists' + '?sort=updated&order=desc&per_page=100';
 
 		urlToken = url + '&' + ( API.token || '' );
 
@@ -667,7 +692,6 @@
 			gists = JSON.parse( xhr.target.responseText );
 
 //console.log( 'gists', gists );
-
 
 			txt = '<h1>' + DAT.userData.type + ': ' + user + ' gists</h1>' +
 				'raw url:  ' + ( url ).link( url );
@@ -693,7 +717,7 @@
 
 			}
 
-			COR.contents.innerHTML = txt + COR.getPageFooter();
+			MNU.contents.innerHTML = txt + COR.getPageFooter();
 
 			window.scrollTo( 0, 0 );
 
@@ -741,7 +765,7 @@
 
 			if ( orgs.message ) { // there's been an error...
 
-				COR.contents.innerHTML = orgs.message;
+				MNU.contents.innerHTML = orgs.message;
 
 				return;
 
@@ -770,7 +794,7 @@
 
 			}
 
-			COR.contents.innerHTML = txt + COR.getPageFooter();
+			MNU.contents.innerHTML = txt + COR.getPageFooter();
 
 			window.scrollTo( 0, 0 );
 
@@ -799,7 +823,7 @@
 
 			if ( receivedEvents.message ) { // there's been an error...
 
-				COR.contents.innerHTML = receivedEvents.message;
+				MNU.contents.innerHTML = receivedEvents.message;
 
 				return;
 
@@ -830,7 +854,7 @@
 
 			}
 
-			COR.contents.innerHTML = txt + COR.getPageFooter();
+			MNU.contents.innerHTML = txt + COR.getPageFooter();
 
 			window.scrollTo( 0, 0 );
 
@@ -860,7 +884,7 @@
 
 			if ( repos.message ) {
 
-				COR.contents.innerHTML = repos.message;
+				MNU.contents.innerHTML = repos.message;
 
 				return;
 
@@ -892,7 +916,7 @@
 
 			}
 
-			COR.contents.innerHTML = txt + COR.getPageFooter();
+			MNU.contents.innerHTML = txt + COR.getPageFooter();
 
 			window.scrollTo( 0, 0 );
 
@@ -952,7 +976,7 @@
 
 			}
 
-			COR.contents.innerHTML = '<table>' + txt + '</table>' + COR.getPageFooter();
+			MNU.contents.innerHTML = '<table>' + txt + '</table>' + COR.getPageFooter();
 
 			window.scrollTo( 0, 0 );
 
@@ -993,7 +1017,7 @@
 
 			}
 
-			COR.contents.innerHTML = '<table>' + txt + '</table>' + COR.getPageFooter();
+			MNU.contents.innerHTML = '<table>' + txt + '</table>' + COR.getPageFooter();
 
 			window.scrollTo( 0, 0 );
 

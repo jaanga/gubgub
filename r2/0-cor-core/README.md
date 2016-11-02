@@ -1,9 +1,11 @@
 
 
-Core README
+[Core README]( #README.md )
 ===
 
 
-<div id=READMEbespokeText >ccc</div>
+<div id=READMEbespokeText >raw</div>
 
-cc
+[core]( cor-core.html )
+
+Code that may be used by many other scripts

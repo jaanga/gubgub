@@ -100,7 +100,8 @@
 
 		var url, xhr, response, item, user;
 
-		url = 'https://api.github.com/search/repositories?q=' + query + '&sort=comments&order=desc&per_page=100&' + ( API.token || '' );
+//		url = 'https://api.github.com/search/repositories?q=' + query + '&sort=comments&order=desc&per_page=100&' + ( API.token || '' );
+		url = 'https://api.github.com/search/repositories?q=' + query + '&sort=stars&order=desc&per_page=100&' + ( API.token || '' );
 
 		COR.requestFile( url, callbackSearch );
 

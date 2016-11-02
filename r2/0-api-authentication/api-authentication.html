@@ -11,8 +11,11 @@
 </head>
 <body>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.3/showdown.min.js ></script>
-<script src=../0-cor-core/core-r1.js ></script>
-<script src=../1-api-authentication/api-authentication-r1.js ></script>
+
+<script src=../../r2/0-cor-core/cor-core.js ></script>
+<script src=../../r2/0-mn3-menu-three/mn3-menu-three.js ></script>
+<script src=../../r2/0-api-authentication/api-authentication.js ></script>
+
 <script>
 // Copyright © 2016 Jaanga authors. MIT License
 
@@ -25,9 +28,9 @@
 
 		COR.taglineHeader += '+ an API token howdy!' + b;
 
-		COR.initThreeColumns();
+		MNU.initThreeColumns();
 
-		COR.menu.innerHTML =
+		MNU.menu.innerHTML =
 
 			COR.getMenuDetailsHeader() +
 
@@ -60,12 +63,11 @@
 
 		API.getRateLimits();
 
-		CORdivContents.innerHTML = 'API token: ' + ( API.token || 'not provided' );
+		MNUdivContents.innerHTML = 'API token: ' + ( API.token || 'not provided' );
 
 console.log( 'API.token', ( API.token || 'not provided' ) );
 
 	}
-
 
 </script>
 </body>

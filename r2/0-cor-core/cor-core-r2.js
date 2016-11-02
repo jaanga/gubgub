@@ -21,9 +21,9 @@
 	COR.objectName = 'COR';
 
 //	COR.readMeURL = 'core-r1.html#../README.md'; // for testing
-	COR.readMeURL = 'index.html#README.md';
+	COR.readMeURL = '#README.md';
 
-	COR.readMeText = 'This is the default version of GubGub.';
+	COR.readMeText = 'This is the COR default version of GubGub.';
 
 	COR.taglineHeader =
 
@@ -34,87 +34,6 @@
 
 //	COR.txt = '<p>lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?</p>';
 	COR.txt = '<p>GitHub API responses will appear here.</p>';
-
-
-	COR.initThreeColumns = function() {
-
-		COR.getCSSThreeColomns();
-
-		COR.menu = document.body.appendChild( document.createElement( 'div' ) );
-		COR.menu.id = 'CORmenu';
-/*
-
-// use something like this in your HTML file
-		COR.menu.innerHTML =
-
-			COR.getMenuDetailsHeader() +
-
-			COR.getMenuDetailsTemplate() +
-
-			COR.getMenuDetailsAbout() +
-
-			COR.getMenuFooter() +
-
-		b;
-*/
-
-		COR.contents = document.body.appendChild( document.createElement( 'div' ) );
-		COR.contents.id = 'CORcontents';
-		COR.contents.innerHTML = '<h1>contents</h1><div id=CORdivContents >' + COR.txt + '</div>';
-
-		COR.updates = document.body.appendChild( document.createElement( 'div' ) );
-		COR.updates.id = 'CORupdates';
-		COR.updates.innerHTML = '<h1>updates</h1><div id=CORdivUpdates >' + COR.txt + '</div>';
-
-//		detailsTemplate.setAttribute('open', 'open');
-
-		window.addEventListener( 'hashchange', COR.onHashChange, false );
-
-		if ( location.hash.match( '.md' ) ) { COR.onHashChange(); }
-
-
-	};
-
-
-
-	COR.getCSSThreeColomns = function() {
-
-		COR.css = document.body.appendChild( document.createElement( 'style' ) );
-		COR.css.innerHTML =
-
-			'body { font: 12pt monospace; margin: 0; }' +
-
-			'a { color: crimson; text-decoration: none; }' +
-
-			'button, input[type=button] { background-color: #ccc; border: 2px #fff solid; color: #322; cursor: pointer; }' +
-
-			'img { max-width: 100%; }' +
-			'iframe { width: 100%; }' +
-
-			'select { width: 100%; }' +
-			'summary h2, summary h3, summary h4 { display: inline; }' +
-			'summary { outline: none; }' +
-
-			'.DATbuttonMiddle { width: 108px; }' +
-			'.issue { background-color: #fff; border: 1px solid; }' +
-			'.CORpopUP { background-color: white; left: 140px; border: 1px solid red; opacity: 1.0; padding: 5px; position: absolute; width: 140px; z-index: 10; }' +
-
-			'#CORcontents { border: 0px red solid; left: 24%; position: absolute; top: 0; width: 50%; }' +
-
-			'#CORmenu { background-color: #eee; height: ' + window.innerHeight + 'px; padding: 0 5px 0 10px; overflow-x: hidden; overflow-y: auto; position: fixed; max-width: 20%; }' +
-			'#CORmenu h1, #CORmenu h2, #CORmenu h3 { margin: 0; }' +
-			'#CORmenu img { max-width: 200px; }' +
-
-			'#CORupdates { background-color: #eee;  height: ' + window.innerHeight + 'px; right: 0; max-width: 20%; overflow-x: hidden; overflow-y: auto; padding: 0 20px; position: fixed; }' +
-
-// DAT?
-
-//			'#repositoryEvents h4 { margin: 0; }' +
-//			'#repositoryEvents { max-height: 200px; overflow-y: scroll; font-size: 9pt; }' +
-
-		'';
-
-	};
 
 
 
@@ -136,6 +55,8 @@
 			'<div class=CORpopUP id=CORpopHelp style=display:none; ><p>Hi there!</p>Click the i-in-circle info icon for README & latest updates.</div>' +
 
 		b;
+
+		MNU.css.innerHTML += '.CORpopUP { background-color: white; left: 140px; border: 1px solid red; opacity: 1.0; padding: 5px; position: absolute; width: 140px; z-index: 10; }';
 
 		return menuDetailsHeader;
 
@@ -170,7 +91,6 @@
 	};
 
 
-
 	COR.getMenuFooter = function() {
 
 		var footer =
@@ -187,6 +107,8 @@
 
 		'';
 
+// should CSS be added here instead of in HTML?
+
 		return footer;
 
 	};
@@ -201,6 +123,9 @@
 
 	}
 
+// Use in HTML
+// 			COR.getMenuDetailsTemplate() +
+//		CORdetailsTemplate.setAttribute( 'open', 'open' );
 
 	COR.getMenuDetailsTemplate = function() {
 
@@ -251,31 +176,14 @@
 
 	}
 
+	COR.onRequestErrorMessage = function( response ) {
 
-	COR.onHashChange = function() {
+		if ( response.message ) {
 
-		var url, callback, xhr;
+			COR.contents.innerHTML = response.message;
 
-		url = location.hash.slice( 1 );
+			return;
 
-		if ( url.match( 'token=' ) ){ return;  }
+		}
 
-		callback = function( xhr ) {
-
-// add error message handler
-
-			COR.contents.innerHTML = COR.converter.makeHtml( xhr.target.responseText );
-
-			document.title = url.split( '/' ).pop() + ' ~ ' + COR.documentTitle;
-
-			COR.setNullHash();
-
-//console.log( 'url', url, READMEbespokeText );
-
-			if ( url.match( 'README.md' ) ){ READMEbespokeText.innerHTML = COR.readMeText; }
-
-		};
-
-		COR.requestFile( url, callback );
-
-	};
+	}

@@ -284,19 +284,39 @@ API Call: [https://api.github.com/rate_limit]( https://api.github.com/rate_limit
     * Time when clock will return to zero
 
 
-### [SEL / sel-select-r1.js ]( https://github.com/jaanga/gubgub/tree/gh-pages/2-sel-select )
+### [Namespace SEL / Source code: sel-select.js ]( https://github.com/jaanga/gubgub/tree/gh-pages/2-sel-select )
 
-API calls:
-* [https://api.github.com/search/repositories?q=stars:>60000]( https://api.github.com/search/repositories?q=stars:>60000 )
-* See [GitHub Developer API Search]( https://developer.github.com/v3/search/ )
+* Much of your interaction with GitHub will occur here
+* Located in the top of left menu
 
 #### Select Type of GitHub User
+
 * Select a pre-written search query
 * Edit or enter your own query
+* First item in the list is a special item
+    * Calls pre-selected list of users
+    * Displays reslults in 'Select GitHub User...' menu item  
+    * Data is in `usr-usr.js`
 
-Most of your interaction will occur here
+GitHub Developer API calls:
 
-### Select GitHub user and repo
+* [https://api.github.com/search/repositories?q=stars:>60000]( https://api.github.com/search/repositories?q=stars:>60000 )
+
+Relevant Documentation
+
+* See [GitHub Developer API Search]( https://developer.github.com/v3/search/ )
+    * https://help.github.com/articles/searching-repositories/
+    * https://help.github.com/articles/search-syntax/
+
+Investigations
+
+* We are building up a set of standard queries
+* Most of the current queries are based on this syntax: `%keyword%+stars:>%number%`  
+* We are looking for more varied yet still interesting types of queries to provide as samples
+* See also the 'Links of Interest' section
+
+
+#### Select GitHub user and repo
 
 * Select a user from the list of results
 * Enter a user name of your choice
@@ -403,7 +423,6 @@ To Do List / Goals
     * GitHub explorer version
 * 2016-10-28 ~ Decide if better to open links in same tab or new tab
 * 2016-10-26 ~ Allow for translation into many languages. text in JSON file?
-* 2016-10-26 ~ COR: Display current user in document.title
 * 2016-10-26 ~ EUS: Contents and Updates titles uppercase
 * 2016-10-26 ~ Add links to stats on events by repository and type
 * 2016-10-26 ~ Events by repo: Display if a repo is owned by a user or an org
@@ -437,6 +456,10 @@ Links of Interest / Background Context
 * https://gist.github.com/paulmillr/2657075/
 * http://githut.info/
 
+### Things You Can Do with the [GitHub Search API]( https://developer.github.com/v3/search/ )
+
+* https://gist.github.com/jasonrudolph/6065289
+* Please add more!
 
 ### Credits
 
@@ -484,6 +507,16 @@ Copyright © 2016 Jaanga authors. [MIT License]( #LICENSE.md )
 
 Change Log
 --------------------------------------------------------------------------------
+
+2016-11-01 ~  ~ R2
+
+* R2 committed
+* 2016-10-26 ~ COR: Display current user in document.title < added
+* Halfway through renaming folders and cleaning-up code
+* Moving to onHashChange ib HTNL strategy
+    * Will try to use 'if not loaded then load strategy'
+    * Keep all major decisions all in the HTML file
+    * Use location hash to control things
 
 ### 2016-10-31
 
