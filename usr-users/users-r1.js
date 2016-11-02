@@ -1,5 +1,6 @@
 
 	var USR = USR || {};
+
 	var oneWeekAgo = new Date();
 	oneWeekAgo.setDate( oneWeekAgo.getDate() - 7 );
 	var oneWeekAgo$ = oneWeekAgo.toJSON().slice( 0, 10 );
