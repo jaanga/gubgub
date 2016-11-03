@@ -33,9 +33,9 @@
 
 //		detailsTemplate.setAttribute('open', 'open');
 
-		window.addEventListener( 'hashchange', COR.onHashChange, false );
+//		window.addEventListener( 'hashchange', onHashChange, false );
 
-		if ( location.hash.match( '.md' ) ) { COR.onHashChange(); }
+//		if ( location.hash.match( '.md' ) ) { onHashChange(); }
 
 
 	};

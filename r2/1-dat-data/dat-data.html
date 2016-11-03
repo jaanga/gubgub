@@ -15,7 +15,8 @@
 <script src=../../r2/0-cor-core/cor-core.js ></script>
 <script src=../../r2/0-mn3-menu-three/mn3-menu-three.js ></script>
 <script src=../../r2/0-api-authentication/api-authentication.js ></script>
-
+<script src=../../r2/2-res-results/res-results.js ></script>
+<script src=../../r2/2-res-results-events/res-results-events.js ></script>
 <script src=../../r2/1-dat-data/dat-data.js ></script>
 
 <script>
@@ -56,9 +57,68 @@
 
 		'';
 
-		DAT.getUserData( user );
+		window.addEventListener( 'hashchange', onHashChange, false );
+
+		onHashChange();
+
+//		DAT.getUserData( user );
 
 	}
+
+	function onHashChange() {
+
+		var url, callback, xhr;
+
+		url = location.hash.slice( 1 );
+
+		if ( url.match( 'token=' ) ){ API.onEventAPIKeyUpdate(); return;  }
+
+		if ( url.endsWith( '.md' ) === true ) {
+
+// console.log( 'url', url );
+
+			COR.requestFile( url, callbackMD );
+
+			function callbackMD( xhr ) {
+
+				if ( xhr.target.status === 404 ) { return; }
+
+				MNU.contents.innerHTML = COR.converter.makeHtml( xhr.target.responseText );
+
+				if ( url.match( 'README.md' ) === true ){ READMEbespokeText.innerHTML = 'things'; }
+
+			}
+
+			return;
+
+		}
+
+
+		DAT.getUserData( user );
+
+/*
+		callback = function( xhr ) {
+
+			if ( xhr.message ) { MNU.contents.innerHTML = xhr.message; return; }
+
+// console.log( 'xhr.target', xhr.target );
+
+			MNUdivContents.innerHTML = COR.converter.makeHtml( xhr.target.responseText );
+
+			document.title = url.split( '/' ).pop() + ' ~ ' + COR.documentTitle;
+
+			COR.setNullHash();
+
+//console.log( 'url', url, READMEbespokeText );
+
+			if ( url.match( 'README.md' ) ){ READMEbespokeText.innerHTML = COR.readMeText; }
+
+		};
+
+		COR.requestFile( url, callback );
+*/
+
+	};
 
 </script>
 </body>

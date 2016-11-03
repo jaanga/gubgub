@@ -2,7 +2,7 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>SEL Select2</title>
+<title>RES Results2</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
 <meta name=description content='Select or enter a query for the GitHub User API.
 Select a user from the list of results or enter a user name.
@@ -20,7 +20,14 @@ Preview many aspects of their GitHub corpus. Monitor recent activity
 
 <script src=../../r2/1-sel-select/sel-select.js ></script>
 <script src=../../r2/0-usr-users/usr-users.js ></script>
+
+<script src=../../r2/2-res-results/res-results.js ></script>
+<script src=../../r2/2-res-results-events/res-results-events.js ></script>
+<script src=../../r2/1-dat-data/dat-data.js ></script>
+
 <script>
+
+	SEL.user = '';
 
 	init();
 
@@ -42,15 +49,20 @@ Preview many aspects of their GitHub corpus. Monitor recent activity
 
 			SEL.getMenuDetailsSelectUser() +
 
+			DAT.getMenuDetailsUserData() +
+
 			COR.getMenuDetailsAbout() +
 
 			COR.getMenuFooter() +
 
 		b;
 
+
 		window.addEventListener( 'hashchange', onHashChange, false );
 
 //		SELselQuery.selectedIndex = 0;
+
+		SEL.setUserDetails();
 
 		onHashChange();
 
@@ -59,13 +71,13 @@ Preview many aspects of their GitHub corpus. Monitor recent activity
 
 	function onHashChange() {
 
-		var url, callback, xhr;
+		var hash, callback, xhr;
 
-		url = location.hash.slice( 1 );
+		hash = location.hash.slice( 1 );
 
-		if ( url.match( 'token=' ) ){ API.onEventAPIKeyUpdate(); return;  }
+		if ( hash.match( 'token=' ) ){ API.onEventAPIKeyUpdate(); return;  }
 
-		if ( url.endsWith( '.md' ) === true ) {
+		if ( hash.endsWith( '.md' ) === true ) {
 
 // console.log( 'url', url );
 
@@ -85,10 +97,15 @@ Preview many aspects of their GitHub corpus. Monitor recent activity
 
 		}
 
+		if ( hash && hash !== SEL.user ) {
 
-//		DAT.getUserData( user );
+			SEL.user = hash;
 
-		SEL.setUserDetails();
+			SEL.getUserDetails();
+
+		}
+
+console.log( 'SEL.user', SEL.user, hash );
 
 	};
 

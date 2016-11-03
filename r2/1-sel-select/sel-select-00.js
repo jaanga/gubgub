@@ -45,7 +45,7 @@
 
 				'<summary><h3>Select GitHub user and repo</h3></summary>' +
 
-				'<select id=SELselUser onchange=location.hash=this.value; title="Select the user" size=15 ></select>' + b +
+				'<select id=SELselUser onchange=SEL.getUserDetails(this.value); title="Select the user" size=15 ></select>' + b +
 
 				b +
 
@@ -57,6 +57,8 @@
 
 			'</details>' +
 
+//		'<div id=menuFolderNameTableOfContents ></div>' +
+
 		'<div id=menuUserInfo ></div>' +
 
 		'';
@@ -66,41 +68,34 @@
 	};
 
 
-//==============================================================================
+// called by HTML file
 
+/*
 	SEL.setUserDetails = function() {
 
 		if ( SELselQuery.value === 'listFavorites' ) {
 
 			SELselUser.innerHTML = USR.peepsFavorites;
 
-			SEL.user = SELselUser.value;
+			SEL.getUserDetails( SELselUser.value );
 
-			SEL.getUserDetails();  // currently selected option
+		} else if ( location.hash.length ) {
+
+			SEL.getQueryItems( SELselQuery.value );
+
+			SEL.getUserDetails( location.hash.slice( 1 ) );
 
 		} else {
 
-			COR.setNullHash();
-			
 			SEL.getQueryItems( SELselQuery.value );
 
 		}
 
+		SELinpQuery.value = SELselQuery.value;
+
 	};
 
-
-	SEL.getUserDetails = function() {
-
-		window.scrollTo( 0, 0 );
-
-		MNU.updates.scrollTop = 0;
-
-		MNUdivUpdates.innerHTML = 'User: ' + SEL.user + ' events will appear here';
-		MNUdivContents.innerHTML = 'User: ' + SEL.user + ' data will appear here';
-
-		DAT.getUserData( SEL.user );
-
-	}
+*/
 
 
 	SEL.getQueryItems = function( query ) {
@@ -144,34 +139,113 @@ console.log( 'error response.message', response );
 
 	SEL.getUserItems = function( response ) {
 
-		SELselUser.innerHTML = '';
+			SELselUser.innerHTML = '';
 
-		for ( var i = 0; i < response.items.length; i++ ) {
+			for ( var i = 0; i < response.items.length; i++ ) {
 
-			item = response.items[ i ];
+				item = response.items[ i ];
 
-			SELselUser[ SELselUser.length ] = new Option( ( i + 1 ) + ' ' + item.full_name, item.owner.login );
+				SELselUser[ SELselUser.length ] = new Option( ( i + 1 ) + ' ' + item.full_name, item.owner.login );
 
-		}
+			}
 
-		if ( !location.hash ) {
+			if ( !location.hash ) {
 
 console.log( 'no hash ', 23 );
 
-			SELselUser.selectedIndex = Math.floor( SELselUser.length * Math.random() );
+				SELselUser.selectedIndex = Math.floor( SELselUser.length * Math.random() );
 
-			SEL.user = SELselUser.value;
 
-			SEL.getUserDetails();
 
-		} else {
+				SEL.getUserDetails( SELselUser.value );
 
-			SELselQuery.selectedIndex = -1;
+			} else {
 
-//			SEL.user = location.hash.slice( 1 );
+				SELselQuery.selectedIndex = -1;
 
-			SEL.getUserDetails();
+				SELinpQuery.value = '';
+
+//				SELselUser.selectedIndex = -1;
+
+//				user = location.hash.slice( 1 );
+
+				SEL.getUserDetails( user );
+
+//				SELinpUser.value = user;
+
+			}
+
+
+
+	};
+
+
+/*
+
+	SEL.getUserDetails = function( user ) {
+
+console.log( 'user', user );
+
+		if ( SELselQuery.value === 'listFavorites' ) {
+
+			location.hash = user.toLowerCase();
+
+			DAT.getUserData( user.toLowerCase() ); // left column update
+
+			EUS.requestGitHubAPIUserEvents( user.toLowerCase() ); // middle and right columns update
+
 
 		}
 
 	};
+
+
+
+
+
+	SEL.getUserDetails = function( user ) {
+
+		location.hash = user;
+
+		if ( DAT.getUserData ) {
+
+			DAT.getUserData( user );
+
+			switch( DAT.currentTopic ) {
+
+				case 'events':
+					DAT.getEvents ( user, 0, contents )
+					break;
+				case 'gists':
+					DAT.getGists ( user )
+					break;
+				case 'orgs':
+					DAT.getOrgs( user )
+					break;
+				case 'repos':
+					DAT.getRepos( user )
+					break;
+				case 'stats':
+//					EUS.buildStatsReport( user )
+					break;
+				default:
+					DAT.getRepos( user )
+
+			}
+
+//		DAT.getRepos( user );
+
+		}
+
+// updates contents and right side
+
+		if ( EUS.requestGitHubAPIUserEvents ) {
+
+			EUS.target = updates;
+			EUS.requestGitHubAPIUserEvents( user);
+
+		}
+
+	}
+
+*/

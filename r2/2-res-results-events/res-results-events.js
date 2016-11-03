@@ -9,7 +9,7 @@
 	var page = 0;
 
 
-	DAT.getEvents = function( user, page ) {
+	RES.getEvents = function( user, page ) {
 
 console.log( 'user', user );
 
@@ -27,7 +27,7 @@ console.log( 'user', user );
 
 		pageHeader =
 
-			'<h1>' + 
+			'<h1>' +
 				DAT.userData.type + ': ' + user.link( 'https://github.com/' + user ) + ' events by date' +
 			'</h1>' +
 			'<div>Same data as right column but presented with more detail </div>' +
@@ -106,9 +106,9 @@ console.log( 'non-event', event );
 			} else {
 */
 
-				pageHeader += '<div>' + events.length + ' events from ' + EUS.dates[ 1 ] + ' to ' + EUS.dates[ 0 ] + '</div>';
+				pageHeader += ''; //'<div>' + events.length + ' events from ' + EUS.dates[ 1 ] + ' to ' + EUS.dates[ 0 ] + '</div>';
 
-				COR.contents.innerHTML = pageHeader + pageContent + COR.getPageFooter();
+				MNUcontents.innerHTML = pageHeader + pageContent + COR.getPageFooter();
 
 				window.scrollTo( 0, 0 );
 
@@ -234,14 +234,14 @@ console.log( 'non-event', event );
 		for ( var i = 0; i < event.payload.commits.length; i++ ) {
 
 			commit = event.payload.commits[ i ];
-			commitMsg += '<div class=issue><a href=https://github.com/' + event.repo.name + '/commit/' + commit.sha + 
+			commitMsg += '<div class=issue><a href=https://github.com/' + event.repo.name + '/commit/' + commit.sha +
 				' >' + COR.converter.makeHtml( commit.message ) + '</a></div>';
 
 		}
 
 		txt =
 			'<div>Actor: <a href=http://github.com/' + actor + ' >' + actor + '</a></div>' +
-			'<div>Message(s):</div>' + 
+			'<div>Message(s):</div>' +
 //				( event.payload.commits.length ? event.payload.commits[ 0 ].message + '</a>' : '' ) + '</div>' +
 				commitMsg +
 			'<div>Size: ' + event.payload.size + ' - Length: ' + event.payload.commits.length + '</div>' +
