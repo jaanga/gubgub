@@ -31,7 +31,7 @@
 
 		'';
 
-		return menuDetailsSelectGroup;
+		return menuDetailsSelectGroup
 
 	};
 

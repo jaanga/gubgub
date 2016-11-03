@@ -8,6 +8,14 @@ value='You are now in a GitHub Pages view. Click here to view README file in Git
 [Dev Notes]( index.html#dev-notes.md )
 ===========================================================================
 
+
+2016-11-02 ~
+
+* R2 moving along nicely
+* Seem to have cleaned-up most of the multiple load issues
+* Lesson learned: All location hash updates should be in the html
+
+
 2016-11-01
 
 R2 Started. Nice message from Mostapha. Will build Ladybug version

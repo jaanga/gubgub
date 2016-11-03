@@ -81,7 +81,7 @@
 		} else {
 
 			COR.setNullHash();
-			
+
 			SEL.getQueryItems( SELselQuery.value );
 
 		}
@@ -167,8 +167,6 @@ console.log( 'no hash ', 23 );
 		} else {
 
 			SELselQuery.selectedIndex = -1;
-
-//			SEL.user = location.hash.slice( 1 );
 
 			SEL.getUserDetails();
 
