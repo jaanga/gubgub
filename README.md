@@ -516,7 +516,15 @@ Copyright © 2016 Jaanga authors. [MIT License]( #LICENSE.md )
 Change Log
 --------------------------------------------------------------------------------
 
-2016-11-01 ~  ~ R2
+### 2016-11-04 ~
+
+* R2 looking good
+* Major issue pages loading multiple times and/or causing issues with opening README appears to have been fixed
+* Files and folders renamed into more identifiable categories
+* Code clean-up and streamline
+
+
+### 2016-11-01 ~  ~ R2
 
 * R2 committed
 * 2016-10-26 ~ COR: Display current user in document.title < added
