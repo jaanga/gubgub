@@ -18,6 +18,8 @@ _<small>
 <span style=display:none; >Full screen: [Jaanga GubGub]( https://jaanga.github.io/gubgub/ )</span>
 --------------------------------------------------------------------------------
 
+Full screen: [Jaanga GubGub R2]( https://jaanga.github.io/gubgub/r2/ )
+--------------------------------------------------------------------------------
 <!--
 <iframe id=ifr src=https://jaanga.github.io/gubgub/gubgub-r1.html width=100% height=600px ></iframe>
 
