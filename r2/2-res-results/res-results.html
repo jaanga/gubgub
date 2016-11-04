@@ -14,7 +14,7 @@ Preview many aspects of their GitHub corpus. Monitor recent activity
 <body>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.3/showdown.min.js ></script>
 
-<script src=../../r2/0-cor-core/cor-core.js ></script>
+<script src=../../r2/0-cor-core/cor-core-r2.js ></script>
 <script src=../../r2/0-mn3-menu-three/mn3-menu-three.js ></script>
 <script src=../../r2/0-api-authentication/api-authentication.js ></script>
 
@@ -22,7 +22,9 @@ Preview many aspects of their GitHub corpus. Monitor recent activity
 <script src=../../r2/0-usr-users/usr-users.js ></script>
 
 <script src=../../r2/2-res-results/res-results.js ></script>
-<script src=../../r2/2-res-results-events/res-results-events.js ></script>
+<script src=../../r2/2-res-results/res-results-events.js ></script>
+
+
 <script src=../../r2/1-dat-data/dat-data.js ></script>
 
 <script>
@@ -60,7 +62,7 @@ Preview many aspects of their GitHub corpus. Monitor recent activity
 
 		window.addEventListener( 'hashchange', onHashChange, false );
 
-//		SELselQuery.selectedIndex = 0;
+		SELselQuery.selectedIndex = 0;
 
 		SEL.setUserDetails();
 
@@ -105,7 +107,7 @@ Preview many aspects of their GitHub corpus. Monitor recent activity
 
 		}
 
-console.log( 'SEL.user', SEL.user, hash );
+//console.log( 'SEL.user', SEL.user, hash );
 
 	};
 

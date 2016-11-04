@@ -14,12 +14,17 @@ Preview many aspects of their GitHub corpus. Monitor recent activity
 <body>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.3/showdown.min.js ></script>
 
-<script src=../../r2/0-cor-core/cor-core.js ></script>
+<script src=../../r2/0-cor-core/cor-core-r2.js ></script>
 <script src=../../r2/0-mn3-menu-three/mn3-menu-three.js ></script>
 <script src=../../r2/0-api-authentication/api-authentication.js ></script>
 
 <script src=../../r2/1-sel-select/sel-select.js ></script>
 <script src=../../r2/0-usr-users/usr-users.js ></script>
+
+<script src=../../r2/1-dat-data/dat-data.js ></script>
+
+<script src=../../r2/2-eus-events-user/eus-events-user.js ></script>
+
 <script>
 
 	init();
@@ -50,7 +55,9 @@ Preview many aspects of their GitHub corpus. Monitor recent activity
 
 		window.addEventListener( 'hashchange', onHashChange, false );
 
-//		SELselQuery.selectedIndex = 0;
+		SELselQuery.selectedIndex = 0;
+
+		SEL.setUserDetails();
 
 		onHashChange();
 
@@ -59,17 +66,17 @@ Preview many aspects of their GitHub corpus. Monitor recent activity
 
 	function onHashChange() {
 
-		var url, callback, xhr;
+		var hash, callback, xhr;
 
-		url = location.hash.slice( 1 );
+		hash = location.hash.slice( 1 );
 
-		if ( url.match( 'token=' ) ){ API.onEventAPIKeyUpdate(); return;  }
+		if ( hash.match( 'token=' ) ){ API.onEventAPIKeyUpdate(); return;  }
 
-		if ( url.endsWith( '.md' ) === true ) {
+		if ( hash.endsWith( '.md' ) === true ) {
 
-// console.log( 'url', url );
+// console.log( 'hash', hash );
 
-			COR.requestFile( url, callbackMD );
+			COR.requestFile( hash, callbackMD );
 
 			function callbackMD( xhr ) {
 
@@ -77,7 +84,7 @@ Preview many aspects of their GitHub corpus. Monitor recent activity
 
 				MNU.contents.innerHTML = COR.converter.makeHtml( xhr.target.responseText );
 
-				if ( url.match( 'README.md' ) === true ){ READMEbespokeText.innerHTML = 'things'; }
+				if ( hash.match( 'README.md' ) === true ){ READMEbespokeText.innerHTML = 'things'; }
 
 			}
 
@@ -85,13 +92,15 @@ Preview many aspects of their GitHub corpus. Monitor recent activity
 
 		}
 
+		if ( hash && hash !== SEL.user ) {
 
-//		DAT.getUserData( user );
+			SEL.user = hash;
 
-		SEL.setUserDetails();
+			SEL.getUserDetails();
+
+		}
 
 	};
-
 
 </script>
 </body>

@@ -95,10 +95,14 @@
 
 		MNU.updates.scrollTop = 0;
 
-		MNUdivUpdates.innerHTML = 'User: ' + SEL.user + ' events will appear here';
-		MNUdivContents.innerHTML = 'User: ' + SEL.user + ' data will appear here';
+//		MNUdivUpdates.innerHTML = 'User: ' + SEL.user + ' events will appear here';
+//		MNUdivContents.innerHTML = 'User: ' + SEL.user + ' data will appear here';
+
+// Create an event here, have the following scripts listen
 
 		DAT.getUserData( SEL.user );
+
+		EUS.requestGitHubAPIUserEvents( SEL.user );
 
 	}
 

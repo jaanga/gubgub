@@ -12,11 +12,11 @@
 <body>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.3/showdown.min.js ></script>
 
-<script src=../../r2/0-cor-core/cor-core.js ></script>
+<script src=../../r2/0-cor-core/cor-core-r2.js ></script>
 <script src=../../r2/0-mn3-menu-three/mn3-menu-three.js ></script>
 <script src=../../r2/0-api-authentication/api-authentication.js ></script>
 <script src=../../r2/2-res-results/res-results.js ></script>
-<script src=../../r2/2-res-results-events/res-results-events.js ></script>
+<script src=../../r2/2-res-results/res-results-events.js ></script>
 <script src=../../r2/1-dat-data/dat-data.js ></script>
 
 <script>
@@ -28,9 +28,9 @@
 //	var user = 'mrdoob';
 //	var user = 'ladybug-analysis-tools';
 //	var user = 'torvalds';
-//	var user = 'paulmasson';
-	var user = 'theo-armour';
-	var user = 'Theo-Armour';
+	var user = 'paulmasson';
+//	var user = 'theo-armour';
+//	var user = 'Theo-Armour';
 
 	init();
 
@@ -46,9 +46,6 @@
 
 			COR.getMenuDetailsHeader() +
 
-//			SEL.getMenuDetailsSelectGroup() +
-//			SEL.getMenuDetailsSelectUser() +
-
 			DAT.getMenuDetailsUserData() +
 
 			COR.getMenuDetailsAbout() +
@@ -61,9 +58,8 @@
 
 		onHashChange();
 
-//		DAT.getUserData( user );
-
 	}
+
 
 	function onHashChange() {
 
@@ -84,7 +80,7 @@
 				if ( xhr.target.status === 404 ) { return; }
 
 				MNU.contents.innerHTML = COR.converter.makeHtml( xhr.target.responseText );
-
+// too soon
 				if ( url.match( 'README.md' ) === true ){ READMEbespokeText.innerHTML = 'things'; }
 
 			}
@@ -93,30 +89,7 @@
 
 		}
 
-
 		DAT.getUserData( user );
-
-/*
-		callback = function( xhr ) {
-
-			if ( xhr.message ) { MNU.contents.innerHTML = xhr.message; return; }
-
-// console.log( 'xhr.target', xhr.target );
-
-			MNUdivContents.innerHTML = COR.converter.makeHtml( xhr.target.responseText );
-
-			document.title = url.split( '/' ).pop() + ' ~ ' + COR.documentTitle;
-
-			COR.setNullHash();
-
-//console.log( 'url', url, READMEbespokeText );
-
-			if ( url.match( 'README.md' ) ){ READMEbespokeText.innerHTML = COR.readMeText; }
-
-		};
-
-		COR.requestFile( url, callback );
-*/
 
 	};
 

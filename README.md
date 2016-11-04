@@ -410,26 +410,34 @@ Issues
 * 2016-10-20 ~ Microsoft Edge: Contents readme iframes not displaying data - probably issue with '/' in id
 
 
+
 To Do List / Goals
 --------------------------------------------------------------------------------
 
-* 2016-10-30 ~ SEL: add examples of various search parameters,
-* 2016-10-30 ~ EUS: combine two events files into one? Or build as two enetirel separated scripts
+By script
 * 2016-10-29 ~ HTML: Add meta descriptions to all HTML files
-* 2016-10-29 ~ DAT: Followers/Following: add ?sort=updated&order=desc&per_page=100'; - DAT all needs a good clean-up
+* 2016-10-29 ~ DAT: Followers/Following: add ?sort=updated&order=desc&per_page=100';
+* 2016-11-04 ~ DAT: needs a curated list of option \ all needs a good clean-up
+* 2016-10-30 ~ SEL: add examples of various search parameters,
+* 2016-11-04 ~ SEL: create an onload event that other scripts can listen to
+* 2016-10-30 ~ EUS: combine two events files into one? Or build as two enetirel separated scripts
+* 2016-10-26 ~ EUS: Contents and Updates titles uppercase
+* 2016-10-26 ~ EUS/RES: Events by repo: Display if a repo is owned by a user or an org
+* 2016-10-20 ~ RES: Add ability to display readme files in full
+* 2016-10-26 ~ RES: Add links to stats on events by repository and type
+* RES: Add number of stars to each repo < would add to rate limit
+* RES: Add iframes to orgs
+* RES: Add iframes to gists
+
+Generally
+* 2016-11-04 ~ CSS: Start adding material.io touches
 * 2016-10-29 ~ Split into multiple versions
     * Phone versions
     * Monitoring favorites version
     * GitHub explorer version
 * 2016-10-28 ~ Decide if better to open links in same tab or new tab
 * 2016-10-26 ~ Allow for translation into many languages. text in JSON file?
-* 2016-10-26 ~ EUS: Contents and Updates titles uppercase
-* 2016-10-26 ~ Add links to stats on events by repository and type
-* 2016-10-26 ~ Events by repo: Display if a repo is owned by a user or an org
-* 2016-10-20 ~ Add ability to display readme files in full
-* Add number of stars to each repo < would add to rate limit
-* Add iframes to orgs
-* Add iframes to gists
+
 
 
 Links of Interest / Background Context

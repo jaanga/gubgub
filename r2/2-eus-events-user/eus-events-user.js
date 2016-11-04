@@ -1,4 +1,5 @@
 // Copyright &copy; 2016 Jaanga authors. MIT License.
+// updates both middle and right columns
 
 // Documentation: https://developer.github.com/v3/
 // https://developer.github.com/v3/activity/events/
@@ -7,7 +8,6 @@
 	var EUS = EUS || {};
 
 // from: https://developer.github.com/v3/activity/events/types/
-
 	EUS.eventTypes = [ "CommitCommentEvent","CreateEvent","DeleteEvent","DeploymentEvent","DeploymentStatusEvent","DownloadEvent","FollowEvent","ForkEvent","ForkApplyEvent","GistEvent","GollumEvent","IssueCommentEvent","IssuesEvent","MemberEvent","MembershipEvent","PageBuildEvent","PublicEvent","PullRequestEvent","PullRequestReviewCommentEvent","PushEvent","ReleaseEvent","RepositoryEvent","StatusEvent","TeamAddEvent","WatchEvent" ];
 
 	EUS.type = {};
@@ -17,11 +17,9 @@
 	EUS.readmeTypes = [ 'README.md', 'readme.md', 'README.markdown', 'README.rst', 'README' ];
 	EUS.css = '<style>body { font: 10pt monospace; }</style>\n';
 
-// used by eus-events-user-r1.html
+// used by eus-events-user-r1.html /- bit to any great effect
 
 	EUS.getMenuDetailsUserEvents = function() {
-
-		EUS.target = COR.updates;
 
 		var menuDetailsUserEvents =
 
@@ -46,7 +44,7 @@
 
 	EUS.requestGitHubAPIUserEvents = function( user ) {
 
-		var urlEvents, event, txt, dates, actor, repo, link, index;
+		var urlEvents;
 
 		urlEvents = 'https://api.github.com/users/' + user + '/events?per_page=100&' + ( API.token || '' );
 
@@ -61,7 +59,7 @@
 
 			if ( EUS.events.message ) { // there's been an error...
 
-				COR.contents.innerHTML =
+				MNU.contents.innerHTML =
 
 					'<h1>' + EUS.events.message + '</h1>' +
 					'<p>See: </p>' +
@@ -73,71 +71,7 @@
 
 			}
 
-
-// move to own function
-
-			txt =
-
-				'<h2 style=margin-botom:0; title="See \'EUS\' namespace and \'eus-events-user-r1.js\'" >' + user + '</h2>' +
-
-				'<h3 style=margin-bottom:0; >' + EUS.events.length + ' recent user events by date</h3>' +
-
-				'<button onclick=DAT.currentTopic="stats";EUS.requestGitHubAPIUserEvents("' + EUS.user + '"); >show events by repository and type</button>' + b +
-
-				'<button onclick=DAT.currentTopic="events";DAT.getEvents("' + DAT.userData.login + '",0); >show events by date in detail</button>' + b;
-
-			'';
-
-			for ( var i = 0; i < EUS.events.length; i++ ) {
-
-				event = EUS.events[ i ];
-
-				if ( !EUS.repos[ event.repo.name ] ) {
-
-					EUS.repos[ event.repo.name ] = { "name" : event.repo.name, "stats" : Array(  EUS.eventTypes.length ).fill( 0 ) };
-
-				}
-
-				date = event.created_at.slice( 0, 10 );
-
-				if ( !EUS.dates.includes( date ) ) {
-
-					EUS.dates.push( date );
-
-					txt += '<h4 style=margin-bottom:0; >' + date + '</h4>';
-
-				}
-
-				if ( user.toLowerCase() !== event.actor.login  ) {
-
-					actor = event.actor.login.link( event.actor.url );
-
-				} else {
-
-					actor = 'repo: ' ;
-
-				}
-
-				repo = event.repo.name;
-
-				link = repo.replace ( user + '/', '' ).link( 'https://github.com/' + repo );
-
-				txt +=
-
-					( i + 1 ) + ' ' + event.created_at.slice( 11, -4 ) + ' ' + actor + ' ' + link + b +
-					'<small>' + EUS.type[ 'on' + event.type ]( event ) + '</small>' +
-
-				b;
-
-				index = EUS.eventTypes.indexOf( event.type );
-
-				EUS.repos[ repo ].stats[ index ]++;
-
-			}
-
-			COR.updates.innerHTML = txt;
-
-// end move
+			EUS.drawEventsCondensed( user );
 
 			EUS.buildEventsReportByRepo( user );
 
@@ -147,6 +81,75 @@
 
 	};
 
+
+// right column
+
+	EUS.drawEventsCondensed = function( user ) {
+
+		var urlEvents, event, txt, dates, actor, repo, link, index;
+
+		txt =
+
+			'<h2 style=margin-botom:0; title="See \'EUS\' namespace and \'eus-events-user-r1.js\'" >' + user + '</h2>' +
+
+			'<h3 style=margin-bottom:0; >' + EUS.events.length + ' recent user events by date</h3>' +
+
+			'<button onclick=DAT.currentTopic="stats";EUS.requestGitHubAPIUserEvents("' + EUS.user + '"); >show events by repository and type</button>' + b +
+
+			'<button onclick=DAT.currentTopic="events";DAT.getEvents("' + DAT.userData.login + '",0); >show events by date in detail</button>' + b;
+
+		'';
+
+		for ( var i = 0; i < EUS.events.length; i++ ) {
+
+			event = EUS.events[ i ];
+
+			if ( !EUS.repos[ event.repo.name ] ) {
+
+				EUS.repos[ event.repo.name ] = { "name" : event.repo.name, "stats" : Array(  EUS.eventTypes.length ).fill( 0 ) };
+
+			}
+
+			date = event.created_at.slice( 0, 10 );
+
+			if ( !EUS.dates.includes( date ) ) {
+
+				EUS.dates.push( date );
+
+				txt += '<h4 style=margin-bottom:0; >' + date + '</h4>';
+
+			}
+
+			if ( user.toLowerCase() !== event.actor.login  ) {
+
+				actor = event.actor.login.link( event.actor.url );
+
+			} else {
+
+				actor = 'repo: ' ;
+
+			}
+
+			repo = event.repo.name;
+
+			link = repo.replace ( user + '/', '' ).link( 'https://github.com/' + repo );
+
+			txt +=
+
+				( i + 1 ) + ' ' + event.created_at.slice( 11, -4 ) + ' ' + actor + ' ' + link + b +
+				'<small>' + EUS.type[ 'on' + event.type ]( event ) + '</small>' +
+
+			b;
+
+			index = EUS.eventTypes.indexOf( event.type );
+
+			EUS.repos[ repo ].stats[ index ]++;
+
+		}
+
+		MNU.updates.innerHTML = txt;
+
+	};
 
 
 // Used by center contents
@@ -207,7 +210,7 @@
 
 		}
 
-		COR.contents.innerHTML = txt + COR.getPageFooter();
+		MNU.contents.innerHTML = txt + COR.getPageFooter();
 
 	};
 

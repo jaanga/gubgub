@@ -2,7 +2,6 @@
 
     var RES = {};
 
-//==============================================================================
 
 // following all needs a good clean-up
 
@@ -14,8 +13,6 @@
 
 		urlToken = url + '?' + ( API.token || '' );
 
-//		RES.currentTopic = 'followers ';
-
 		COR.requestFile( url, callback );
 
 		function callback( xhr ) {
@@ -24,13 +21,7 @@
 
 //console.log( 'followers ', followers  );
 
-			if ( followers.message ) { // there's been an error...
-
-				MNU.contents.innerHTML = followers.message;
-
-				return;
-
-			}
+			if ( followers.message ) { MNU.contents.innerHTML = followers.message; return; } // error
 
 			txt = '<h1>' + DAT.userData.type + ': ' + user.link( DAT.userData.html_url ) + ': ' + DAT.userData.followers.toLocaleString() +
 				' followers </h1>' + 'raw url:  ' + ( url ).link( url );
@@ -44,11 +35,8 @@
 				txt +=
 
 					'<h3>' +
-
-						( i + 1 ) + ' ' + follower.login.link( 'https://github.com/' + follower.login ) + b +
-
-						'<img src=' + follower.avatar_url + ' width=180 >' +
-
+						( i + 1 ) + ' ' +
+                        ( follower.login + b + '<img src=' + follower.avatar_url + ' width=180 >' ).link( 'https://github.com/' + follower.login )  +
 					'</h3>' +
 
 					'<div>' +
@@ -89,8 +77,6 @@
 
 		urlToken = url + '?' + ( API.token || '' );
 
-//		DAT.currentTopic = 'followings ';
-
 		COR.requestFile( url, callback );
 
 		function callback( xhr ) {
@@ -99,13 +85,7 @@
 
 //console.log( 'followings ', followings  );
 
-			if ( followings.message ) { // there's been an error...
-
-				MNU.contents.innerHTML = followings.message;
-
-				return;
-
-			}
+			if ( followings.message ) { MNU.contents.innerHTML = followings.message; return; }
 
 			txt = '<h1>' + DAT.userData.type + ': ' + user.link( DAT.userData.html_url )  + ': ' + DAT.userData.following.toLocaleString() +
 				' following</h1>' +
@@ -121,11 +101,8 @@
 				txt +=
 
 					'<h3>' +
-
-						( i + 1 ) + ' ' + following.login.link( 'https://github.com/' + following.login ) + b +
-
-						'<img src=' + following.avatar_url + ' width=180 >' +
-
+						( i + 1 ) + ' ' +
+                        ( following.login + b + '<img src=' + following.avatar_url + ' width=180 >' ).link( 'https://github.com/' + following.login ) +
 					'</h3>' +
 
 					'<div>' +
@@ -137,13 +114,7 @@
 
 			if ( DAT.userData.type === "Organization" ) {
 
-//				url1 = 'https://github.com/orgs/' + DAT.userData.login + '/people';
-//				url2 = 'https://api.github.com/orgs/' + DAT.userData.login + '/public_members';
-
 				txt += '<p>Organizations usually do not follow others unless they were converted over from a user repository.</p>' +
-
-//					'<p>See people: ' + url1.link( url1 ) + '</p>' +
-//					'<p>See API public_members: ' + url2.link( url2 ) + '</p>' +
 
 				'';
 
@@ -236,8 +207,6 @@
 
 		url = 'https://api.github.com/users/' + user + '/orgs?' + ( API.token || '' );
 
-		DAT.currentTopic = 'orgs';
-
 		COR.requestFile( url, callback );
 
 		function callback( xhr ) {
@@ -246,15 +215,9 @@
 
 //console.log( 'orgs', orgs );
 
-			if ( orgs.message ) { // there's been an error...
+			if ( orgs.message ) { MNU.contents.innerHTML = orgs.message; return; }
 
-				MNU.contents.innerHTML = orgs.message;
-
-				return;
-
-			}
-
-			txt = '<h1>user: ' + user.link( DAT.userData.html_url ) + ' organizations</h1>' +
+			txt = '<h1>user: ' + user.link( DAT.userData.html_url ) + ' organizations </h1>' +
 				'raw url: ' + url.link( url );
 
 			for ( var i = 0; i < orgs.length; i++ ) {
@@ -266,9 +229,8 @@
 				txt +=
 
 					'<h3>' +
-
-						( i + 1 ) + ' ' + ( org.login + b + '<img src=' + org.avatar_url + ' width=180 >' ).link( 'https://github.com/' + org.login ) +
-
+						( i + 1 ) + ' ' +
+                        ( org.login + b + '<img src=' + org.avatar_url + ' width=180 >' ).link( 'https://github.com/' + org.login ) +
 						b +
 
 					'</h3>' +
@@ -294,8 +256,6 @@
 
 		urlToken = url + '&' + ( API.token || '' );
 
-		DAT.currentTopic = 'receivedEvents';
-
 		COR.requestFile( urlToken, callback );
 
 		function callback( xhr ) {
@@ -304,13 +264,7 @@
 
 //console.log( 'receivedEvents', receivedEvents );
 
-			if ( receivedEvents.message ) { // there's been an error...
-
-				MNU.contents.innerHTML = receivedEvents.message;
-
-				return;
-
-			}
+			if ( receivedEvents.message ) { MNU.contents.innerHTML = receivedEvents.message; return; }
 
 			txt = '<h1>' + user.link( DAT.userData.html_url ) + ' received events</h1>' +
 				'raw url: ' + url.link( url );
@@ -380,22 +334,7 @@
 
 				repo = repos[ i ];
 
-/*
-				txt +=
-
-					'<h3>' +
-
-						( i + 1 ) + ' <a href=' + repo.html_url + ' >' + repo.name + '</a>' +
-						( repo.fork === true ? ' ~ fork ~ ' : ' ~ ' ) +
-						'forks: ' + repo.forks.toLocaleString() + ' ~ ' +
-						'stars: ' + repo.watchers.toLocaleString() + ' ~ ' +
-						'issues: ' + repo.open_issues.toLocaleString() +
-
-					'</h3>' +
-
-					'<p>' + repo.updated_at.slice( 0, 10 ) + ' ~ ' + repo.description + '</p>';
-*/
-			txt += RES.getRepoInfo( repo, i );
+			    txt += RES.getRepoInfo( repo, i );
 
 			}
 
@@ -432,22 +371,6 @@
 			for ( var i = 0; i < starred.length; i++ ) {
 
 				star = starred[ i ];
-
-/*
-				txt +=
-
-					'<h3>' +
-
-						( i + 1 ) + ' ' + star.name.link( star.html_url ) +
-						' stars ' + star.watchers.toLocaleString().link( star.html_url + '/stargazers' ) +
-						' forks ' + star.forks.toLocaleString().link( star.html_url + '/network/members' ) +
-						' update ' + star.updated_at.slice( 0, 10 ).link( star.html_url + '/pulse' ) +
-
-					'</h3>' +
-
-					'<div>language ' + star.language + ' - open issues ' + star.open_issues + '</div>' +
-					'<div>' + star.description + '</div>';
-*/
 
 				txt += RES.getRepoInfo( star, i );
 

@@ -67,7 +67,7 @@
 
 		if ( url.endsWith( '.md' ) === true ) {
 
-// console.log( 'url', url );
+console.log( 'url', url );
 
 			COR.requestFile( url, callbackMD );
 
@@ -76,7 +76,7 @@
 				if ( xhr.target.status !== 404 ) {
 
 					MNU.contents.innerHTML = COR.converter.makeHtml( xhr.target.responseText );
-
+// too soon...
 					if ( url.match( 'README.md' ) === true ){ READMEbespokeText.innerHTML = COR.readMeText; }
 
 				}
