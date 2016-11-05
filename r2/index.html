@@ -12,7 +12,6 @@
 <body>
 
 <script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.3/showdown.min.js ></script>
-
 <script src=../r2/0-cor-core/cor-core-r2.js ></script>
 <script src=../r2/0-mn3-menu-three/mn3-menu-three.js ></script>
 <script src=../r2/0-api-authentication/api-authentication.js ></script>
@@ -25,21 +24,25 @@
 <script src=../r2/2-res-results/res-results.js ></script>
 <script src=../r2/2-res-results/res-results-events.js ></script>
 <script src=../r2/2-eus-events-user/eus-events-user.js ></script>
-
 <!--
-<script src=https://jaanga.github.io/gubgub/0-cor-core/core-r1.js ></script>
-<script src=https://jaanga.github.io/gubgub/1-api-authentication/api-authentication-r1.js ></script>
-<script src=https://jaanga.github.io/gubgub/2-sel-select/sel-select-r1.js ></script>
-<script src=https://jaanga.github.io/gubgub/dat-data/dat-data-r1.js ></script>
-<script src=https://jaanga.github.io/gubgub/user-events-big/user-events-big-r1.js ></script>
-<script src=https://jaanga.github.io/gubgub/eus-events-user/eus-events-user-r1.js ></script>
-<script src=https://jaanga.github.io/gubgub/usr-users/users-r1.js ></script>
+<script src=https://jaanga.github.io/gubgub/r2/0-cor-core/cor-core-r2.js ></script>
+<script src=https://jaanga.github.io/gubgub/r2/0-mn3-menu-three/mn3-menu-three.js ></script>
+<script src=https://jaanga.github.io/gubgub/r2/0-api-authentication/api-authentication.js ></script>
+
+<script src=https://jaanga.github.io/gubgub/r2/1-sel-select/sel-select.js ></script>
+<script src=https://jaanga.github.io/gubgub/r2/0-usr-users/usr-users.js ></script>
+
+<script src=https://jaanga.github.io/gubgub/r2/1-dat-data/dat-data.js ></script>
+
+<script src=https://jaanga.github.io/gubgub/r2/2-res-results/res-results.js ></script>
+<script src=https://jaanga.github.io/gubgub/r2/2-res-results/res-results-events.js  ></script>
+<script src=https://jaanga.github.io/gubgub/r2/2-eus-events-user/eus-events-user.js ></script>
 -->
 
 <script>
 
 	COR.readMeURL = 'index.html#../README.md';
-//	COR.readMeText = 'This is the default version of <a href=https://jaanga.github.io/gubgub/ >GubGub</a>.';
+	COR.readMeText = 'This is the default version of <a href=https://jaanga.github.io/gubgub/ >GubGub</a>.';
 
 	init();
 
@@ -47,11 +50,11 @@
 
 		COR.taglineHeader += '+ an Index  howdy!' + b;
 
-		COR.readMeText = 'This is the SEL default version of GubGub.';
+		COR.readMeText = 'This is the default version of GubGub.';
 
 		MNU.initThreeColumns();
 
-//		COR.css.innerHTML += '.DATbuttonLeft { display: none; }'; // uncomment to hide left column User Data buttons
+//		MNU.css.innerHTML += '.DATbuttonLeft { display: none; }'; // uncomment to hide left column User Data buttons
 
 		MNU.menu.innerHTML =
 
@@ -73,7 +76,7 @@
 
 		window.addEventListener( 'hashchange', onHashChange, false );
 
-		SELselQuery.selectedIndex = 0;
+//		SELselQuery.selectedIndex = 0;
 
 		SEL.setUserDetails();
 
@@ -84,7 +87,7 @@
 
 	function onHashChange() {
 
-		var hash, callback, xhr;
+		var hash, callback, xhr, txt;
 
 		hash = location.hash.slice( 1 );
 
@@ -100,9 +103,11 @@
 
 				if ( xhr.target.status === 404 ) { return; }
 
-				MNU.contents.innerHTML = COR.converter.makeHtml( xhr.target.responseText );
+				txt = xhr.target.responseText;
 
-				if ( hash.match( 'README.md' ) === true ){ READMEbespokeText.innerHTML = 'things'; }
+				if ( hash.includes( 'README.md' ) === true ){ txt = txt.replace( 'READMEbespokeText', COR.readMeText ); }
+
+				MNU.contents.innerHTML = COR.converter.makeHtml( txt );
 
 			}
 

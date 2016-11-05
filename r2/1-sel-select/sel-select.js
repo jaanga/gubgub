@@ -5,6 +5,10 @@
 
 	var SEL = SEL || {};
 
+	var DAT = DAT || {};
+
+	var EUS = EUS || {};
+
 // init menus
 
 	SEL.getMenuDetailsSelectQuery = function() {
@@ -95,17 +99,26 @@
 
 		MNU.updates.scrollTop = 0;
 
-//		MNUdivUpdates.innerHTML = 'User: ' + SEL.user + ' events will appear here';
-//		MNUdivContents.innerHTML = 'User: ' + SEL.user + ' data will appear here';
 
 // Create an event here, have the following scripts listen
 
-		DAT.getUserData( SEL.user );
+		if ( DAT.getUserData ) {
 
-		EUS.requestGitHubAPIUserEvents( SEL.user );
+			DAT.getUserData( SEL.user );
+		}
 
-	}
+		if ( EUS.requestGitHubAPIUserEvents ) {
 
+			EUS.requestGitHubAPIUserEvents( SEL.user );
+
+		} else {
+
+			MNUdivUpdates.innerHTML = 'User: ' + SEL.user + ' events will appear here';
+			MNUdivContents.innerHTML = 'User: ' + SEL.user + ' data will appear here';
+
+		}
+
+	};
 
 	SEL.getQueryItems = function( query ) {
 
@@ -160,7 +173,7 @@ console.log( 'error response.message', response );
 
 		if ( !location.hash ) {
 
-console.log( 'no hash ', 23 );
+//console.log( 'no hash ', 23 );
 
 			SELselUser.selectedIndex = Math.floor( SELselUser.length * Math.random() );
 

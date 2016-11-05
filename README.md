@@ -28,7 +28,7 @@ _Jaanga GubGub R1_
 ***
 -->
 
-<div id=READMEbespokeText ></div>
+READMEbespokeText
 
 Concept
 --------------------------------------------------------------------------------
