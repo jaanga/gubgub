@@ -10,6 +10,9 @@
 	DAT.get = {};
 	DAT.userData = undefined; // will hold all the data for current user
 
+
+// functions that create menu items
+
 	DAT.getMenuDetailsUserData = function() {
 
 		var menuDetailsUserData =

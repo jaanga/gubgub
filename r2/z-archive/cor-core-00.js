@@ -187,3 +187,36 @@
 		}
 
 	}
+
+
+	COR.onHashChange = function() {
+
+		var url, callback, xhr;
+
+		url = location.hash.slice( 1 );
+
+		if ( url.match( 'token=' ) ){ return;  }
+
+		callback = function( xhr ) {
+
+// add error message handler
+
+//			COR.onRequestErrorMessage( xhr )
+
+			if ( xhr.message ) { COR.contents.innerHTML = xhr.message; return; }
+console.log( 'xhr.target', xhr.target );
+			MNUdivContents.innerHTML = COR.converter.makeHtml( xhr.target.responseText );
+
+			document.title = url.split( '/' ).pop() + ' ~ ' + COR.documentTitle;
+
+			COR.setNullHash();
+
+//console.log( 'url', url, READMEbespokeText );
+
+			if ( url.match( 'README.md' ) ){ READMEbespokeText.innerHTML = COR.readMeText; }
+
+		};
+
+		COR.requestFile( url, callback );
+
+	};

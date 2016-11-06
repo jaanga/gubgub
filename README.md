@@ -13,20 +13,24 @@ _<small>
     helped by the <a href="https://developer.github.com/v3/" target="_blank" >GitHub API</a> and client-side cookbook JavaScript.
 </small>_
 
-<img src="https://jaanga.github.io/gubgub/gubgub-r1.jpg" style=display:none; width=800 >
+<img  style=display:none; src="https://jaanga.github.io/gubgub/gubgub-r1.jpg" width=800 >
 
-<span style=display:none; >Full screen: [Jaanga GubGub]( https://jaanga.github.io/gubgub/ )</span>
---------------------------------------------------------------------------------
-
-Full screen: [Jaanga GubGub R2]( https://jaanga.github.io/gubgub/r2/ )
---------------------------------------------------------------------------------
 <!--
-<iframe id=ifr src=https://jaanga.github.io/gubgub/gubgub-r1.html width=100% height=600px ></iframe>
 
+<iframe id=ifr src=https://jaanga.github.io/gubgub/gubgub-r1.html width=100% height=600px ></iframe>
 _Jaanga GubGub R1_
 
 ***
 -->
+
+
+<span style=display:none; >Full screen: [Jaanga GubGub R2]( https://jaanga.github.io/gubgub/r2/ )</span>
+--------------------------------------------------------------------------------
+
+
+<span style=display:none; >Full screen: [Jaanga GubGub R1]( https://jaanga.github.io/gubgub/r1.html )</span>
+--------------------------------------------------------------------------------
+
 
 READMEbespokeText
 
@@ -518,7 +522,15 @@ Copyright © 2016 Jaanga authors. [MIT License]( #LICENSE.md )
 Change Log
 --------------------------------------------------------------------------------
 
-### 2016-11-04 ~
+
+### 2016-11-06
+
+* Cleaned up all the files even more
+* All the onHashChange functions work in a similar manner
+* README files and their custom text work in the same way
+* ShowDown updated to 1.4.4 throughot
+
+### 2016-11-04
 
 * R2 looking good
 * Major issue pages loading multiple times and/or causing issues with opening README appears to have been fixed

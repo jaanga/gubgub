@@ -4,26 +4,29 @@
 	var b = '<br>';
 	var COR = {};
 
-	var API = API || {};
-	var SER = SER || {};
-	var DAT = DAT || {};
-	var EUS = EUS || {};
+//	var API = API || {};
+//	var SER = SER || {};
+//	var DAT = DAT || {};
+//	var EUS = EUS || {};
 
-	API.token = '';
+//	API.token = '';
 
 
 // Add USR defaults to COR?
 
+// https://github.com/showdownjs/showdown ~ check for updates
 	COR.converter = new showdown.Converter( { strikethrough: true, literalMidWordUnderscores: true, simplifiedAutoLink: true, tables: true });
 
 	COR.documentTitle = document.title;
 
-	COR.objectName = 'COR';
+	COR.lorem = '<p>lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?</p>';
+
+//	COR.objectName = 'COR';
 
 //	COR.readMeURL = 'core-r1.html#../README.md'; // for testing
 	COR.readMeURL = '#README.md';
 
-	COR.readMeText = 'This is the COR default version of GubGub.';
+	COR.readMeText = 'This is the COR test version of GubGub.';
 
 	COR.taglineHeader =
 
@@ -32,10 +35,11 @@
 			'helped by the <a href=" https://developer.github.com/v3/" target="_blank">GitHub API</a> and client-side cookbook JavaScript.' + b +
 		'</small>';
 
-//	COR.txt = '<p>lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?</p>';
 	COR.txt = '<p>GitHub API responses will appear here.</p>';
 
 
+
+// functions that create menu items
 
 	COR.getMenuDetailsHeader = function() {
 
@@ -155,7 +159,7 @@
 	};
 
 
-// utils
+// functions that are utilities
 
 	COR.requestFile = function( url, callback ) {
 
@@ -176,6 +180,7 @@
 
 	}
 
+
 	COR.onRequestErrorMessage = function( response ) {
 
 		if ( response.message ) {
@@ -187,36 +192,3 @@
 		}
 
 	}
-
-
-	COR.onHashChange = function() {
-
-		var url, callback, xhr;
-
-		url = location.hash.slice( 1 );
-
-		if ( url.match( 'token=' ) ){ return;  }
-
-		callback = function( xhr ) {
-
-// add error message handler
-
-//			COR.onRequestErrorMessage( xhr )
-
-			if ( xhr.message ) { COR.contents.innerHTML = xhr.message; return; }
-console.log( 'xhr.target', xhr.target );
-			MNUdivContents.innerHTML = COR.converter.makeHtml( xhr.target.responseText );
-
-			document.title = url.split( '/' ).pop() + ' ~ ' + COR.documentTitle;
-
-			COR.setNullHash();
-
-//console.log( 'url', url, READMEbespokeText );
-
-			if ( url.match( 'README.md' ) ){ READMEbespokeText.innerHTML = COR.readMeText; }
-
-		};
-
-		COR.requestFile( url, callback );
-
-	};

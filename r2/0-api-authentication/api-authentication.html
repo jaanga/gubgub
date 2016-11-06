@@ -4,23 +4,19 @@
 <meta charset=utf-8 >
 <title>API Authentication Access Token2</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='GitHub API
-' >
+<meta name=description content='GubGub authentication for the GitHub API' >
 <meta name=keywords content='Jaanga,GitHub API,CSS,HTML,JavaScript,GitHub,FOSS' >
 <meta name=date content='2016-11-02' >
 </head>
 <body>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.3/showdown.min.js ></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.4/showdown.min.js ></script>
 
-<script src=../../r2/0-cor-core/cor-core-r2.js ></script>
+<script src=../../r2/0-cor-core/cor-core.js ></script>
 <script src=../../r2/0-mn3-menu-three/mn3-menu-three.js ></script>
 <script src=../../r2/0-api-authentication/api-authentication.js ></script>
 
 <script>
 // Copyright © 2016 Jaanga authors. MIT License
-
-// https://developer.github.com/v3/#authentication
-
 
 	init();
 
@@ -36,11 +32,7 @@
 
 			API.getMenuDetailsAPIAccessToken() +
 
-			COR.getMenuDetailsTemplate() +
-
 //			API.getMenuDetailsAPIRates() +
-
-//			COR.getMenuDetailsObjectProperties() +
 
 			COR.getMenuDetailsAbout() +
 
@@ -50,26 +42,16 @@
 
 		APIapiAcessToken.setAttribute( 'open', 'open' );
 
-		APIapiRates.setAttribute( 'open', 'open' );
-
-		CORdetailsTemplate.setAttribute( 'open', 'open' );
+//		APIapiRates.setAttribute( 'open', 'open' );
 
 		window.addEventListener( 'hashchange', onHashChange, false );
 
 		onHashChange();
 
-//		if ( location.hash.match( '.md' ) ) { COR.onHashChange(); }
-
-//		if ( location.hash.match( 'token=' ) ) { API.onEventAPIKeyUpdate(); }
-
-//		API.getRateLimits();
-
-//		MNUdivContents.innerHTML = 'API token: ' + ( API.token || 'not provided' );
-
-
 console.log( 'API.token', ( API.token || 'not provided' ) );
 
 	}
+
 
 	function onHashChange() {
 
@@ -80,8 +62,6 @@ console.log( 'API.token', ( API.token || 'not provided' ) );
 		if ( url.match( 'token=' ) ){ API.onEventAPIKeyUpdate(); return;  }
 
 		if ( url.endsWith( '.md' ) === true ) {
-
-// console.log( 'url', url );
 
 			COR.requestFile( url, callbackMD );
 
@@ -98,29 +78,6 @@ console.log( 'API.token', ( API.token || 'not provided' ) );
 			return;
 
 		}
-
-
-/*
-		callback = function( xhr ) {
-
-			if ( xhr.message ) { MNU.contents.innerHTML = xhr.message; return; }
-
-// console.log( 'xhr.target', xhr.target );
-
-			MNUdivContents.innerHTML = COR.converter.makeHtml( xhr.target.responseText );
-
-			document.title = url.split( '/' ).pop() + ' ~ ' + COR.documentTitle;
-
-			COR.setNullHash();
-
-//console.log( 'url', url, READMEbespokeText );
-
-			if ( url.match( 'README.md' ) ){ READMEbespokeText.innerHTML = COR.readMeText; }
-
-		};
-
-		COR.requestFile( url, callback );
-*/
 
 	};
 

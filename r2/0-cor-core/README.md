@@ -4,7 +4,7 @@
 ===
 
 
-<div id=READMEbespokeText >raw</div>
+READMEbespokeText
 
 [core]( cor-core.html )
 

@@ -2,7 +2,7 @@
 
 
 	var b = '<br>';
-	var COR = {};
+	var COR = COR || {};
 
 	var API = API || {};
 	var SER = SER || {};
@@ -18,12 +18,14 @@
 
 	COR.documentTitle = document.title;
 
+	COR.lorem = '<p>lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?</p>';
+
 	COR.objectName = 'COR';
 
 //	COR.readMeURL = 'core-r1.html#../README.md'; // for testing
-	COR.readMeURL = 'index.html#README.md';
+	COR.readMeURL = 'index.html#../README.md';
 
-	COR.readMeText = 'This is the default version of GubGub.';
+	COR.readMeText = 'This is the default version of [GubGub]( https://jaanga.github.io/gubgub/ ). GubGub may be tailored to fit your needs.';
 
 	COR.taglineHeader =
 
@@ -32,9 +34,11 @@
 			'helped by the <a href=" https://developer.github.com/v3/" target="_blank">GitHub API</a> and client-side cookbook JavaScript.' + b +
 		'</small>';
 
-//	COR.txt = '<p>lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?</p>';
 	COR.txt = '<p>GitHub API responses will appear here.</p>';
 
+
+
+// Functions
 
 	COR.initThreeColumns = function() {
 

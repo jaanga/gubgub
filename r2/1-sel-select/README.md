@@ -3,7 +3,7 @@
 [SEL Select README]( #README.md )
 ==================================
 
-<div id=READMEbespokeText >raw</div>
+READMEbespokeText
 
 ## [sel-select.html]( sel-select.html )
 

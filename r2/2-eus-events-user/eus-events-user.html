@@ -2,15 +2,15 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>Events User R1</title>
+<title>EUS Events User2</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='List user events
+<meta name=description content='GubGub EUS ~ List user events
 ' >
 <meta name=keywords content='CMS,JavaScript,GitHub Developer API,GitHub,FOSS' >
-<meta name=date content='2016-09-17' >
+<meta name=date content='2016-11-06' >
 </head>
 <body>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.3/showdown.min.js ></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.4/showdown.min.js ></script>
 
 <script src=../../r2/0-cor-core/cor-core.js ></script>
 <script src=../../r2/0-mn3-menu-three/mn3-menu-three.js ></script>
@@ -21,11 +21,12 @@
 <script src=../../r2/2-eus-events-user/eus-events-user.js ></script>
 <script>
 
-	COR.readMeURL = 'eus-events-user.html#README.md';
+// so DAT button can work...
 
 	DAT.currentTopic = 'stats';
 	DAT.userData = {};
 	DAT.userData.type = 'Organization';
+
 
 //	var user = 'jaanga';
 //	var user = 'sagemath';
@@ -35,8 +36,15 @@
 //	var user = 'paulmasson';
 //	var user = 'theo-armour';
 
-//	DAT.userData.login = 'mrdoob';
+	user = 'mrdoob';
 	DAT.userData.login = 'jquery';
+
+
+//	location.hash = '#README.md';
+
+	COR.readMeURL = '#README.md'; // for testing
+	COR.readMeText = 'This is the default EUS testing version of GubGub.';
+
 
 	init();
 
@@ -60,9 +68,45 @@
 
 		b;
 
+		window.addEventListener( 'hashchange', onHashChange, false );
+
+	//	onHashChange();
+
 		EUS.requestGitHubAPIUserEvents( DAT.userData.login );
 
 	}
+
+
+		function onHashChange() {
+
+			var hash, callback, xhr, txt;
+
+			hash = location.hash.slice( 1 );
+
+	//		if ( hash.match( 'token=' ) ){ API.onEventAPIKeyUpdate(); return;  }
+
+			if ( hash.endsWith( '.md' ) === true ) {
+
+				COR.requestFile( hash, callbackMD );
+
+				function callbackMD( xhr ) {
+
+					if ( xhr.target.status === 404 ) { return; }
+
+					txt = xhr.target.responseText;
+
+					if ( hash.includes( 'README.md' ) === true ){ txt = txt.replace( 'READMEbespokeText', COR.readMeText || '' ); }
+
+					MNU.contents.innerHTML = COR.converter.makeHtml( txt );
+
+				}
+
+				return;
+
+			}
+
+		};
+
 </script>
 </body>
 </html>

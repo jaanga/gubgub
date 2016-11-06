@@ -4,17 +4,16 @@
 <meta charset=utf-8 >
 <title>SEL Select2</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='Select or enter a query for the GitHub User API.
+<meta name=description content='GubGub SEL Select. Select or enter a query for the GitHub User API.
 Select a user from the list of results or enter a user name.
-Preview many aspects of their GitHub corpus. Monitor recent activity
-' >
+Preview many aspects of their GitHub corpus. Monitor recent activity' >
 <meta name=keywords content='Jaanga,Theo Armour,GitHub API,CSS,HTML,JavaScript,GitHub,FOSS' >
-<meta name=date content='2016-11-01' >
+<meta name=date content='2016-11-06' >
 </head>
 <body>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.3/showdown.min.js ></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.4/showdown.min.js ></script>
 
-<script src=../../r2/0-cor-core/cor-core-r2.js ></script>
+<script src=../../r2/0-cor-core/cor-core.js ></script>
 <script src=../../r2/0-mn3-menu-three/mn3-menu-three.js ></script>
 <script src=../../r2/0-api-authentication/api-authentication.js ></script>
 
@@ -29,11 +28,16 @@ Preview many aspects of their GitHub corpus. Monitor recent activity
 
 <script>
 
+//	location.hash = '#README.md';
+
+	COR.readMeURL = '#README.md'; // for testing
+	COR.readMeText = 'This is the default SEL testing version of GubGub.';
+
 	init();
 
 	function init() {
 
-		COR.taglineHeader += '+ a select howdy!' + b;
+		COR.taglineHeader += '+ a SEL select howdy!' + b;
 
 		COR.readMeText = 'This is the SEL default version of GubGub.';
 
@@ -76,17 +80,17 @@ Preview many aspects of their GitHub corpus. Monitor recent activity
 
 		if ( hash.endsWith( '.md' ) === true ) {
 
-// console.log( 'hash', hash );
-
 			COR.requestFile( hash, callbackMD );
 
 			function callbackMD( xhr ) {
 
 				if ( xhr.target.status === 404 ) { return; }
 
-				MNU.contents.innerHTML = COR.converter.makeHtml( xhr.target.responseText );
+				txt = xhr.target.responseText;
 
-				if ( hash.match( 'README.md' ) === true ){ READMEbespokeText.innerHTML = 'things'; }
+				if ( hash.includes( 'README.md' ) === true ){ txt = txt.replace( 'READMEbespokeText', COR.readMeText || '' ); }
+
+				MNU.contents.innerHTML = COR.converter.makeHtml( txt );
 
 			}
 

@@ -2,17 +2,16 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>User Data2 </title>
+<title>DAT Data2 </title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='Obtains elevation data via the Google Maps API Elevation service..
-' >
+<meta name=description content='GubGub DAT data' >
 <meta name=keywords content='Jaanga,GitHub API,CSS,HTML,JavaScript,GitHub,FOSS' >
-<meta name=date content='2016-11-19' >
+<meta name=date content='2016-11-06' >
 </head>
 <body>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.3/showdown.min.js ></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.4/showdown.min.js ></script>
 
-<script src=../../r2/0-cor-core/cor-core-r2.js ></script>
+<script src=../../r2/0-cor-core/cor-core.js ></script>
 <script src=../../r2/0-mn3-menu-three/mn3-menu-three.js ></script>
 <script src=../../r2/0-api-authentication/api-authentication.js ></script>
 <script src=../../r2/2-res-results/res-results.js ></script>
@@ -31,6 +30,11 @@
 	var user = 'paulmasson';
 //	var user = 'theo-armour';
 //	var user = 'Theo-Armour';
+
+//	location.hash = '#README.md';
+
+	COR.readMeURL = '#README.md'; // for testing
+	COR.readMeText = 'This is the DAT test version of GubGub.';
 
 	init();
 
@@ -63,32 +67,32 @@
 
 	function onHashChange() {
 
-		var url, callback, xhr;
+		var hash, callback, xhr;
 
-		url = location.hash.slice( 1 );
+		hash = location.hash.slice( 1 );
 
-		if ( url.match( 'token=' ) ){ API.onEventAPIKeyUpdate(); return;  }
+		if ( hash.match( 'token=' ) ){ API.onEventAPIKeyUpdate(); return;  }
 
-		if ( url.endsWith( '.md' ) === true ) {
+		if ( hash.endsWith( '.md' ) === true ) {
 
-// console.log( 'url', url );
-
-			COR.requestFile( url, callbackMD );
+			COR.requestFile( hash, callbackMD );
 
 			function callbackMD( xhr ) {
 
 				if ( xhr.target.status === 404 ) { return; }
 
-				MNU.contents.innerHTML = COR.converter.makeHtml( xhr.target.responseText );
-// too soon
-				if ( url.match( 'README.md' ) === true ){ READMEbespokeText.innerHTML = 'things'; }
+				txt = xhr.target.responseText;
+
+				if ( hash.includes( 'README.md' ) === true ){ txt = txt.replace( 'READMEbespokeText', COR.readMeText || '' ); }
+
+				MNU.contents.innerHTML = COR.converter.makeHtml( txt );
 
 			}
 
 			return;
 
 		}
-
+		
 		DAT.getUserData( user );
 
 	};

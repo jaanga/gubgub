@@ -2,27 +2,21 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 >
-<title>GubGub2 Core</title>
+<title>GubGub2 COR Core</title>
 <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' >
-<meta name=description content='Core stylesheet, menu content and utilities
-' >
+<meta name=description content='GubGub Core stylesheet, menu content and utilities' >
 <meta name=keywords content='GubGub,Jaanga,GitHub API,CSS,HTML,JavaScript,GitHub,FOSS' >
-<meta name=date content='2016-10-26' >
+<meta name=date content='2016-11-06' >
 </head>
 <body>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.3/showdown.min.js ></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.4/showdown.min.js ></script>
 
 <script src=../../r2/0-cor-core/cor-core.js ></script>
 <script src=../../r2/0-mn3-menu-three/mn3-menu-three.js ></script>
 
 <script>
 
-// https://github.com/showdownjs/showdown ~ check for updates
-
-//	location.hash = '../README.md';
-
-//	COR.readMeURL = 'core-r1.html#README.md'; // for testing
-//	COR.readMeURL = 'index.html#README.md';
+//	location.hash = '#README.md';
 
 	COR.readMeURL = '#README.md'; // for testing
 	COR.readMeText = 'This is the default COR version of GubGub.';
@@ -31,7 +25,7 @@
 
 	function init() {
 
-		COR.taglineHeader += '+ a hard core howdy!' + b;
+		COR.taglineHeader += '+ a hard COR howdy!' + b;
 
 		MNU.initThreeColumns();
 
@@ -49,11 +43,41 @@
 
 		CORdetailsTemplate.setAttribute( 'open', 'open' );
 
-		window.addEventListener( 'hashchange', COR.onHashChange, false );
+		window.addEventListener( 'hashchange', onHashChange, false );
 
-		if ( location.hash.match( '.md' ) ) { COR.onHashChange(); }
+		onHashChange();
 
 	}
+
+	function onHashChange() {
+
+		var hash, callback, xhr, txt;
+
+		hash = location.hash.slice( 1 );
+
+//		if ( hash.match( 'token=' ) ){ API.onEventAPIKeyUpdate(); return;  }
+
+		if ( hash.endsWith( '.md' ) === true ) {
+
+			COR.requestFile( hash, callbackMD );
+
+			function callbackMD( xhr ) {
+
+				if ( xhr.target.status === 404 ) { return; }
+
+				txt = xhr.target.responseText;
+
+				if ( hash.includes( 'README.md' ) === true ){ txt = txt.replace( 'READMEbespokeText', COR.readMeText || '' ); }
+
+				MNU.contents.innerHTML = COR.converter.makeHtml( txt );
+
+			}
+
+			return;
+
+		}
+
+	};
 
 </script>
 </body>
