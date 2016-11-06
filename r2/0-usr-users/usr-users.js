@@ -82,16 +82,29 @@
 	'';
 
 
-// at least one item must be selected
+	var oneWeekAgo = new Date();
+	oneWeekAgo.setDate( oneWeekAgo.getDate() - 7 );
+	var oneWeekAgo$ = oneWeekAgo.toJSON().slice( 0, 10 );
 
 	USR.groupOptions =
+
+	/*
+		'<optgroup label="" >' +
+			'<option value="+stars:>0" >User w/ repo w/ word "" & stars > 0</option>' +
+			'<option value="+stars:>0" >User w/ repo w/ word "" & stars > 0</option>' +
+			'<option value="+stars:>0" >User w/ repo w/ word "" & stars > 0</option>' +
+		'</optgroup>' +
+	*/
+
+	// at least one item must be selected
 
 		'<option value="listFavorites" >Theo\'s list of favs</option>' +
 
 		'<optgroup label="Popular" >' +
-			'<option selected value="stars:>20000" >Users with repos & stars > 20,000</option>' +
+			'<option  selected   value="stars:>20000" >Users with repos & stars > 20,000</option>' +
 			'<option value="JavaScript+stars:>3000" >Users with word \'JavaScript\' & stars > 3000</option>' +
 			'<option value="Python+stars:>3000" >Users with word \'Python\' & stars > 3000</option>' +
+			'<option value="created:>' + oneWeekAgo$ + '" >Users/repos newer than ' + oneWeekAgo$ + '</option>' +
 		'</optgroup>' +
 
 		'<optgroup label="Pertaining to Three.js & 3D" >' +
