@@ -8,8 +8,21 @@ value='You are now in a GitHub Pages view. Click here to view README file in Git
 [Dev Notes]( index.html#dev-notes.md )
 ===========================================================================
 
+2016-11-06
+--------------------------------------------------------------------------------
 
-2016-11-02 ~
+* Looking at http://material.io and Material Design literal
+    * Seems much more up my alley than Boootstrap
+    * Very simple dependencies
+    * And only need to add class names
+* Thinking about splitting into GubGub and Dab-Dab
+    * One for exploring and one for Monitoring
+* Thinking about turning menu choices into radio buttons
+
+
+
+2016-11-02
+--------------------------------------------------------------------------------
 
 * R2 moving along nicely
 * Seem to have cleaned-up most of the multiple load issues
@@ -17,6 +30,7 @@ value='You are now in a GitHub Pages view. Click here to view README file in Git
 
 
 2016-11-01
+--------------------------------------------------------------------------------
 
 R2 Started. Nice message from Mostapha. Will build Ladybug version
 

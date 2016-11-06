@@ -528,7 +528,9 @@ Change Log
 * Cleaned up all the files even more
 * All the onHashChange functions work in a similar manner
 * README files and their custom text work in the same way
-* ShowDown updated to 1.4.4 throughot
+* ShowDown updated to 1.4.4 throughout
+* More files archived
+
 
 ### 2016-11-04
 
