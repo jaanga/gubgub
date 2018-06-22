@@ -311,6 +311,7 @@
 
 	};
 
+
 	DAT.get.organizations_url = function( item, index ) {
 
 		if ( DAT.userData.type === "Organization" ) { return; }
