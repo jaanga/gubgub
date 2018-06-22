@@ -47,12 +47,14 @@
 		var url, xhr, keys, txt;
 
 		url = 'https://api.github.com/users/' +  user + '?' + ( API.token || '' );
+		//console.log( 'url', url );
 
 		COR.requestFile( url, callbackUserData );
 
 		function callbackUserData( xhr ) {
 
 			DAT.userData = JSON.parse( xhr.target.responseText );
+			//console.log( 'DAT.userData', DAT.userData );
 
 			if ( DAT.userData.message ) { // error - probably over rate limit
 
@@ -63,10 +65,11 @@
 			}
 
 			DAT.keys = Object.keys( DAT.userData );
+			//console.log( 'DAT.keys', DAT.keys );
 			txt =  '';
 
 			for ( var i = 0; i < DAT.keys.length; i++ ) {
-
+				console.log( ' DAT.keys[ i ]',  DAT.keys[ i ] );
 				txt += '<div>' + ( DAT.get[ DAT.keys[ i ] ]( DAT.userData[ DAT.keys[ i ] ], i ) || '' ) + '</div>';
 
 			}
@@ -297,6 +300,16 @@
 
 	};
 
+
+	DAT.get.node_id = function( item, index ) {
+
+		if ( item ) {
+
+			return 'node id: ' + item;
+
+		}
+
+	};
 
 	DAT.get.organizations_url = function( item, index ) {
 
